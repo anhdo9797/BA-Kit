@@ -1,0 +1,616 @@
+# 🟡 SKILL-06: STRATEGIC NEGOTIATION & CONFLICT RESOLUTION
+## Specialized Skill - Influence Without Authority
+
+---
+
+## 📌 SKILL METADATA
+
+| Attribute | Value |
+|-----------|-------|
+| **Skill ID** | SKILL-06 |
+| **Category** | 🟡 Specialized |
+| **Load When** | Stakeholders disagree, requirements conflict, trade-off decisions |
+| **Dependencies** | SKILL-01, SKILL-02 |
+| **Version** | 2.0 (World-Class Edition) |
+| **Standards** | Harvard Negotiation Project, BABOK v3 |
+| **Output** | Resolved conflicts, documented decisions, stakeholder alignment |
+
+---
+
+## 🎯 MỤC ĐÍCH
+
+Skill này cung cấp **framework và kỹ thuật đàm phán chiến lược** để giải quyết xung đột giữa stakeholders, xây dựng đồng thuận, và ảnh hưởng trong khi không có quyền lực chính thức (influence without authority).
+
+---
+
+## ⚡ UNDERSTANDING CONFLICT
+
+### Why Conflict is Inevitable in Requirements
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    WHY REQUIREMENTS CONFLICT HAPPENS                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. DIFFERENT PERSPECTIVES                                                  │
+│     ┌───────────────────────────────────────────────────────────────────┐   │
+│     │ Sales: "We need faster onboarding to close more deals"            │   │
+│     │ Legal: "We need stricter compliance checks during onboarding"     │   │
+│     │ Dev:   "We need to reduce scope to meet the deadline"             │   │
+│     └───────────────────────────────────────────────────────────────────┘   │
+│     Same goal (onboarding), different priorities.                          │
+│                                                                             │
+│  2. SCARCITY                                                                │
+│     ┌───────────────────────────────────────────────────────────────────┐   │
+│     │ Resources are finite: Budget, Time, People                        │   │
+│     │ Everyone wants priority for their requirements                    │   │
+│     └───────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  3. AMBIGUITY                                                               │
+│     ┌───────────────────────────────────────────────────────────────────┐   │
+│     │ Different interpretations of the same requirement                 │   │
+│     │ "The system should be fast" means different things to everyone    │   │
+│     └───────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  4. ORGANIZATIONAL POLITICS                                                 │
+│     ┌───────────────────────────────────────────────────────────────────┐   │
+│     │ Power dynamics, turf wars, hidden agendas                         │   │
+│     │ What's stated may not be the real concern                         │   │
+│     └───────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  HEALTHY CONFLICT → Better requirements (diverse perspectives)             │
+│  UNHEALTHY CONFLICT → Project delays (unresolved disputes)                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Types of Requirement Conflicts
+
+| Type | Description | Example | Resolution Approach |
+|------|-------------|---------|---------------------|
+| **Contradictory** | Two requirements cannot both be true | "Auto-save every 30s" vs "Never save without user action" | Find underlying interest; create conditional logic |
+| **Resource** | Limited budget/time for competing needs | Both Dept A and B want priority | Use prioritization framework (SKILL-05) |
+| **Stakeholder** | Different opinions on same requirement | Marketing says X, Engineering says infeasible | Facilitate dialogue; find compromise |
+| **Priority** | Everyone thinks their requirement is #1 | All requirements marked "Must Have" | Apply objective criteria (MoSCoW, WSJF) |
+| **Scope Creep** | Continuous additions beyond agreement | "Just one more small feature..." | Return to original scope; defer to backlog |
+| **Interpretation** | Different understanding of same text | "Real-time" means 1s to user, 5 min to dev | Define precisely; add examples |
+
+---
+
+## 🤝 PRINCIPLED NEGOTIATION (HARVARD METHOD)
+
+### The Four Principles
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    HARVARD NEGOTIATION PRINCIPLES                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 1. SEPARATE PEOPLE FROM THE PROBLEM                                  │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │                                                                       │  │
+│  │  "Be soft on people, hard on the problem"                            │  │
+│  │                                                                       │  │
+│  │  ❌ Wrong: "You're being unreasonable about this requirement"        │  │
+│  │  ✅ Right: "This requirement has some challenges we need to address" │  │
+│  │                                                                       │  │
+│  │  Technique: Use "I" statements, not "You" statements                 │  │
+│  │  "I'm concerned about the timeline" vs "You set an impossible deadline" │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 2. FOCUS ON INTERESTS, NOT POSITIONS                                 │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │                                                                       │  │
+│  │  POSITION: What they SAY they want                                   │  │
+│  │  INTEREST: Why they want it (the underlying need)                    │  │
+│  │                                                                       │  │
+│  │  Example:                                                             │  │
+│  │  Position: "The report must generate in under 5 seconds"             │  │
+│  │  Interest: "Users abandon the page if it takes too long"             │  │
+│  │                                                                       │  │
+│  │  Alternative solutions to the INTEREST:                              │  │
+│  │  • 5-second response (the position)                                  │  │
+│  │  • Progress indicator to keep users engaged                          │  │
+│  │  • Progressive loading showing partial results                       │  │
+│  │  • Scheduling reports to run in background                           │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 3. GENERATE OPTIONS FOR MUTUAL GAIN                                  │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │                                                                       │  │
+│  │  Before deciding, brainstorm multiple options                        │  │
+│  │                                                                       │  │
+│  │  Techniques:                                                          │  │
+│  │  • "What if we...?" brainstorming                                    │  │
+│  │  • Look for trades (I give you X, you give me Y)                     │  │
+│  │  • Expand the pie (find new resources)                               │  │
+│  │  • Phase implementation (both get priority, just in sequence)        │  │
+│  │                                                                       │  │
+│  │  Goal: Find WIN-WIN, not WIN-LOSE                                    │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 4. USE OBJECTIVE CRITERIA                                            │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │                                                                       │  │
+│  │  Base decisions on standards, not power or pressure                  │  │
+│  │                                                                       │  │
+│  │  Objective Criteria Examples:                                        │  │
+│  │  • Industry benchmarks                                               │  │
+│  │  • Market rates                                                      │  │
+│  │  • Expert opinions                                                   │  │
+│  │  • Legal requirements                                                │  │
+│  │  • Scientific data                                                   │  │
+│  │  • Historical precedent                                              │  │
+│  │  • Cost-benefit analysis                                             │  │
+│  │                                                                       │  │
+│  │  "Industry standard for this type of report is 10 seconds.           │  │
+│  │   Would you be comfortable with that as our target?"                 │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 BATNA, ZOPA, AND RESERVATION PRICE
+
+### Negotiation Framework Essentials
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    BATNA / ZOPA FRAMEWORK                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BATNA = Best Alternative To a Negotiated Agreement                        │
+│  "What will you do if you can't reach agreement?"                          │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                                                                       │  │
+│  │  YOUR BATNA:                                                          │  │
+│  │  • Escalate to project sponsor for decision                          │  │
+│  │  • Defer feature to next release                                     │  │
+│  │  • Implement minimal version without disputed element                │  │
+│  │  • Engage third-party mediator                                       │  │
+│  │                                                                       │  │
+│  │  THEIR BATNA:                                                         │  │
+│  │  • Go around you to management                                       │  │
+│  │  • Wait for different BA                                             │  │
+│  │  • Block project progress                                            │  │
+│  │  • Complain formally                                                 │  │
+│  │                                                                       │  │
+│  │  The party with the BETTER BATNA has more power.                     │  │
+│  │  Always improve your BATNA before negotiating.                       │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  RESERVATION PRICE = Your walk-away point                                   │
+│  "This is the minimum acceptable outcome"                                  │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                                                                       │  │
+│  │  Example:                                                             │  │
+│  │  • Your goal: 3-second response time                                 │  │
+│  │  • Your Reservation Price: 10 seconds max                            │  │
+│  │  • Below 10 seconds, you walk away (escalate)                        │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ZOPA = Zone of Possible Agreement                                          │
+│  The overlap between both parties' reservation prices                      │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                                                                       │  │
+│  │           Stakeholder A's Range                                       │  │
+│  │       ◄─────────────────────────────►                                │  │
+│  │       │                             │                                 │  │
+│  │       ▼                             ▼                                 │  │
+│  │  ─────┼─────────────╔═══════════════╗──────────────┼─────────        │  │
+│  │       │   1 sec     ║    ZOPA       ║   10 sec     │   30 sec        │  │
+│  │                     ║  5-10 sec     ║                                │  │
+│  │                     ╚═══════════════╝                                │  │
+│  │                             ▲                             ▲          │  │
+│  │                             │                             │          │  │
+│  │                   ◄─────────────────────────────────────────►        │  │
+│  │                       Stakeholder B's Range                          │  │
+│  │                                                                       │  │
+│  │  If ZOPA exists → Agreement is possible                              │  │
+│  │  If no ZOPA → Need to change the game or escalate                    │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### BATNA Preparation Worksheet
+
+| Element | Your Side | Their Side (Estimate) |
+|---------|-----------|----------------------|
+| **Best Alternative if No Deal** | | |
+| **Reservation Price** | | |
+| **Target/Aspiration** | | |
+| **Key Interests** | | |
+| **Constraints** | | |
+| **Potential Trades** | | |
+
+---
+
+## 🔄 CONFLICT RESOLUTION PROCESS
+
+### The 6-Step Framework
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CONFLICT RESOLUTION WORKFLOW                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ STEP 1: IDENTIFY & ACKNOWLEDGE                                       │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ • Recognize conflict early (don't ignore)                           │   │
+│  │ • Document the disagreement clearly                                  │   │
+│  │ • Identify all parties involved                                      │   │
+│  │ • Acknowledge each party's concerns                                  │   │
+│  │ • Create psychological safety ("Your concerns are valid")           │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ STEP 2: ANALYZE ROOT CAUSE                                           │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ • Separate positions from interests (see Harvard Method)            │   │
+│  │ • Understand emotional drivers (fear, frustration, ego)             │   │
+│  │ • Assess impact of each option                                       │   │
+│  │ • Identify constraints and dependencies                              │   │
+│  │ • Map stakeholder power and interests                                │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ STEP 3: GENERATE OPTIONS                                             │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ • Brainstorm alternatives (don't judge yet)                         │   │
+│  │ • Look for win-win solutions                                         │   │
+│  │ • Consider phased approaches                                         │   │
+│  │ • Explore trades and compromises                                     │   │
+│  │ • Evaluate trade-offs objectively                                    │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ STEP 4: NEGOTIATE & FACILITATE                                       │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ • Facilitate discussion between parties                              │   │
+│  │ • Present facts objectively (BA stays neutral)                      │   │
+│  │ • Use objective criteria to evaluate options                        │   │
+│  │ • Focus on interests, not positions                                  │   │
+│  │ • Apply BATNA/ZOPA analysis                                          │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ STEP 5: ESCALATE (IF NEEDED)                                         │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ • Escalate to appropriate decision maker                             │   │
+│  │ • Provide recommendation with clear rationale                        │   │
+│  │ • Present options, not just the problem                              │   │
+│  │ • Accept and implement final decision                                │   │
+│  │ • Don't take sides—let authority decide                             │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ STEP 6: DOCUMENT & COMMUNICATE                                       │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ • Record the resolution and reasoning                                │   │
+│  │ • Update affected requirements                                       │   │
+│  │ • Communicate to all stakeholders                                    │   │
+│  │ • Log in Decision Log for future reference                          │   │
+│  │ • Monitor for residual issues                                        │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 💡 INFLUENCE WITHOUT AUTHORITY
+
+### The BA's Power Sources
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    INFLUENCE WITHOUT AUTHORITY                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  As a BA, you typically have no formal authority over stakeholders.        │
+│  Your power comes from:                                                     │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 1. EXPERTISE POWER                                                   │   │
+│  │                                                                       │  │
+│  │ • Be the most prepared person in the room                            │  │
+│  │ • Know the domain deeply                                              │  │
+│  │ • Provide insights others cannot                                      │  │
+│  │ • Reference standards and benchmarks                                  │  │
+│  │                                                                       │  │
+│  │ "According to industry benchmarks, the standard is..."               │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 2. RELATIONSHIP POWER                                                │   │
+│  │                                                                       │  │
+│  │ • Build genuine rapport before you need something                    │  │
+│  │ • Help others succeed—reciprocity works                              │  │
+│  │ • Remember personal details                                           │  │
+│  │ • Be reliable and trustworthy                                        │  │
+│  │                                                                       │  │
+│  │ "I helped them with X last month, now they're willing to compromise" │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 3. INFORMATION POWER                                                 │   │
+│  │                                                                       │  │
+│  │ • Be the hub of project knowledge                                    │  │
+│  │ • Connect people who should talk to each other                       │  │
+│  │ • Share relevant information proactively                             │  │
+│  │                                                                       │  │
+│  │ "Let me connect you with the finance team who has this data"         │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 4. PROCESS POWER                                                     │   │
+│  │                                                                       │  │
+│  │ • Control the agenda (the facilitator shapes outcomes)               │  │
+│  │ • Establish the framework for decision-making                        │  │
+│  │ • Document the "official" version                                    │  │
+│  │ • Define the criteria for evaluation                                 │  │
+│  │                                                                       │  │
+│  │ "Based on our prioritization framework, Feature A scores higher"     │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 5. COALITION POWER                                                   │   │
+│  │                                                                       │  │
+│  │ • Build alliances with key stakeholders                              │  │
+│  │ • Find sponsors for your recommendations                             │  │
+│  │ • Pre-align with decision makers                                     │  │
+│  │                                                                       │  │
+│  │ "I've already discussed this with the product owner and CFO..."      │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Cialdini's 6 Principles of Influence
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CIALDINI'S 6 INFLUENCE PRINCIPLES                        │
+│                    (Psychology of Persuasion for BAs)                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. RECIPROCITY - "Give before you ask"                                     │
+│  ─────────────────────────────────────                                      │
+│  • Help stakeholders before requesting their time                           │
+│  • Share useful information proactively                                     │
+│  • Example: "I streamlined that report for you last week..."               │
+│                                                                             │
+│  2. COMMITMENT & CONSISTENCY - "Start small, build up"                      │
+│  ───────────────────────────────────────────────────────                    │
+│  • Get small agreements first, then build on them                           │
+│  • Reference past statements and decisions                                  │
+│  • Example: "You mentioned quality is priority. This approach..."           │
+│                                                                             │
+│  3. SOCIAL PROOF - "Others are doing it"                                    │
+│  ──────────────────────────────────────────                                 │
+│  • Reference industry standards and competitors                             │
+│  • Share success stories from similar projects                              │
+│  • Example: "Three other departments have adopted this approach..."         │
+│                                                                             │
+│  4. AUTHORITY - "Experts recommend"                                         │
+│  ─────────────────────────────────────                                      │
+│  • Cite recognized standards (ISO, IEEE, IIBA)                              │
+│  • Leverage executive sponsorship                                           │
+│  • Example: "According to IEEE 29148, this is the standard..."              │
+│                                                                             │
+│  5. LIKING - "We work well together"                                        │
+│  ─────────────────────────────────────                                      │
+│  • Build genuine rapport before negotiations                                │
+│  • Find common ground and shared goals                                      │
+│  • Example: "I know we both want this project to succeed..."                │
+│                                                                             │
+│  6. SCARCITY - "Limited time/opportunity"                                   │
+│  ──────────────────────────────────────────                                 │
+│  • Highlight deadline constraints and opportunity costs                     │
+│  • Example: "If we miss Friday, we'll delay launch by a month"              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### BA Influence Tactics Table
+
+| Situation | Influence Tactic | Example Script |
+|-----------|------------------|----------------|
+| Need info from busy SME | Build relationship first | "I know you're busy. How can I make this easy for you?" |
+| Getting requirements buy-in | Involve them early | "What would make this work for your team?" |
+| Pushing back on scope creep | Use data and impact | "Here's the impact analysis. What should we cut?" |
+| HIPPO overriding decisions | Reframe with questions | "Help me understand the business rationale?" |
+| Getting sign-off | Make it easy | "I've prepared the summary. Just reply 'approved'" |
+| Breaking deadlock | Bring neutral party | "Could we get [respected person] to facilitate?" |
+
+---
+
+## 🗣️ NEGOTIATION SCRIPTS
+
+### Interest Discovery Questions
+
+```
+📌 WHY Questions:
+• "Why is this requirement important to you?"
+• "What problem are you trying to solve?"
+• "What would happen if we didn't have this?"
+• "Why do you need it in this specific way?"
+
+📌 WHAT Questions:
+• "What does success look like for you?"
+• "What would make this acceptable?"
+• "What are your concerns about alternatives?"
+• "What constraints are you working with?"
+
+📌 HOW Questions:
+• "How would you feel if we did X instead?"
+• "How flexible is this requirement?"
+• "How will this impact your team?"
+
+📌 REFRAMING Questions:
+• "What if we approached this differently...?"
+• "Could we achieve the same goal by...?"
+• "What if we phased the implementation...?"
+```
+
+### Difficult Conversation Scripts
+
+| Situation | Script |
+|-----------|--------|
+| **Stakeholder insists on unrealistic requirement** | "I understand this is important to you. Help me understand the underlying need. What problem are we trying to solve? Let's explore some options that might address that need." |
+| **Two stakeholders disagree** | "I've heard both perspectives. Let me summarize: [Person A's interest] and [Person B's interest]. Both are valid. How might we address both needs?" |
+| **Stakeholder says "no negotiation"** | "I respect that this is firm for you. Can you help me understand the reasoning? Knowing 'why' helps me find alternatives that work for you." |
+| **Escalation needed** | "We've explored several options but haven't found one that works for everyone. I'd like to involve [Decision Maker] to help us resolve this. Here are the options and trade-offs..." |
+| **Scope creep request** | "That's an interesting idea. Let's capture it. For this release, our scope is defined. Should we add this to the backlog for next release, or revisit our current priorities?" |
+
+---
+
+## 📝 ESCALATION MATRIX
+
+### When to Escalate
+
+| Escalate When... | Escalate To... |
+|------------------|----------------|
+| Technical feasibility dispute | Technical Lead / Architect |
+| Budget/resource conflict | Project Manager / PMO |
+| Business priority conflict | Business Sponsor / Product Owner |
+| Cross-department conflict | Steering Committee |
+| Contractual/legal issue | Legal / Compliance |
+| Project scope dispute | Project Sponsor |
+
+### Escalation Package Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    ESCALATION MEMORANDUM                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ TO: [Decision Maker]                                                        │
+│ FROM: [BA Name]                                                             │
+│ DATE: [Date]                                                                │
+│ RE: Decision Required: [Brief Description]                                  │
+│                                                                             │
+│ EXECUTIVE SUMMARY:                                                          │
+│ [2-3 sentences describing the issue and why a decision is needed]          │
+│                                                                             │
+│ BACKGROUND:                                                                 │
+│ [Brief context on how we got here]                                          │
+│                                                                             │
+│ THE CONFLICT:                                                               │
+│ • Stakeholder A wants: [Position A] because [Interest A]                   │
+│ • Stakeholder B wants: [Position B] because [Interest B]                   │
+│                                                                             │
+│ OPTIONS CONSIDERED:                                                         │
+│                                                                             │
+│ Option 1: [Description]                                                     │
+│   Pros: [...]                                                               │
+│   Cons: [...]                                                               │
+│   Impact: [...]                                                             │
+│                                                                             │
+│ Option 2: [Description]                                                     │
+│   Pros: [...]                                                               │
+│   Cons: [...]                                                               │
+│   Impact: [...]                                                             │
+│                                                                             │
+│ Option 3: [Description]                                                     │
+│   Pros: [...]                                                               │
+│   Cons: [...]                                                               │
+│   Impact: [...]                                                             │
+│                                                                             │
+│ RECOMMENDATION:                                                             │
+│ [Your recommended option and reasoning]                                     │
+│                                                                             │
+│ DECISION NEEDED BY: [Date]                                                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📋 DECISION LOG TEMPLATE
+
+| ID | Date | Issue | Parties | Options Considered | Decision | Rationale | Decided By |
+|----|------|-------|---------|---------------------|----------|-----------|------------|
+| D-001 | 2024-01-15 | Report response time | User vs Tech | 5sec, 10sec, progressive load | 10sec with progress bar | Balance UX and feasibility | Product Owner |
+| D-002 | 2024-01-20 | Integration scope | PM vs Dev | Full API, Limited API, Batch | Limited API (Phase 1) | Budget constraint | Steering Committee |
+
+---
+
+## ✅ CONFLICT RESOLUTION CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CONFLICT RESOLUTION CHECKLIST                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  PREPARATION                                                                │
+│  ☐ Conflict documented clearly                                              │
+│  ☐ All parties identified                                                   │
+│  ☐ Interests (not just positions) understood for each party               │
+│  ☐ BATNA identified for yourself and others                                │
+│  ☐ ZOPA estimated (if exists)                                              │
+│  ☐ Objective criteria gathered                                              │
+│                                                                             │
+│  DURING NEGOTIATION                                                         │
+│  ☐ Separated people from problem                                            │
+│  ☐ Focused on interests, not positions                                     │
+│  ☐ Generated multiple options                                               │
+│  ☐ Used objective criteria                                                  │
+│  ☐ Remained neutral (BA as facilitator, not advocate)                      │
+│  ☐ Documented discussion points                                             │
+│                                                                             │
+│  RESOLUTION                                                                 │
+│  ☐ Decision reached (or escalated appropriately)                           │
+│  ☐ Decision documented with rationale                                       │
+│  ☐ Requirements updated to reflect decision                                │
+│  ☐ All parties informed of outcome                                         │
+│  ☐ Decision logged for future reference                                    │
+│  ☐ Relationship maintained (no burned bridges)                             │
+│                                                                             │
+│  POST-RESOLUTION                                                            │
+│  ☐ Monitor for residual issues                                             │
+│  ☐ Follow up with affected stakeholders                                    │
+│  ☐ Lessons learned captured                                                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 CONNECTIONS TO OTHER SKILLS
+
+| When you need to... | Load Skill |
+|---------------------|------------|
+| Apply prioritization to resolve priority conflicts | → SKILL-05 (Prioritization) |
+| Facilitate a conflict resolution workshop | → SKILL-15 (Workshop Facilitation) |
+| Use elicitation techniques to understand interests | → SKILL-02 (Elicitation) |
+| Document resolved requirements | → SKILL-03 (Writing Quality) |
+| Manage requirement changes post-resolution | → SKILL-07 (Traceability) |
+| Evaluate solution options with ROI | → SKILL-17 (Solution Evaluation) |
+
+---
+
+*Skill upgraded to World-Class standard. This skill is essential for navigating the human side of requirements engineering.*

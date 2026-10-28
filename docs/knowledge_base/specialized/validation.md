@@ -1,0 +1,749 @@
+# 🟡 SKILL-08: VALIDATION & VERIFICATION
+## Specialized Skill - Requirements Quality Assurance Mastery
+
+---
+
+## 📌 SKILL METADATA
+
+| Attribute | Value |
+|-----------|-------|
+| **Skill ID** | SKILL-08 |
+| **Category** | 🟡 Specialized |
+| **Load When** | Reviewing requirements, quality checks, UAT, sign-off |
+| **Dependencies** | SKILL-01, SKILL-03 |
+| **Version** | 2.0 (World-Class Edition) |
+| **Standards** | IEEE 1028, ISO 29148, BABOK v3 |
+| **Output** | Reviewed requirements, defect reports, test cases, approvals |
+
+---
+
+## 🎯 MỤC ĐÍCH
+
+Skill này cung cấp **comprehensive framework** để verify (đúng quy cách) và validate (đúng nhu cầu) requirements với UAT playbooks, test case design techniques, và review meeting facilitation.
+
+---
+
+## ⚖️ VALIDATION VS VERIFICATION (Deep Dive)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    VALIDATION VS VERIFICATION                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌───────────────────────────────────┐  ┌───────────────────────────────────┐│
+│  │         VERIFICATION              │  │         VALIDATION                ││
+│  │     "Build the Product RIGHT"     │  │     "Build the RIGHT Product"     ││
+│  ├───────────────────────────────────┤  ├───────────────────────────────────┤│
+│  │                                   │  │                                   ││
+│  │  QUESTION:                        │  │  QUESTION:                        ││
+│  │  Are we building it correctly?    │  │  Does it meet the actual need?    ││
+│  │                                   │  │                                   ││
+│  │  CHECKS AGAINST:                  │  │  CHECKS AGAINST:                  ││
+│  │  • Specifications                 │  │  • Stakeholder needs              ││
+│  │  • Standards                      │  │  • Business goals                 ││
+│  │  • Guidelines                     │  │  • User expectations              ││
+│  │                                   │  │                                   ││
+│  │  PERFORMED BY:                    │  │  PERFORMED BY:                    ││
+│  │  • BA Team                        │  │  • Business Stakeholders          ││
+│  │  • Peer Reviewers                 │  │  • End Users                      ││
+│  │  • QA Team                        │  │  • Product Owner                  ││
+│  │                                   │  │                                   ││
+│  │  TECHNIQUES:                      │  │  TECHNIQUES:                      ││
+│  │  • Inspections                    │  │  • Prototypes                     ││
+│  │  • Walkthroughs                   │  │  • UAT                            ││
+│  │  • Peer Reviews                   │  │  • Demos                          ││
+│  │  • Checklists                     │  │  • Scenario Walkthroughs          ││
+│  │                                   │  │                                   ││
+│  │  TYPE: Static (no execution)      │  │  TYPE: Dynamic (execution)        ││
+│  │                                   │  │                                   ││
+│  └───────────────────────────────────┘  └───────────────────────────────────┘│
+│                                                                             │
+│  TIMING IN PROJECT LIFECYCLE:                                               │
+│                                                                             │
+│  ┌────────────────────────────────────────────────────────────────────────┐ │
+│  │                                                                         │ │
+│  │  Requirements ──► Verification ──► Design ──► Build ──► Validation    │ │
+│  │       │              │               │          │           │          │ │
+│  │       ▼              ▼               ▼          ▼           ▼          │ │
+│  │   [Draft]      [Reviewed]       [Approved]  [Tested]   [Accepted]     │ │
+│  │                                                                         │ │
+│  └────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔍 VERIFICATION TECHNIQUES (Comprehensive)
+
+### 1️⃣ Formal Inspection (Fagan Method)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    FAGAN INSPECTION PROCESS                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 1: PLANNING (Moderator leads)                                  │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Select materials to inspect (max 10-15 pages per session)         │   │
+│  │ □ Identify participants (3-6 people):                               │   │
+│  │   • Author (required)                                                │   │
+│  │   • Moderator (required, not the author)                            │   │
+│  │   • Reader (required)                                                │   │
+│  │   • Recorder (required)                                              │   │
+│  │   • 1-2 Reviewers (domain experts)                                  │   │
+│  │ □ Schedule meetings (overview + inspection)                         │   │
+│  │ □ Distribute materials at least 2 days before                       │   │
+│  │ □ Distribute appropriate checklists                                  │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 2: OVERVIEW (Author presents - 30 min max)                     │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Author explains context and background                            │   │
+│  │ □ Walk through document structure                                   │   │
+│  │ □ Highlight complex or critical areas                               │   │
+│  │ □ Answer clarifying questions (not defect discussion)               │   │
+│  │ □ Confirm inspection scope                                          │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 3: PREPARATION (Individual - 2 hours max)                      │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Each reviewer examines document independently                     │   │
+│  │ □ Use verification checklist systematically                         │   │
+│  │ □ Note potential defects with location and type                     │   │
+│  │ □ Prepare questions for unclear areas                               │   │
+│  │ □ Track preparation time (metric)                                   │   │
+│  │                                                                       │  │
+│  │ PREPARATION RATE: ~1 page per 10-15 minutes                         │   │
+│  │ If cannot prepare adequately, notify moderator                      │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 4: INSPECTION MEETING (Team - 2 hours max)                     │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Moderator opens (5 min): ground rules, agenda                     │   │
+│  │ □ Reader paraphrases requirements one by one                        │   │
+│  │ □ After each, reviewers raise defects found                         │   │
+│  │ □ Recorder logs each defect immediately                             │   │
+│  │                                                                       │  │
+│  │ CRITICAL RULES:                                                      │   │
+│  │ ✗ NO SOLUTIONS DISCUSSED (only defect identification)              │   │
+│  │ ✗ NO PERSONAL ATTACKS (focus on document, not author)              │   │
+│  │ ✓ Author can clarify but not defend                                 │   │
+│  │ ✓ If stuck > 2 min, move on (park for offline)                      │   │
+│  │                                                                       │  │
+│  │ INSPECTION RATE: ~1 page per 10-15 minutes                          │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 5: REWORK (Author - varies)                                    │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Author receives defect list                                        │   │
+│  │ □ Fix all Critical and Major defects                                │   │
+│  │ □ Fix or defer Minor defects (document decision)                    │   │
+│  │ □ Update document version                                            │   │
+│  │ □ Submit to moderator for follow-up                                 │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 6: FOLLOW-UP (Moderator)                                       │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Verify all Critical/Major defects are fixed                       │   │
+│  │ □ Verify fixes don't introduce new defects                          │   │
+│  │ □ Decide: Pass / Re-inspect                                         │   │
+│  │   • < 5% rework → Pass                                               │   │
+│  │   • > 5% rework → Schedule re-inspection                            │   │
+│  │ □ Complete inspection report                                         │   │
+│  │ □ Archive metrics                                                    │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Inspection Roles & Responsibilities
+
+| Role | Responsibility | Who |
+|------|----------------|-----|
+| **Moderator** | Plans, facilitates, ensures process, decides pass/fail | Senior BA or QA, NOT the author |
+| **Author** | Created the document, provides context, does rework | The BA who wrote it |
+| **Reader** | Paraphrases requirements during meeting | Another BA (interpretation test) |
+| **Recorder** | Logs all defects in real-time | Any participant |
+| **Reviewer** | Examines, finds defects, provides expertise | SMEs, developers, testers |
+
+### 2️⃣ Structured Walkthrough
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    STRUCTURED WALKTHROUGH                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  PURPOSE: Author-led educational review                                     │
+│  FORMALITY: Medium (less than inspection)                                   │
+│  DURATION: 30-60 minutes                                                    │
+│                                                                             │
+│  PARTICIPANTS:                                                              │
+│  • Author (presenter)                                                       │
+│  • 3-5 Reviewers (peers, stakeholders)                                     │
+│                                                                             │
+│  PROCESS:                                                                   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ 1. OPENING (5 min)                                                   │   │
+│  │    □ Author states objectives                                        │   │
+│  │    □ Scope of walkthrough                                            │   │
+│  │    □ Ground rules (questions welcome, stay on topic)                │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ 2. PRESENTATION (30-45 min)                                          │   │
+│  │    □ Author walks through document section by section               │   │
+│  │    □ Explains rationale and decisions                               │   │
+│  │    □ Answers questions as they arise                                │   │
+│  │    □ Recorder notes issues and action items                         │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ 3. DISCUSSION (10-15 min)                                            │   │
+│  │    □ Open discussion on issues raised                               │   │
+│  │    □ Suggestions for improvement                                    │   │
+│  │    □ Solutions CAN be discussed (unlike inspection)                 │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ 4. WRAP-UP (5 min)                                                   │   │
+│  │    □ Summarize action items                                          │   │
+│  │    □ Assign owners and deadlines                                    │   │
+│  │    □ Determine if follow-up needed                                  │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  WHEN TO USE:                                                               │
+│  • Early drafts needing feedback                                            │
+│  • Complex requirements needing explanation                                 │
+│  • Knowledge transfer to team                                               │
+│  • When stakeholder buy-in is important                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 3️⃣ Peer Review
+
+| Aspect | Description |
+|--------|-------------|
+| **Purpose** | Quick quality check by colleague |
+| **Participants** | Author + 1-2 peers |
+| **Duration** | 30-60 min async, 15 min sync |
+| **Formality** | Informal |
+| **When** | Before formal review, early drafts |
+
+### Review Technique Selection Guide
+
+| Technique | Defect Finding | Time Investment | Best For |
+|-----------|----------------|-----------------|----------|
+| **Inspection** | ⭐⭐⭐⭐⭐ | High | Critical documents, contracts, regulations |
+| **Walkthrough** | ⭐⭐⭐ | Medium | Knowledge transfer, early feedback |
+| **Peer Review** | ⭐⭐ | Low | Quick checks, early drafts |
+| **Checklist Review** | ⭐⭐⭐ | Low | Consistency, completeness |
+
+---
+
+## 🎯 TEST CASE DESIGN FROM REQUIREMENTS
+
+### Boundary Value Analysis
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    BOUNDARY VALUE ANALYSIS                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  PRINCIPLE: Errors cluster at boundaries of input ranges                   │
+│                                                                             │
+│  FOR REQUIREMENT: "Age must be between 18 and 65 inclusive"                │
+│                                                                             │
+│       Invalid │    Valid     │ Invalid                                     │
+│      ─────────┼──────────────┼─────────                                    │
+│               │              │                                              │
+│      ... 16  17 │ 18  19 ... 64  65 │ 66  67 ...                          │
+│               │    ▲         ▲  │                                          │
+│               │    │         │  │                                          │
+│         ▲     ▲   Min      Max  ▲     ▲                                   │
+│         │     │                 │     │                                    │
+│       Below  Just             Just  Above                                  │
+│       Min    Below            Above  Max                                   │
+│                                                                             │
+│  TEST CASES TO GENERATE:                                                    │
+│  ┌──────────┬────────────────┬────────────────────────────────────────┐    │
+│  │ Test ID  │ Input Value    │ Expected Result                        │    │
+│  ├──────────┼────────────────┼────────────────────────────────────────┤    │
+│  │ TC-001   │ 17             │ INVALID - Below minimum               │    │
+│  │ TC-002   │ 18             │ VALID - At minimum boundary           │    │
+│  │ TC-003   │ 19             │ VALID - Just above minimum            │    │
+│  │ TC-004   │ 40             │ VALID - Normal value                  │    │
+│  │ TC-005   │ 64             │ VALID - Just below maximum            │    │
+│  │ TC-006   │ 65             │ VALID - At maximum boundary           │    │
+│  │ TC-007   │ 66             │ INVALID - Above maximum               │    │
+│  └──────────┴────────────────┴────────────────────────────────────────┘    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Equivalence Partitioning
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    EQUIVALENCE PARTITIONING                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  PRINCIPLE: Divide inputs into equivalence classes; one test per class     │
+│                                                                             │
+│  FOR REQUIREMENT: "Discount based on order amount"                         │
+│  • Orders < $50: No discount                                               │
+│  • Orders $50-99: 5% discount                                              │
+│  • Orders $100-499: 10% discount                                           │
+│  • Orders ≥$500: 15% discount                                              │
+│                                                                             │
+│  PARTITIONS:                                                                │
+│  ┌──────────────┬──────────────┬──────────────┬──────────────┐             │
+│  │   < $50      │  $50-99      │  $100-499    │   ≥ $500     │             │
+│  │   (Invalid   │  (5% disc)   │  (10% disc)  │  (15% disc)  │             │
+│  │   for disc)  │              │              │              │             │
+│  └──────────────┴──────────────┴──────────────┴──────────────┘             │
+│                                                                             │
+│  TEST CASES:                                                                │
+│  ┌──────────┬────────────┬────────────────────────────────────────────┐    │
+│  │ Test ID  │ Input      │ Expected Result                            │    │
+│  ├──────────┼────────────┼────────────────────────────────────────────┤    │
+│  │ TC-001   │ $30        │ No discount (0%)                           │    │
+│  │ TC-002   │ $75        │ 5% discount applied                        │    │
+│  │ TC-003   │ $250       │ 10% discount applied                       │    │
+│  │ TC-004   │ $600       │ 15% discount applied                       │    │
+│  └──────────┴────────────┴────────────────────────────────────────────┘    │
+│                                                                             │
+│  COMBINE WITH BVA: Add boundary tests at $49/$50, $99/$100, $499/$500     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Decision Table Testing
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DECISION TABLE TEST CASE GENERATION                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  FOR REQUIREMENT: "Shipping options based on membership and order"         │
+│  • Premium members get free shipping on any order                          │
+│  • Regular members get free shipping on orders > $100                      │
+│  • Regular members pay $10 shipping on orders ≤ $100                       │
+│                                                                             │
+│  DECISION TABLE:                                                            │
+│  ┌────────────────────────┬────────┬────────┬────────┬────────┐            │
+│  │                        │ Rule 1 │ Rule 2 │ Rule 3 │ Rule 4 │            │
+│  ├────────────────────────┼────────┼────────┼────────┼────────┤            │
+│  │ CONDITIONS             │        │        │        │        │            │
+│  ├────────────────────────┼────────┼────────┼────────┼────────┤            │
+│  │ Premium Member?        │   Y    │   Y    │   N    │   N    │            │
+│  │ Order > $100?          │   Y    │   N    │   Y    │   N    │            │
+│  ├────────────────────────┼────────┼────────┼────────┼────────┤            │
+│  │ ACTIONS                │        │        │        │        │            │
+│  ├────────────────────────┼────────┼────────┼────────┼────────┤            │
+│  │ Free Shipping          │   X    │   X    │   X    │        │            │
+│  │ $10 Shipping           │        │        │        │   X    │            │
+│  └────────────────────────┴────────┴────────┴────────┴────────┘            │
+│                                                                             │
+│  TEST CASES (one per rule):                                                 │
+│  ┌──────────┬────────────────────────────┬───────────────────────┐         │
+│  │ Test ID  │ Inputs                     │ Expected              │         │
+│  ├──────────┼────────────────────────────┼───────────────────────┤         │
+│  │ TC-001   │ Premium, $150 order        │ Free shipping         │         │
+│  │ TC-002   │ Premium, $75 order         │ Free shipping         │         │
+│  │ TC-003   │ Regular, $150 order        │ Free shipping         │         │
+│  │ TC-004   │ Regular, $75 order         │ $10 shipping          │         │
+│  └──────────┴────────────────────────────┴───────────────────────┘         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 UAT PLAYBOOK
+
+### Complete UAT Lifecycle
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    UAT PLAYBOOK - COMPLETE LIFECYCLE                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 1: UAT PLANNING (2-4 weeks before)                             │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Define UAT scope and objectives                                   │   │
+│  │ □ Identify UAT participants (business users)                        │   │
+│  │ □ Establish entry criteria (what must be ready)                     │   │
+│  │ □ Define exit criteria (when UAT is complete)                       │   │
+│  │ □ Create UAT schedule                                                │   │
+│  │ □ Prepare UAT environment                                            │   │
+│  │ □ Prepare test data (realistic, anonymized if needed)              │   │
+│  │ □ Create UAT scenarios from requirements                            │   │
+│  │ □ Train UAT participants on system basics                          │   │
+│  │ □ Set up defect tracking system                                     │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 2: UAT EXECUTION (1-2 weeks typically)                         │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Verify entry criteria met                                          │   │
+│  │ □ Kick-off meeting with UAT participants                            │   │
+│  │ □ Users execute test scenarios                                       │   │
+│  │ □ Document results (Pass/Fail/Blocked)                              │   │
+│  │ □ Log defects with severity and steps to reproduce                  │   │
+│  │ □ Daily stand-up to track progress and blockers                     │   │
+│  │ □ Developers fix critical/high defects                              │   │
+│  │ □ Re-test fixed defects                                              │   │
+│  │ □ Document workarounds for unfixable issues                         │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                               │                                             │
+│                               ▼                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ PHASE 3: UAT CLOSURE                                                 │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │ □ Verify exit criteria met                                           │   │
+│  │ □ Create UAT summary report                                          │   │
+│  │ □ Review outstanding defects with stakeholders                      │   │
+│  │ □ Document known issues and workarounds                             │   │
+│  │ □ Obtain formal sign-off                                            │   │
+│  │ □ Archive UAT artifacts                                              │   │
+│  │ □ Lessons learned session                                            │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### UAT Entry & Exit Criteria
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    UAT ENTRY & EXIT CRITERIA                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ENTRY CRITERIA (Must be true BEFORE UAT starts):                          │
+│  ════════════════════════════════════════════════════════════════════════  │
+│  ☐ All requirements baselined and approved                                 │
+│  ☐ System testing completed with ≥95% pass rate                           │
+│  ☐ All Critical/High defects from ST resolved                             │
+│  ☐ UAT environment deployed and verified                                   │
+│  ☐ Test data loaded and validated                                          │
+│  ☐ UAT scenarios reviewed and approved                                     │
+│  ☐ UAT participants trained                                                │
+│  ☐ Defect tracking system configured                                       │
+│  ☐ UAT kick-off meeting completed                                          │
+│                                                                             │
+│  EXIT CRITERIA (Must be true BEFORE UAT closes):                           │
+│  ════════════════════════════════════════════════════════════════════════  │
+│  ☐ All UAT scenarios executed                                               │
+│  ☐ ≥95% of scenarios passed                                                │
+│  ☐ All Critical defects resolved                                           │
+│  ☐ All High defects resolved OR have approved workaround                  │
+│  ☐ No more than X Medium/Low defects open (define threshold)              │
+│  ☐ UAT summary report completed                                            │
+│  ☐ Business sign-off obtained                                              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### UAT Scenario Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    UAT SCENARIO TEMPLATE                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ SCENARIO ID: UAT-SC-001                                                     │
+│ SCENARIO NAME: New Customer Registration                                    │
+│ REQUIREMENT(S): FR-REG-001, FR-REG-002, FR-REG-003                         │
+│ PRIORITY: High                                                              │
+│ PRECONDITIONS: User is on registration page, not logged in                 │
+│                                                                             │
+│ ┌────────┬─────────────────────────────────┬─────────────────────────────┐ │
+│ │ Step   │ Action                          │ Expected Result             │ │
+│ ├────────┼─────────────────────────────────┼─────────────────────────────┤ │
+│ │ 1      │ Enter valid email address       │ Email field accepts input   │ │
+│ │ 2      │ Enter password meeting criteria │ Password strength indicator │ │
+│ │ 3      │ Confirm password                │ Passwords match indicator   │ │
+│ │ 4      │ Accept terms and conditions     │ Checkbox becomes checked    │ │
+│ │ 5      │ Click "Register" button         │ Processing indicator shown  │ │
+│ │ 6      │ Wait for confirmation           │ Success message displayed   │ │
+│ │ 7      │ Check email inbox               │ Verification email received │ │
+│ │ 8      │ Click verification link         │ Account activated           │ │
+│ └────────┴─────────────────────────────────┴─────────────────────────────┘ │
+│                                                                             │
+│ EXECUTION LOG:                                                              │
+│ ┌────────────┬─────────┬────────────────────────────────────────────────┐  │
+│ │ Date       │ Tester  │ Result (Pass/Fail/Blocked)                     │  │
+│ ├────────────┼─────────┼────────────────────────────────────────────────┤  │
+│ │ 2024-01-15 │ J. Smith│ FAIL - Step 7 (email not received)            │  │
+│ │ 2024-01-17 │ J. Smith│ PASS - All steps                              │  │
+│ └────────────┴─────────┴────────────────────────────────────────────────┘  │
+│                                                                             │
+│ LINKED DEFECTS: DEF-142, DEF-145                                           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🐛 DEFECT MANAGEMENT
+
+### Defect Classification Matrix
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DEFECT CLASSIFICATION MATRIX                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  DEFECT TYPES (What is wrong):                                              │
+│                                                                             │
+│  ┌──────────────┬────────────────────────────┬─────────────────────────┐   │
+│  │ Type         │ Description                 │ Example                 │   │
+│  ├──────────────┼────────────────────────────┼─────────────────────────┤   │
+│  │ MISSING      │ Required info absent       │ No error message spec   │   │
+│  │ WRONG        │ Incorrect information       │ Wrong formula           │   │
+│  │ AMBIGUOUS    │ Multiple interpretations    │ "Fast response"         │   │
+│  │ INCONSISTENT │ Conflicts with other reqs   │ Contradicting rules     │   │
+│  │ INFEASIBLE   │ Cannot be implemented       │ "100% uptime"           │   │
+│  │ UNVERIFIABLE │ Cannot be tested            │ "User-friendly"         │   │
+│  │ DUPLICATE    │ Same as another req         │ Repeated differently    │   │
+│  │ IRRELEVANT   │ Out of scope                │ Feature creep           │   │
+│  └──────────────┴────────────────────────────┴─────────────────────────┘   │
+│                                                                             │
+│  SEVERITY (Business Impact):                                                │
+│                                                                             │
+│  ┌──────────────┬────────────────────────────┬───────────────────────────┐ │
+│  │ Severity     │ Definition                  │ Resolution Timeline      │ │
+│  ├──────────────┼────────────────────────────┼───────────────────────────┤ │
+│  │ CRITICAL     │ Blocks understanding,       │ Must fix IMMEDIATELY     │ │
+│  │              │ system unusable             │ Before next review       │ │
+│  ├──────────────┼────────────────────────────┼───────────────────────────┤ │
+│  │ HIGH         │ Major impact, workaround    │ Must fix BEFORE baseline │ │
+│  │              │ is difficult                │ Within 24-48 hours       │ │
+│  ├──────────────┼────────────────────────────┼───────────────────────────┤ │
+│  │ MEDIUM       │ Moderate impact, workaround │ Fix before go-live       │ │
+│  │              │ exists                      │ Within 1 week            │ │
+│  ├──────────────┼────────────────────────────┼───────────────────────────┤ │
+│  │ LOW          │ Minor issue, cosmetic       │ Fix when convenient      │ │
+│  │              │                             │ Backlog item             │ │
+│  └──────────────┴────────────────────────────┴───────────────────────────┘ │
+│                                                                             │
+│  PRIORITY (Sequence of fixing):                                             │
+│                                                                             │
+│  P1 = Fix first (typically aligns with Critical/High)                      │
+│  P2 = Fix next (Medium severity items)                                     │
+│  P3 = Fix if time permits (Low severity items)                             │
+│  P4 = Defer to future (Nice-to-have improvements)                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Defect Report Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DEFECT REPORT                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ DEFECT ID: DEF-001                                                          │
+│ REPORTED BY: [Name]                STATUS: [Open/In Progress/Resolved]     │
+│ DATE FOUND: [Date]                 ASSIGNED TO: [Name]                      │
+│                                                                             │
+│ REQUIREMENT: [REQ-ID] - [Requirement Title]                                 │
+│ DOCUMENT: [Document Name] v[X.Y]                                            │
+│ LOCATION: Section [X.Y], Page [N], Line [N]                                │
+│                                                                             │
+│ DEFECT TYPE: [Missing/Wrong/Ambiguous/Inconsistent/etc.]                   │
+│ SEVERITY: [Critical/High/Medium/Low]                                        │
+│ PRIORITY: [P1/P2/P3/P4]                                                     │
+│                                                                             │
+│ DESCRIPTION:                                                                │
+│ [Clear, specific description of what is wrong]                             │
+│                                                                             │
+│ IMPACT:                                                                     │
+│ [Why this matters - what could go wrong if not fixed]                      │
+│                                                                             │
+│ SUGGESTED FIX:                                                              │
+│ [Optional - proposed solution]                                              │
+│                                                                             │
+│ RESOLUTION:                                                                 │
+│ [How it was fixed, by whom, and when]                                      │
+│                                                                             │
+│ VERIFICATION:                                                               │
+│ [Verified by whom and when]                                                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ✅ COMPREHENSIVE VERIFICATION CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    MASTER VERIFICATION CHECKLIST                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  INDIVIDUAL REQUIREMENT QUALITY                                             │
+│  ════════════════════════════════════════════════════════════════════════  │
+│                                                                             │
+│  COMPLETENESS:                                                              │
+│  ☐ Has unique, meaningful ID (e.g., FR-AUTH-001)                           │
+│  ☐ Has clear, concise title (max 10 words)                                 │
+│  ☐ Description is complete (who, what, when, why)                          │
+│  ☐ Has testable acceptance criteria (Given-When-Then)                      │
+│  ☐ Source documented (stakeholder, meeting, document)                      │
+│  ☐ Priority assigned (MoSCoW or numeric)                                   │
+│  ☐ Dependencies identified and valid                                        │
+│  ☐ Version and status current                                               │
+│                                                                             │
+│  CLARITY:                                                                   │
+│  ☐ Uses SHALL/SHOULD/MAY correctly per RFC 2119                            │
+│  ☐ No ambiguous words (fast, easy, user-friendly, etc.)                    │
+│  ☐ Only ONE possible interpretation                                         │
+│  ☐ All terms defined in glossary                                           │
+│  ☐ Examples provided for complex requirements                               │
+│  ☐ Acronyms defined on first use                                           │
+│                                                                             │
+│  CORRECTNESS:                                                               │
+│  ☐ Accurately represents stakeholder need (validated)                      │
+│  ☐ Business rules are factually correct                                    │
+│  ☐ Data values and ranges are accurate                                     │
+│  ☐ All references (to other reqs, docs) are valid                         │
+│  ☐ Calculations and formulas are correct                                   │
+│                                                                             │
+│  CONSISTENCY:                                                               │
+│  ☐ No conflicts with other requirements (checked)                          │
+│  ☐ Terminology used consistently throughout                                │
+│  ☐ Follows document formatting conventions                                 │
+│  ☐ Aligns with project scope as defined                                    │
+│  ☐ Consistent level of detail across similar reqs                         │
+│                                                                             │
+│  TESTABILITY:                                                               │
+│  ☐ Can write specific, executable test cases                              │
+│  ☐ Pass/fail criteria are unambiguous                                      │
+│  ☐ Measurable metrics defined where applicable                             │
+│  ☐ Edge cases and error conditions specified                              │
+│                                                                             │
+│  FEASIBILITY:                                                               │
+│  ☐ Technically achievable with available technology                       │
+│  ☐ Within budget constraints                                               │
+│  ☐ Within timeline constraints                                             │
+│  ☐ Required resources and skills available                                 │
+│  ☐ No unresolved TBDs remaining                                            │
+│                                                                             │
+│  TRACEABILITY:                                                              │
+│  ☐ Traces to business need / parent requirement                           │
+│  ☐ Forward trace defined (design, test case)                              │
+│  ☐ Rationale documented (why this requirement exists)                     │
+│                                                                             │
+│  REQUIREMENTS SET QUALITY                                                   │
+│  ════════════════════════════════════════════════════════════════════════  │
+│                                                                             │
+│  COMPLETE SET:                                                              │
+│  ☐ All scope areas covered                                                  │
+│  ☐ All user roles addressed                                                │
+│  ☐ All functional requirements present                                     │
+│  ☐ All non-functional requirements present                                 │
+│  ☐ Edge cases and exceptions documented                                    │
+│  ☐ Error handling specified for each function                             │
+│  ☐ Security requirements addressed                                         │
+│  ☐ Reporting/analytics requirements addressed                             │
+│                                                                             │
+│  CONSISTENT SET:                                                            │
+│  ☐ No contradicting requirements (cross-checked)                           │
+│  ☐ Prioritization is consistent and defensible                            │
+│  ☐ Terminology uniform across document                                     │
+│  ☐ Numbering scheme is consistent                                          │
+│                                                                             │
+│  ORGANIZED SET:                                                             │
+│  ☐ Logically grouped by function/module                                    │
+│  ☐ Easy to navigate (table of contents, cross-refs)                       │
+│  ☐ Cross-references are valid and working                                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 V&V METRICS
+
+### Key Metrics to Track
+
+| Metric | Formula | Target | Purpose |
+|--------|---------|--------|---------|
+| **Defect Density** | Defects Found / # Requirements | < 0.5 | Quality indicator |
+| **Defect Removal Efficiency** | Defects Found in V&V / Total Defects | > 85% | Process effectiveness |
+| **Review Coverage** | Reviewed Reqs / Total Reqs × 100% | 100% | Process compliance |
+| **Review Effectiveness** | Critical/High Defects Found / Total Critical/High | > 95% | Finding important issues |
+| **Cycle Time** | Days from Draft to Approved | < 10 days | Process efficiency |
+| **Preparation Rate** | Hours Prepared / Pages Reviewed | 0.15-0.25 hr/page | Adequate preparation |
+| **Inspection Rate** | Pages Reviewed / Meeting Hours | 5-10 pages/hr | Appropriate pace |
+| **First-Pass Yield** | Reqs Passing First Review / Total × 100% | > 80% | Author quality |
+| **Rework Rate** | Reworked Reqs / Total × 100% | < 20% | Efficiency |
+
+### 📊 CMMI Level 4 Review Effectiveness Standards
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    REVIEW EFFECTIVENESS BENCHMARKS                          │
+│                    (CMMI Level 4 Standards)                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  PEER REVIEW PERFORMANCE TARGETS                                            │
+│  ═══════════════════════════════                                            │
+│                                                                             │
+│  ┌──────────────────────────────┬─────────────┬──────────────────────────┐ │
+│  │ Metric                       │ Target      │ Industry Benchmark       │ │
+│  ├──────────────────────────────┼─────────────┼──────────────────────────┤ │
+│  │ Defects Found per Review Hr  │ 4-8         │ Capers Jones: 6-8 avg    │ │
+│  │ Defect Detection Efficiency  │ > 80%       │ Removes 80% of defects   │ │
+│  │ Cost of Finding (per defect) │ < $50       │ Testing: $500-1000       │ │
+│  │ Pages per Hour (optimal)     │ 5-10        │ Slower = more thorough   │ │
+│  │ Prep Time Ratio              │ 0.5-1.0 hr/hr│ prep ≈ review duration  │ │
+│  └──────────────────────────────┴─────────────┴──────────────────────────┘ │
+│                                                                             │
+│  INSPECTION ROI CALCULATION                                                 │
+│  ══════════════════════════                                                 │
+│                                                                             │
+│  Cost of Review = (Prep Hours + Review Hours) × Hourly Rate × Participants │
+│  Cost Avoided = Defects Found × Avg Cost if Found in Testing ($500)        │
+│  ROI = (Cost Avoided - Cost of Review) / Cost of Review × 100%             │
+│                                                                             │
+│  TYPICAL ROI: 300-800% (every $1 on review saves $3-8 in testing/rework)   │
+│                                                                             │
+│  PROCESS CAPABILITY TARGETS                                                 │
+│  ═════════════════════════                                                  │
+│                                                                             │
+│  • Cpk ≥ 1.33 for Defect Detection Efficiency                              │
+│  • Control limits: UCL = Mean + 3σ, LCL = Mean - 3σ                        │
+│  • Track monthly, investigate if outside control limits                     │
+│  • Target 95% confidence interval for detection rates                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 CONNECTIONS TO OTHER SKILLS
+
+| When you need to... | Load Skill |
+|---------------------|------------|
+| Write better requirements initially | → SKILL-03 (Writing Quality) |
+| Handle review conflicts | → SKILL-06 (Conflict Resolution) |
+| Manage approved changes | → SKILL-07 (Traceability) |
+| Create structured document templates | → SKILL-09, 10, 11, 12 |
+| Facilitate validation workshops | → SKILL-15 (Workshop Facilitation) |
+
+---
+
+*Skill upgraded to World-Class standard. Use this skill to ensure requirements quality before implementation.*

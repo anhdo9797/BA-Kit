@@ -1,0 +1,14 @@
+{
+  "name": "mcp-ask-bridge",
+  "version": "1.0.0",
+  "description": "MCP Bridge for Perplexity Ask — production-hardened SSE proxy",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

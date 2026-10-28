@@ -1,0 +1,768 @@
+# 🔵 SKILL-03: REQUIREMENTS WRITING & QUALITY
+## Core Skill - Precision Specification Standards
+
+---
+
+## 📌 SKILL METADATA
+
+| Attribute | Value |
+|-----------|-------|
+| **Skill ID** | SKILL-03 |
+| **Category** | 🔵 Core |
+| **Load Priority** | 3 |
+| **Dependencies** | SKILL-01, SKILL-02 |
+| **Version** | 2.0 (World-Class Edition) |
+| **Standards** | ISO 29148, RFC 2119, INVEST, EARS |
+| **Output** | High-quality, verifiable, testable requirements |
+
+---
+
+## 🎯 MỤC ĐÍCH
+
+Skill này cung cấp **tiêu chuẩn viết requirements chuyên nghiệp**, **frameworks logic phức tạp**, và **quality assurance checklist** để đảm bảo mọi yêu cầu đều clear, unambiguous, testable, và complete.
+
+---
+
+## 🧠 THE SCIENCE OF CLEAR REQUIREMENTS
+
+### Why Requirements Fail
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    ROOT CAUSES OF REQUIREMENT DEFECTS                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    DEFECT DISTRIBUTION                               │   │
+│  │                                                                       │  │
+│  │  ████████████████████████████████  56%  Incomplete Requirements     │   │
+│  │  ███████████████████              26%  Ambiguous Language           │   │
+│  │  █████████                        12%  Missing Edge Cases           │   │
+│  │  ███                               6%  Conflicting Requirements     │   │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  KEY INSIGHT: 82% of requirement defects are preventable with              │
+│  proper writing techniques and structured reviews.                         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### The Cost of Ambiguity
+
+| Discovery Stage | Cost to Fix (Relative) | Example |
+|-----------------|------------------------|---------|
+| Requirements | **1x** | Clarify in meeting |
+| Design | **5x** | Redesign needed |
+| Development | **10x** | Rework code |
+| Testing | **20x** | Find and fix bug |
+| Production | **100x+** | Emergency patch, customer impact |
+
+---
+
+## 📐 REQUIREMENT STRUCTURE (Comprehensive)
+
+### Standard Requirement Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ REQUIREMENT SPECIFICATION TEMPLATE                                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ IDENTIFICATION                                                           │ │
+│ ├─────────────────────────────────────────────────────────────────────────┤ │
+│ │ REQ-ID:         [Category]-[Module]-[Number]  (e.g., FR-AUTH-001)      │ │
+│ │ Title:          [Short, descriptive name - max 10 words]                │ │
+│ │ Version:        [X.Y]                                                    │ │
+│ │ Status:         [Draft | In Review | Approved | Implemented | Verified] │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ DESCRIPTION (EARS Pattern Recommended)                                   │ │
+│ ├─────────────────────────────────────────────────────────────────────────┤ │
+│ │                                                                          │ │
+│ │ [WHEN <trigger/condition>,] the <system> SHALL <action/behavior>        │ │
+│ │ [SO THAT <value/purpose>].                                               │ │
+│ │                                                                          │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ ACCEPTANCE CRITERIA (Gherkin Format)                                     │ │
+│ ├─────────────────────────────────────────────────────────────────────────┤ │
+│ │                                                                          │ │
+│ │ Scenario 1: [Happy Path]                                                 │ │
+│ │   GIVEN [precondition]                                                   │ │
+│ │   WHEN [action]                                                          │ │
+│ │   THEN [expected result]                                                 │ │
+│ │   AND [additional result]                                                │ │
+│ │                                                                          │ │
+│ │ Scenario 2: [Error/Edge Case]                                            │ │
+│ │   GIVEN [precondition]                                                   │ │
+│ │   WHEN [action]                                                          │ │
+│ │   THEN [expected result]                                                 │ │
+│ │                                                                          │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ METADATA                                                                 │ │
+│ ├─────────────────────────────────────────────────────────────────────────┤ │
+│ │ Priority:       [Must | Should | Could | Won't] (MoSCoW)                │ │
+│ │ Source:         [Stakeholder name, document, meeting date]              │ │
+│ │ Author:         [BA name]                                                │ │
+│ │ Created:        [YYYY-MM-DD]                                             │ │
+│ │ Last Modified:  [YYYY-MM-DD]                                             │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ TRACEABILITY                                                             │ │
+│ ├─────────────────────────────────────────────────────────────────────────┤ │
+│ │ Parent:         [BR-ID or SR-ID this derives from]                      │ │
+│ │ Children:       [Design-ID, Test Case-ID]                               │ │
+│ │ Dependencies:   [Related REQ-IDs that must be implemented together]     │ │
+│ │ Conflicts:      [Any REQ-IDs this may conflict with]                    │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ NOTES & RATIONALE                                                        │ │
+│ ├─────────────────────────────────────────────────────────────────────────┤ │
+│ │ Rationale:      [Why this requirement exists]                           │ │
+│ │ Assumptions:    [Any assumptions made]                                   │ │
+│ │ Open Questions: [TBDs to be resolved]                                   │ │
+│ │ UI Reference:   [Wireframe/Mockup link if applicable]                   │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Requirement ID Convention System
+
+| Prefix | Category | Sub-Prefix | Example |
+|--------|----------|------------|---------|
+| **BR** | Business Requirement | - | BR-001 |
+| **SR** | Stakeholder Requirement | - | SR-001 |
+| **FR** | Functional Requirement | -[Module] | FR-AUTH-001, FR-PAY-005 |
+| **NFR** | Non-Functional | -PERF, -SEC, -USA, -REL, -MAIN, -PORT | NFR-PERF-001 |
+| **UC** | Use Case | - | UC-001 |
+| **US** | User Story | - | US-001 |
+| **BR-DATA** | Business Rule (Data) | - | BR-DATA-001 |
+| **BR-PROC** | Business Rule (Process) | - | BR-PROC-001 |
+| **INT** | Integration | -[System] | INT-SAP-001 |
+
+---
+
+## 📝 EARS: EASY APPROACH TO REQUIREMENTS SYNTAX
+
+### The EARS Patterns
+
+EARS (Easy Approach to Requirements Syntax) provides 5 patterns for writing unambiguous requirements:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         EARS REQUIREMENT PATTERNS                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. UBIQUITOUS (Always happens)                                             │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Pattern: The <system> SHALL <action>.                                      │
+│                                                                             │
+│  Example: The system SHALL display the company logo on all pages.           │
+│                                                                             │
+│  2. EVENT-DRIVEN (Response to trigger)                                      │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Pattern: WHEN <trigger>, the <system> SHALL <action>.                      │
+│                                                                             │
+│  Example: WHEN the user clicks "Submit", the system SHALL validate all     │
+│           input fields.                                                     │
+│                                                                             │
+│  3. STATE-DRIVEN (While in state)                                           │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Pattern: WHILE <state>, the <system> SHALL <action>.                       │
+│                                                                             │
+│  Example: WHILE the user is logged in, the system SHALL display the        │
+│           user's profile icon in the header.                               │
+│                                                                             │
+│  4. OPTIONAL (Feature may be included)                                      │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Pattern: WHERE <feature is included>, the <system> SHALL <action>.         │
+│                                                                             │
+│  Example: WHERE biometric authentication is enabled, the system SHALL      │
+│           accept fingerprint for login.                                     │
+│                                                                             │
+│  5. UNWANTED BEHAVIOR (Negative/Exception)                                  │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Pattern: IF <condition>, THEN the <system> SHALL <action>.                 │
+│                                                                             │
+│  Example: IF the session has been inactive for 30 minutes, THEN the        │
+│           system SHALL log the user out automatically.                     │
+│                                                                             │
+│  6. COMPLEX (Combination)                                                   │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Pattern: WHILE <state>, WHEN <trigger>, the <system> SHALL <action>.       │
+│                                                                             │
+│  Example: WHILE the order status is "Processing", WHEN the payment is      │
+│           confirmed, the system SHALL update status to "Paid".             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 DECISION TABLES FOR COMPLEX LOGIC
+
+### When to Use Decision Tables
+
+| Scenario | Use Decision Table? |
+|----------|---------------------|
+| Simple if-then rule | ❌ No, natural language is fine |
+| 2-3 conditions with 2-3 outcomes | ⚠️ Maybe |
+| 4+ conditions with multiple outcomes | ✅ Yes, essential |
+| Complex business rules with exceptions | ✅ Yes, essential |
+| Pricing, discounts, eligibility rules | ✅ Yes, essential |
+
+### Decision Table Structure
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         DECISION TABLE TEMPLATE                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Rule Name: [Descriptive name]                                              │
+│  Purpose: [What business decision this table captures]                      │
+│                                                                             │
+│  ┌──────────────────────┬────────┬────────┬────────┬────────┬────────┐     │
+│  │                      │ Rule 1 │ Rule 2 │ Rule 3 │ Rule 4 │ Rule 5 │     │
+│  ├──────────────────────┼────────┼────────┼────────┼────────┼────────┤     │
+│  │ CONDITIONS           │        │        │        │        │        │     │
+│  ├──────────────────────┼────────┼────────┼────────┼────────┼────────┤     │
+│  │ Condition 1          │   Y    │   Y    │   Y    │   N    │   N    │     │
+│  │ Condition 2          │   Y    │   Y    │   N    │   Y    │   N    │     │
+│  │ Condition 3          │   Y    │   N    │   -    │   -    │   -    │     │
+│  ├──────────────────────┼────────┼────────┼────────┼────────┼────────┤     │
+│  │ ACTIONS              │        │        │        │        │        │     │
+│  ├──────────────────────┼────────┼────────┼────────┼────────┼────────┤     │
+│  │ Action 1             │   X    │   X    │        │        │        │     │
+│  │ Action 2             │   X    │        │   X    │   X    │        │     │
+│  │ Action 3             │        │        │        │        │   X    │     │
+│  └──────────────────────┴────────┴────────┴────────┴────────┴────────┘     │
+│                                                                             │
+│  Legend: Y = Yes, N = No, - = Don't care, X = Execute action               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Example: Discount Eligibility
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ DECISION TABLE: Customer Discount Eligibility                                │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│ ┌────────────────────────┬────────┬────────┬────────┬────────┬────────┐     │
+│ │                        │ Rule 1 │ Rule 2 │ Rule 3 │ Rule 4 │ Rule 5 │     │
+│ ├────────────────────────┼────────┼────────┼────────┼────────┼────────┤     │
+│ │ CONDITIONS             │        │        │        │        │        │     │
+│ ├────────────────────────┼────────┼────────┼────────┼────────┼────────┤     │
+│ │ Gold Member            │   Y    │   Y    │   N    │   N    │   N    │     │
+│ │ Order > $100           │   Y    │   N    │   Y    │   N    │   -    │     │
+│ │ First Purchase         │   -    │   -    │   -    │   Y    │   N    │     │
+│ ├────────────────────────┼────────┼────────┼────────┼────────┼────────┤     │
+│ │ ACTIONS                │        │        │        │        │        │     │
+│ ├────────────────────────┼────────┼────────┼────────┼────────┼────────┤     │
+│ │ Apply 20% discount     │   X    │        │        │        │        │     │
+│ │ Apply 10% discount     │        │   X    │   X    │        │        │     │
+│ │ Apply 5% discount      │        │        │        │   X    │        │     │
+│ │ No discount            │        │        │        │        │   X    │     │
+│ │ Send loyalty email     │   X    │   X    │        │        │        │     │
+│ └────────────────────────┴────────┴────────┴────────┴────────┴────────┘     │
+│                                                                              │
+│ Resulting Requirements:                                                      │
+│ FR-DISC-001: WHEN customer is Gold Member AND order > $100,                 │
+│              system SHALL apply 20% discount.                                │
+│ FR-DISC-002: WHEN customer is Gold Member AND order <= $100,                │
+│              system SHALL apply 10% discount.                                │
+│ FR-DISC-003: WHEN customer is NOT Gold Member AND order > $100,             │
+│              system SHALL apply 10% discount.                                │
+│ FR-DISC-004: WHEN customer is NOT Gold Member AND first purchase,           │
+│              system SHALL apply 5% discount.                                 │
+│ FR-DISC-005: WHEN customer is NOT Gold Member AND NOT first purchase        │
+│              AND order <= $100, system SHALL apply no discount.             │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔄 STATE DIAGRAMS & TRANSITION TABLES
+
+### When to Use State Diagrams
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    STATE DIAGRAMS                                           │
+│                    For Lifecycle and Status-Driven Logic                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  USE STATE DIAGRAMS WHEN:                                                   │
+│  • Entity has distinct statuses/states                                      │
+│  • Transitions between states have rules                                    │
+│  • Not all transitions are allowed                                          │
+│  • Actions depend on current state                                          │
+│                                                                             │
+│  COMMON EXAMPLES:                                                           │
+│  • Order lifecycle (Draft → Submitted → Approved → Shipped → Delivered)     │
+│  • User account (Active → Suspended → Deactivated)                          │
+│  • Document workflow (Draft → Review → Approved → Published)                │
+│  • Ticket/Issue (Open → In Progress → Resolved → Closed)                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### State Transition Table Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    STATE TRANSITION TABLE                                   │
+│                    Entity: Order                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌──────────────┬────────────────┬──────────────┬─────────────────────────┐│
+│  │ Current State│ Trigger/Event  │ Next State   │ Guard Condition         ││
+│  ├──────────────┼────────────────┼──────────────┼─────────────────────────┤│
+│  │ [Initial]    │ Create Order   │ DRAFT        │ -                       ││
+│  ├──────────────┼────────────────┼──────────────┼─────────────────────────┤│
+│  │ DRAFT        │ Submit         │ PENDING_APPR │ All required fields set ││
+│  │ DRAFT        │ Cancel         │ CANCELLED    │ -                       ││
+│  ├──────────────┼────────────────┼──────────────┼─────────────────────────┤│
+│  │ PENDING_APPR │ Approve        │ APPROVED     │ Approver has authority  ││
+│  │ PENDING_APPR │ Reject         │ REJECTED     │ Rejection reason given  ││
+│  │ PENDING_APPR │ Edit           │ DRAFT        │ Submitter only          ││
+│  ├──────────────┼────────────────┼──────────────┼─────────────────────────┤│
+│  │ APPROVED     │ Process Payment│ PAID         │ Payment successful      ││
+│  │ APPROVED     │ Cancel         │ CANCELLED    │ Within 24 hours         ││
+│  ├──────────────┼────────────────┼──────────────┼─────────────────────────┤│
+│  │ PAID         │ Ship           │ SHIPPED      │ Inventory available     ││
+│  │ PAID         │ Refund Request │ REFUNDING    │ Within 7 days           ││
+│  ├──────────────┼────────────────┼──────────────┼─────────────────────────┤│
+│  │ SHIPPED      │ Deliver        │ DELIVERED    │ Delivery confirmed      ││
+│  │ SHIPPED      │ Return Request │ RETURNING    │ Within 30 days          ││
+│  ├──────────────┼────────────────┼──────────────┼─────────────────────────┤│
+│  │ DELIVERED    │ Complete       │ COMPLETED    │ No issues within 7 days ││
+│  │ DELIVERED    │ Return Request │ RETURNING    │ Within return window    ││
+│  ├──────────────┼────────────────┼──────────────┼─────────────────────────┤│
+│  │ COMPLETED    │ -              │ [Final]      │ -                       ││
+│  │ CANCELLED    │ -              │ [Final]      │ -                       ││
+│  │ RETURNED     │ -              │ [Final]      │ -                       ││
+│  └──────────────┴────────────────┴──────────────┴─────────────────────────┘│
+│                                                                             │
+│  REQUIREMENTS GENERATED FROM TABLE:                                         │
+│  • FR-ORD-010: System SHALL allow order submission only when all            │
+│    required fields are populated.                                           │
+│  • FR-ORD-011: System SHALL allow order cancellation within 24 hours        │
+│    of approval.                                                             │
+│  • FR-ORD-012: System SHALL prevent state transitions not defined           │
+│    in the Order State Transition Table.                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 SPECIFICATION BY EXAMPLE (SBE)
+
+### The SBE Process
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    SPECIFICATION BY EXAMPLE WORKFLOW                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. DERIVE SCOPE FROM GOALS                                                 │
+│     ├── What business goal are we solving?                                  │
+│     └── What's the minimum viable scope?                                    │
+│                  │                                                          │
+│                  ▼                                                          │
+│  2. SPECIFY COLLABORATIVELY                                                 │
+│     ├── Three Amigos: BA + Dev + QA                                        │
+│     ├── Discuss with concrete examples                                      │
+│     └── "What if...?" scenarios                                            │
+│                  │                                                          │
+│                  ▼                                                          │
+│  3. ILLUSTRATE WITH EXAMPLES                                                │
+│     ├── Happy path examples                                                 │
+│     ├── Edge cases                                                          │
+│     ├── Error scenarios                                                     │
+│     └── Use real data where possible                                       │
+│                  │                                                          │
+│                  ▼                                                          │
+│  4. REFINE TO EXECUTABLE SPECIFICATION                                      │
+│     ├── Gherkin scenarios (Given-When-Then)                                │
+│     ├── Data tables for variations                                          │
+│     └── Becomes living documentation                                       │
+│                  │                                                          │
+│                  ▼                                                          │
+│  5. AUTOMATE TESTS                                                          │
+│     ├── Link to automated test framework                                    │
+│     ├── Cucumber, SpecFlow, Behave, etc.                                   │
+│     └── Tests validate requirements continuously                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Example with Data Tables
+
+```gherkin
+Feature: Order Discount Calculation
+
+  Background:
+    Given the discount rules are configured as follows:
+      | Membership | Min Order | Discount |
+      | Gold       | $0        | 10%      |
+      | Gold       | $100      | 20%      |
+      | Silver     | $50       | 5%       |
+      | Silver     | $100      | 10%      |
+      | None       | $100      | 5%       |
+
+  Scenario Outline: Calculate discount based on membership and order value
+    Given customer has "<Membership>" membership
+    And order total is <OrderTotal>
+    When checkout is initiated
+    Then discount of <ExpectedDiscount> should be applied
+    And final total should be <FinalTotal>
+
+    Examples:
+      | Membership | OrderTotal | ExpectedDiscount | FinalTotal |
+      | Gold       | $150       | 20%              | $120       |
+      | Gold       | $80        | 10%              | $72        |
+      | Silver     | $120       | 10%              | $108       |
+      | Silver     | $40        | 0%               | $40        |
+      | None       | $200       | 5%               | $190       |
+      | None       | $50        | 0%               | $50        |
+```
+
+---
+
+## 📝 RFC 2119 KEYWORDS (Detailed)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         RFC 2119 REQUIREMENT KEYWORDS                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ MANDATORY                                                            │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │                                                                       │  │
+│  │  SHALL / MUST / REQUIRED                                             │  │
+│  │  • Absolute requirement, must be implemented                         │  │
+│  │  • Failure to implement = non-compliance                             │  │
+│  │  • Example: "The system SHALL encrypt all passwords."                │  │
+│  │                                                                       │  │
+│  │  SHALL NOT / MUST NOT                                                │  │
+│  │  • Absolute prohibition, must not be implemented                     │  │
+│  │  • Example: "The system SHALL NOT store plaintext passwords."        │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ RECOMMENDED                                                          │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │                                                                       │  │
+│  │  SHOULD / RECOMMENDED                                                │  │
+│  │  • Strongly recommended, implement unless valid reason not to        │  │
+│  │  • Document reason if not implemented                                │  │
+│  │  • Example: "The system SHOULD remember user preferences."           │  │
+│  │                                                                       │  │
+│  │  SHOULD NOT / NOT RECOMMENDED                                        │  │
+│  │  • Strongly discouraged, avoid unless valid reason                   │  │
+│  │  • Example: "The system SHOULD NOT auto-play videos."                │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ OPTIONAL                                                             │   │
+│  ├─────────────────────────────────────────────────────────────────────┤   │
+│  │                                                                       │  │
+│  │  MAY / OPTIONAL                                                      │  │
+│  │  • Truly optional, implement if resources permit                     │  │
+│  │  • Nice-to-have, no penalty for omission                             │  │
+│  │  • Example: "The system MAY provide dark mode."                      │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  USAGE TIP: Use ONLY these keywords for obligation. Avoid "will",          │
+│  "can", "might" which are ambiguous.                                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ✅ INVEST + QUALITY CRITERIA
+
+### Individual Requirement Quality (Extended)
+
+| Criteria | Question | Check | How to Fix |
+|----------|----------|-------|------------|
+| **I**ndependent | Can it be implemented alone? | ☐ | Split coupled requirements |
+| **N**egotiable | Open to discussion until committed? | ☐ | Avoid over-specification |
+| **V**aluable | Does it deliver value to someone? | ☐ | Link to business goal |
+| **E**stimable | Can effort be estimated? | ☐ | Add detail, reduce ambiguity |
+| **S**mall | Fits in one sprint/iteration? | ☐ | Split into smaller pieces |
+| **T**estable | Can acceptance be verified? | ☐ | Add acceptance criteria |
+| **A**tomic | One requirement per statement? | ☐ | Split compound statements |
+| **C**omplete | All info to implement present? | ☐ | Add missing details |
+| **C**onsistent | No conflicts with other reqs? | ☐ | Review dependencies |
+| **U**nambiguous | Only one interpretation? | ☐ | Remove vague words, add examples |
+
+### Ambiguous Words & Fixes
+
+| ❌ Avoid | Problem | ✅ Replace With |
+|----------|---------|-----------------|
+| Fast, Quick | Not measurable | "Within 2 seconds (95th percentile)" |
+| User-friendly | Subjective | "WCAG 2.1 AA compliant" or "3 clicks max" |
+| Easy | Subjective | "First-time user completes in < 5 min" |
+| Appropriate | No criteria | Specify exact criteria |
+| Flexible | Too broad | "Supports configuration of X, Y, Z" |
+| Robust | Vague | "Recovers from failure within 30s" |
+| Seamless | Not measurable | "No visible delay during transition" |
+| Intuitive | Subjective | "No training required; 90% discover in <2 min" |
+| Real-time | Ambiguous | "Within 500ms of event" |
+| Large/Small | Relative | "Maximum 10MB file size" |
+| Support | Unclear scope | "Process, validate, and store" |
+| Handle | Unclear action | "Validate input, log error, display message" |
+| Etc., And so on | Incomplete | List ALL items explicitly |
+| Usually/Generally | Ambiguous | "In 90% of cases" or list all scenarios |
+| Efficient | Vague | "Use < 100MB RAM, < 5% CPU" |
+| Minimize/Maximize | No target | "Reduce by 50%" or "Achieve 99%" |
+
+---
+
+## 🎨 WRITING PATTERNS
+
+### Pattern 1: Functional (EARS - Event)
+
+```
+WHEN <trigger>,
+the <system> SHALL <action>
+[SO THAT <value>].
+
+WHEN user clicks "Submit",
+the system SHALL validate all required fields
+SO THAT incomplete data is not saved.
+```
+
+### Pattern 2: Validation
+
+```
+The system SHALL validate <field/input> as follows:
+• <Rule 1>
+• <Rule 2>
+• <Rule 3>
+
+WHEN validation fails, the system SHALL:
+• Display error message: "<specific message>"
+• Highlight the invalid field
+• Prevent form submission
+
+The system SHALL validate Email Address as follows:
+• Must contain exactly one "@" symbol
+• Domain must contain at least one "."
+• Maximum 254 characters
+• Must not be already registered
+
+WHEN validation fails, the system SHALL:
+• Display error message: "Please enter a valid email address"
+• Highlight the email field in red
+• Prevent form submission
+```
+
+### Pattern 3: CRUD
+
+```
+The system SHALL allow <user role> to:
+• CREATE <entity> with fields: <field list>
+• READ <entity> via list view and detail view
+• UPDATE <entity> fields: <updateable fields>
+• DELETE <entity> [soft delete / hard delete] with confirmation
+
+The system SHALL allow Administrator to:
+• CREATE Product with fields: Name, SKU, Price, Category, Description
+• READ Product via searchable list and individual detail page
+• UPDATE Product fields: Name, Price, Description, Status
+• DELETE Product (soft delete) with confirmation dialog
+```
+
+### Pattern 4: Integration
+
+```
+The system SHALL integrate with <external system> to <purpose>:
+• Protocol: <REST/SOAP/GraphQL/File>
+• Authentication: <OAuth2/API Key/Certificate>
+• Frequency: <real-time/batch/on-demand>
+• Timeout: <X seconds>
+• Retry: <N attempts with X second backoff>
+• Error Handling: <logging, alerting, fallback behavior>
+
+The system SHALL integrate with SAP S/4HANA to synchronize inventory:
+• Protocol: REST API (OData v4)
+• Authentication: OAuth 2.0 with client credentials
+• Frequency: Real-time for stock changes, batch daily for reconciliation
+• Timeout: 30 seconds per request
+• Retry: 3 attempts with exponential backoff (1s, 2s, 4s)
+• Error Handling: Log to ELK, alert via PagerDuty, queue for manual retry
+```
+
+### Pattern 5: Notification
+
+```
+The system SHALL send <notification type> to <recipient>
+WHEN <trigger>
+containing: <information elements>
+via: <channel(s)>
+within: <time constraint>
+
+The system SHALL send Order Confirmation Email to Customer
+WHEN order is successfully placed
+containing: Order ID, Items ordered, Total amount, Estimated delivery date
+via: Email to registered address
+within: 5 minutes of order placement
+```
+
+---
+
+## 🔍 QUALITY REVIEW CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    REQUIREMENT QUALITY REVIEW CHECKLIST                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CONTENT QUALITY                                                            │
+│  ────────────────────────────────────────────────────────────────────────   │
+│  ☐ Uses SHALL/SHOULD/MAY correctly and consistently                        │
+│  ☐ No ambiguous words (fast, easy, user-friendly, etc.)                    │
+│  ☐ All terms defined or in glossary                                        │
+│  ☐ Specific, measurable where applicable                                   │
+│  ☐ Includes error handling / edge cases                                    │
+│  ☐ Has acceptance criteria (Given-When-Then or checklist)                  │
+│  ☐ Examples provided for complex requirements                               │
+│                                                                             │
+│  STRUCTURE                                                                  │
+│  ────────────────────────────────────────────────────────────────────────   │
+│  ☐ Unique, meaningful ID assigned                                          │
+│  ☐ Clear, concise title (max 10 words)                                     │
+│  ☐ Priority assigned (MoSCoW or numeric)                                   │
+│  ☐ Source documented (who, when, where)                                    │
+│  ☐ Version and status current                                              │
+│  ☐ Dependencies identified                                                  │
+│  ☐ Traced to parent requirement / business goal                            │
+│                                                                             │
+│  QUALITY ATTRIBUTES                                                         │
+│  ────────────────────────────────────────────────────────────────────────   │
+│  ☐ Atomic - one requirement per statement                                  │
+│  ☐ Complete - all info to implement is present                             │
+│  ☐ Consistent - no conflicts with other requirements                       │
+│  ☐ Correct - accurately represents stakeholder need                        │
+│  ☐ Feasible - can be implemented within constraints                        │
+│  ☐ Necessary - traces to business need (not gold plating)                  │
+│  ☐ Unambiguous - only one possible interpretation                          │
+│  ☐ Verifiable - can be tested / measured                                   │
+│                                                                             │
+│  RED FLAGS                                                                  │
+│  ────────────────────────────────────────────────────────────────────────   │
+│  ☐ No "and" joining unrelated concepts (split if found)                    │
+│  ☐ No passive voice without clear actor                                    │
+│  ☐ No TBDs or placeholders remaining                                       │
+│  ☐ No implementation details (focus on WHAT, not HOW)                      │
+│  ☐ No negative requirements where positive is clearer                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📈 REQUIREMENTS METRICS
+
+| Metric | Formula | Target | Purpose |
+|--------|---------|--------|---------|
+| **Volatility** | (Changed Reqs / Total) × 100 | < 15% | Measures scope stability |
+| **Completeness** | (Approved / Identified) × 100 | > 95% | Tracks progress |
+| **Testability** | (Verifiable / Total) × 100 | 100% | Quality indicator |
+| **Traceability** | (Traced / Total) × 100 | 100% | Coverage indicator |
+| **Defect Rate** | Defects Found / Total Reqs | < 0.5 | Quality indicator |
+| **Approval Cycle** | Days from Draft to Approved | < 5 days | Process efficiency |
+| **TBD Resolution** | (Resolved TBDs / Total TBDs) × 100 | 100% before baseline | Completeness |
+
+### 📊 Process Performance Baselines (CMMI Level 4)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    REQUIREMENTS QUALITY BASELINES                           │
+│                    (Industry Benchmarks for CMMI Level 4)                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  DEFECT DENSITY STANDARDS                                                   │
+│  ═════════════════════════                                                  │
+│                                                                             │
+│  ┌─────────────────────┬──────────────┬──────────────┬──────────────────┐  │
+│  │ Metric              │ World-Class  │ Acceptable   │ Needs Improvement│  │
+│  ├─────────────────────┼──────────────┼──────────────┼──────────────────┤  │
+│  │ Defects per 100 Reqs│ < 1          │ 1-3          │ > 3              │  │
+│  │ Requirements Volatility │ < 10%    │ 10-20%       │ > 20%            │  │
+│  │ Traceability Coverage│ > 98%       │ 95-98%       │ < 95%            │  │
+│  │ First-Pass Approval │ > 90%        │ 85-90%       │ < 85%            │  │
+│  │ Review Effectiveness│ > 85%        │ 80-85%       │ < 80%            │  │
+│  └─────────────────────┴──────────────┴──────────────┴──────────────────┘  │
+│                                                                             │
+│  STATISTICAL CONTROL LIMITS                                                 │
+│  ══════════════════════════                                                 │
+│                                                                             │
+│  For each metric, establish:                                                │
+│  • UCL = Mean + 3σ (Upper Control Limit)                                    │
+│  • LCL = Mean - 3σ (Lower Control Limit)                                    │
+│  • Process is "out of control" if beyond limits → investigate root cause   │
+│                                                                             │
+│  EXAMPLE CONTROL CHART (Defect Density):                                    │
+│                                                                             │
+│  Defects                                                                    │
+│   per 100   UCL (4.5) ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ •← Out of control!         │
+│    Reqs                         •                                           │
+│     4 ┤                    •         •                                      │
+│     3 ┤    •    •     •         •                                           │
+│     2 ┤ Mean (2.0)═══════════════════════════════════                       │
+│     1 ┤         •              •    •                                       │
+│     0 ┤ LCL (0) ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─                             │
+│       └──┬────┬────┬────┬────┬────┬────┬────┬────→ Sprint                   │
+│          1    2    3    4    5    6    7    8                               │
+│                                                                             │
+│  PROCESS CAPABILITY INDEX (Cpk)                                             │
+│  ═══════════════════════════════                                            │
+│                                                                             │
+│  Cpk = min[(UCL - Mean) / 3σ, (Mean - LCL) / 3σ]                           │
+│                                                                             │
+│  • Cpk ≥ 1.33: Process is capable (CMMI Level 4 target)                    │
+│  • Cpk 1.0-1.33: Process is marginally capable                              │
+│  • Cpk < 1.0: Process needs improvement                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 CONNECTIONS TO OTHER SKILLS
+
+| When you need to... | Load Skill |
+|---------------------|------------|
+| Gather information to write about | → SKILL-02 (Elicitation) |
+| Write NFR specifications | → SKILL-04 (NFR Framework) |
+| Prioritize requirements | → SKILL-05 (Prioritization) |
+| Manage requirement changes | → SKILL-07 (Traceability) |
+| Review and validate requirements | → SKILL-08 (Validation) |
+| Create formal documents | → SKILL-09, 10, 11, 12 (Templates) |
+| Model data for requirements | → SKILL-13 (Data Modeling) |
+| Model processes | → SKILL-16 (Process Modeling) |
+
+---
+
+*Skill upgraded to World-Class standard. Proceed to SKILL-04 for NFR Framework.*

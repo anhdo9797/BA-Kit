@@ -1,0 +1,624 @@
+# 🟠 SKILL-14: UX RESEARCH & DESIGN THINKING
+## Advanced Skill - Human-Centered Requirements Engineering
+
+---
+
+## 📌 SKILL METADATA
+
+| Attribute | Value |
+|-----------|-------|
+| **Skill ID** | SKILL-14 |
+| **Category** | 🟠 Advanced |
+| **Load When** | User-facing systems, UX requirements, design validation |
+| **Dependencies** | SKILL-01, SKILL-02 |
+| **Frameworks** | Design Thinking (IDEO/Stanford d.school), Jobs-to-be-Done |
+| **Output** | Personas, Journey Maps, Empathy Maps, UX Requirements |
+
+---
+
+## 🎯 MỤC ĐÍCH
+
+Skill này tích hợp **UX Research** và **Design Thinking** vào Requirements Engineering, đảm bảo solutions thực sự giải quyết vấn đề của người dùng, không chỉ đáp ứng yêu cầu kỹ thuật.
+
+---
+
+## 🔄 DESIGN THINKING FRAMEWORK
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DESIGN THINKING PROCESS                                  │
+│                    (Stanford d.school Model)                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│    UNDERSTAND                              CREATE                           │
+│    ◄──────────────────────────────────────────────────────────►            │
+│                                                                             │
+│  ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐  │
+│  │         │    │         │    │         │    │         │    │         │  │
+│  │EMPATHIZE│───►│ DEFINE  │───►│ IDEATE  │───►│PROTOTYPE│───►│  TEST   │  │
+│  │         │    │         │    │         │    │         │    │         │  │
+│  └─────────┘    └─────────┘    └─────────┘    └─────────┘    └─────────┘  │
+│       │              │              │              │              │        │
+│       │              │              │              │              │        │
+│       ▼              ▼              ▼              ▼              ▼        │
+│  ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐  │
+│  │•Observe │    │•Insights│    │•Brain-  │    │•Lo-fi   │    │•Usability│ │
+│  │•Interview│   │•POV     │    │ storm   │    │•Hi-fi   │    │ Testing │  │
+│  │•Immerse │    │•HMW     │    │•Crazy 8s│    │•MVP     │    │•Feedback│  │
+│  │•Empathy │    │•Problem │    │•Converge│    │•Click-  │    │•Iterate │  │
+│  │ Map     │    │ Statemt │    │         │    │ able    │    │         │  │
+│  └─────────┘    └─────────┘    └─────────┘    └─────────┘    └─────────┘  │
+│                                                                             │
+│                         ◄──── ITERATE ────►                                │
+│                                                                             │
+│  BA ACTIVITIES:                                                             │
+│  ├── Empathize: User research, stakeholder interviews                       │
+│  ├── Define: Requirements synthesis, problem framing                        │
+│  ├── Ideate: Solution exploration with stakeholders                         │
+│  ├── Prototype: Validate requirements with mockups                          │
+│  └── Test: UAT, usability validation                                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 👤 USER PERSONA TEMPLATE
+
+### Persona Canvas
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         USER PERSONA                                        │
+│                    [Persona Name / Archetype]                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌────────────────────────────────────────────────────────────────────────┐│
+│  │  IDENTITY                                                              ││
+│  │  ┌─────────────┐                                                       ││
+│  │  │             │  Name: [Fictional name]                               ││
+│  │  │   [Photo]   │  Age: [Range or specific]                             ││
+│  │  │             │  Role: [Job title / Life role]                        ││
+│  │  │             │  Location: [Geography]                                ││
+│  │  └─────────────┘  Tech Savviness: [Low / Medium / High]                ││
+│  │                                                                        ││
+│  │  Quote: "[A statement that captures their mindset]"                    ││
+│  └────────────────────────────────────────────────────────────────────────┘│
+│                                                                             │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐                │
+│  │  BACKGROUND              │  │  GOALS                   │                │
+│  │                          │  │                          │                │
+│  │  • [Education/Career]    │  │  Primary:                │                │
+│  │  • [Family/Lifestyle]    │  │  • [Main goal]           │                │
+│  │  • [Daily routine]       │  │  • [Secondary goal]      │                │
+│  │  • [Technology usage]    │  │                          │                │
+│  │                          │  │  Secondary:              │                │
+│  │                          │  │  • [Nice-to-have goal]   │                │
+│  └──────────────────────────┘  └──────────────────────────┘                │
+│                                                                             │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐                │
+│  │  FRUSTRATIONS            │  │  MOTIVATIONS             │                │
+│  │  (Pain Points)           │  │  (What drives them)      │                │
+│  │                          │  │                          │                │
+│  │  • [Pain point 1]        │  │  • [Motivation 1]        │                │
+│  │  • [Pain point 2]        │  │  • [Motivation 2]        │                │
+│  │  • [Pain point 3]        │  │  • [Motivation 3]        │                │
+│  │  • [Pain point 4]        │  │  • [Motivation 4]        │                │
+│  │                          │  │                          │                │
+│  └──────────────────────────┘  └──────────────────────────┘                │
+│                                                                             │
+│  ┌────────────────────────────────────────────────────────────────────────┐│
+│  │  BEHAVIORS & PREFERENCES                                               ││
+│  │                                                                        ││
+│  │  Preferred Channels:  □ Mobile  □ Desktop  □ In-person  □ Phone       ││
+│  │  Information Sources: [Where they get information]                     ││
+│  │  Decision Making:     [How they make decisions - quick/research/...]   ││
+│  │  Brands They Like:    [Similar products/services they use]             ││
+│  └────────────────────────────────────────────────────────────────────────┘│
+│                                                                             │
+│  ┌────────────────────────────────────────────────────────────────────────┐│
+│  │  SCENARIO                                                              ││
+│  │                                                                        ││
+│  │  [A day-in-the-life scenario showing how they would use the product]   ││
+│  │  [Include context, triggers, and expected outcomes]                    ││
+│  │                                                                        ││
+│  └────────────────────────────────────────────────────────────────────────┘│
+│                                                                             │
+│  ┌────────────────────────────────────────────────────────────────────────┐│
+│  │  REQUIREMENTS IMPLICATIONS                                             ││
+│  │                                                                        ││
+│  │  Must Have:  [Requirements this persona absolutely needs]              ││
+│  │  Should Have:[Requirements that would delight this persona]            ││
+│  │  Avoid:      [Features/approaches that would frustrate them]           ││
+│  └────────────────────────────────────────────────────────────────────────┘│
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Persona Example
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         USER PERSONA                                        │
+│                    "Busy Manager Maria"                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Name: Maria Chen                    Age: 38                                │
+│  Role: Regional Sales Manager        Location: Urban, travels frequently    │
+│  Tech Savviness: Medium-High         Device: iPhone, MacBook                │
+│                                                                             │
+│  Quote: "I need information at my fingertips, not buried in reports."       │
+│                                                                             │
+│  BACKGROUND:                         GOALS:                                 │
+│  • MBA, 12 years in sales            • Monitor team performance real-time   │
+│  • Manages team of 15 reps           • Reduce time on admin tasks           │
+│  • Works 50+ hours/week              • Make data-driven decisions quickly   │
+│  • Always on-the-go                  • Stay connected while traveling       │
+│                                                                             │
+│  FRUSTRATIONS:                       MOTIVATIONS:                           │
+│  • Too many systems to check         • Exceeding quarterly targets          │
+│  • Reports are always outdated       • Getting promoted to Director         │
+│  • Mobile experience is poor         • Work-life balance                    │
+│  • Can't get answers quickly         • Being seen as innovative leader      │
+│                                                                             │
+│  REQUIREMENTS IMPLICATIONS:                                                 │
+│  Must Have:  Mobile-first dashboard, real-time data, push notifications     │
+│  Should Have: Voice commands, offline access, AI insights                   │
+│  Avoid:      Complex navigation, mandatory desktop features, long forms     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🗺️ CUSTOMER JOURNEY MAP
+
+### Journey Map Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CUSTOMER JOURNEY MAP                                     │
+│                    Persona: [Name]    Scenario: [Description]               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STAGES                                                                     │
+│  ═══════════════════════════════════════════════════════════════════════   │
+│         │ AWARENESS │ CONSIDER- │ PURCHASE/ │   USE/    │  SUPPORT/ │      │
+│         │           │   ATION   │  SIGN-UP  │  ENGAGE   │  LOYALTY  │      │
+│  ───────┼───────────┼───────────┼───────────┼───────────┼───────────┼      │
+│         │           │           │           │           │           │      │
+│  DOING  │ • Searches│ • Compares│ • Fills   │ • Uses    │ • Contacts│      │
+│  (Actions│  online   │   options │   form    │   features│   support │      │
+│         │ • Asks    │ • Reads   │ • Pays    │ • Invites │ • Renews  │      │
+│         │   peers   │   reviews │ • Verifies│   team    │           │      │
+│  ───────┼───────────┼───────────┼───────────┼───────────┼───────────┼      │
+│         │           │           │           │           │           │      │
+│  THINKING│"I need a │"Which one │"Is this   │"How do I  │"Is it     │      │
+│  (Thoughts│ solution"│ is best?" │ secure?"  │ do X?"    │ worth it?"│      │
+│         │"What's    │"Can I     │"What if I │"Why is    │"Should I  │      │
+│         │ available"│ afford it"│ change    │ this slow"│ upgrade?" │      │
+│         │           │           │ my mind?" │           │           │      │
+│  ───────┼───────────┼───────────┼───────────┼───────────┼───────────┼      │
+│         │           │           │           │           │           │      │
+│  FEELING │           │           │           │           │           │      │
+│  (Emotions)          │           │           │           │           │      │
+│         │  😊 ───── │ ── 😐 ─── │ ───────── │ ── 😊 ─── │ ── 😐 ── │      │
+│  Happy  │     \     │    /\     │    /      │     \     │    /      │      │
+│    ↑    │      \   ─│───/  \───│───/        │      \───│───/       │      │
+│  Neutral│       \  /│  /    \  │  /         │           │           │      │
+│    ↓    │        \/  │ /      \ │ /          │           │           │      │
+│  Unhappy│        😟 │          │😟          │           │           │      │
+│         │           │           │           │           │           │      │
+│  ───────┼───────────┼───────────┼───────────┼───────────┼───────────┼      │
+│         │           │           │           │           │           │      │
+│  TOUCH- │ • Google  │ • Website │ • Sign-up │ • App/Web │ • Help    │      │
+│  POINTS │ • Social  │ • Demo    │   page    │ • Email   │   center  │      │
+│         │ • Ads     │ • Sales   │ • Payment │ • Notific-│ • Chat    │      │
+│         │ • Reviews │   call    │   gateway │   ations  │ • Phone   │      │
+│  ───────┼───────────┼───────────┼───────────┼───────────┼───────────┼      │
+│         │           │           │           │           │           │      │
+│  PAIN   │ • Too many│ • Pricing │ • Form too│ • Learning│ • Slow    │      │
+│  POINTS │   options │   unclear │   long    │   curve   │   response│      │
+│         │ • Jargon  │ • No free │ • Payment │ • Missing │ • Can't   │      │
+│         │           │   trial   │   failed  │   features│   find    │      │
+│         │           │           │           │           │   answer  │      │
+│  ───────┼───────────┼───────────┼───────────┼───────────┼───────────┼      │
+│         │           │           │           │           │           │      │
+│  OPPORT-│ • Clear   │ • Free    │ • Simple  │ • Onboard-│ • Self-   │      │
+│  UNITIES│   message │   trial   │   checkout│   ing     │   service │      │
+│         │ • SEO     │ • Compare │ • Save    │   wizard  │ • FAQ     │      │
+│         │           │   page    │   progress│ • Tips    │ • Proact- │      │
+│         │           │           │           │           │   ive     │      │
+│  ═══════════════════════════════════════════════════════════════════════   │
+│                                                                             │
+│  KEY INSIGHTS:                                                              │
+│  1. [Major insight from mapping]                                            │
+│  2. [Another key finding]                                                   │
+│  3. [Opportunity area]                                                      │
+│                                                                             │
+│  PRIORITY IMPROVEMENTS:                                                     │
+│  • [High-impact improvement 1]                                              │
+│  • [High-impact improvement 2]                                              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 💭 EMPATHY MAP
+
+### Empathy Map Canvas
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         EMPATHY MAP                                         │
+│                    Persona: [Name]    Context: [Situation]                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────────────────┬─────────────────────────────────────┐ │
+│  │           SAYS                  │             THINKS                  │ │
+│  │   (Quotes, statements)          │   (What's on their mind)            │ │
+│  │                                 │                                     │ │
+│  │   • "I don't have time for      │   • "Will this actually work?"      │ │
+│  │     this"                       │   • "I hope I don't look stupid"    │ │
+│  │   • "Just show me how to        │   • "There must be an easier way"   │ │
+│  │     do it"                      │   • "Why is this so complicated?"   │ │
+│  │   • "Can someone help me?"      │   • "I need to impress my boss"     │ │
+│  │   • "This used to be easier"    │   • "What if I make a mistake?"     │ │
+│  │                                 │                                     │ │
+│  ├─────────────────────────────────┼─────────────────────────────────────┤ │
+│  │                                 │                                     │ │
+│  │           ┌───────────────┐     │                                     │ │
+│  │           │               │     │                                     │ │
+│  │           │   [PERSONA]   │     │                                     │ │
+│  │           │               │     │                                     │ │
+│  │           └───────────────┘     │                                     │ │
+│  │                                 │                                     │ │
+│  ├─────────────────────────────────┼─────────────────────────────────────┤ │
+│  │           DOES                  │             FEELS                   │ │
+│  │   (Actions, behaviors)          │   (Emotions, attitudes)             │ │
+│  │                                 │                                     │ │
+│  │   • Multitasks constantly       │   • Frustrated with complexity      │ │
+│  │   • Checks phone frequently     │   • Anxious about deadlines         │ │
+│  │   • Asks colleagues for help    │   • Overwhelmed by options          │ │
+│  │   • Works late to catch up      │   • Hopeful when things work        │ │
+│  │   • Skips tutorials             │   • Impatient with slow systems     │ │
+│  │   • Uses workarounds            │   • Satisfied when productive       │ │
+│  │                                 │                                     │ │
+│  └─────────────────────────────────┴─────────────────────────────────────┘ │
+│                                                                             │
+│  ┌─────────────────────────────────┬─────────────────────────────────────┐ │
+│  │         PAINS                   │            GAINS                    │ │
+│  │   (Fears, frustrations,         │   (Wants, needs, measures           │ │
+│  │    obstacles)                   │    of success)                      │ │
+│  │                                 │                                     │ │
+│  │   • Wasting time on admin       │   • Get work done faster            │ │
+│  │   • Looking incompetent         │   • Look professional               │ │
+│  │   • Missing important info      │   • Be informed and prepared        │ │
+│  │   • Making costly mistakes      │   • Make confident decisions        │ │
+│  │   • Falling behind peers        │   • Stay ahead of competition       │ │
+│  │                                 │                                     │ │
+│  └─────────────────────────────────┴─────────────────────────────────────┘ │
+│                                                                             │
+│  INSIGHTS FOR REQUIREMENTS:                                                 │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • [Insight 1: What this tells us about requirements]                       │
+│  • [Insight 2: Feature/capability implication]                              │
+│  • [Insight 3: UX principle to follow]                                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔧 JOBS-TO-BE-DONE (JTBD) FRAMEWORK
+
+### Job Story Format
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    JOBS-TO-BE-DONE                                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  JOB STORY FORMAT:                                                          │
+│  ═════════════════                                                          │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                                                                     │   │
+│  │   WHEN [situation/context/trigger]                                  │   │
+│  │   I WANT TO [motivation/goal]                                       │   │
+│  │   SO I CAN [expected outcome/benefit]                               │   │
+│  │                                                                     │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  EXAMPLE:                                                                   │
+│  ─────────                                                                  │
+│  WHEN I'm reviewing monthly sales data before a management meeting         │
+│  I WANT TO quickly identify underperforming regions                        │
+│  SO I CAN prepare talking points and action plans before presenting        │
+│                                                                             │
+│  ═══════════════════════════════════════════════════════════════════════   │
+│                                                                             │
+│  JOB MAP:                                                                   │
+│  ════════                                                                   │
+│                                                                             │
+│  ┌──────────────────────────────────────────────────────────────────────┐  │
+│  │                                                                      │  │
+│  │  CORE JOB: [What the user is ultimately trying to accomplish]        │  │
+│  │                                                                      │  │
+│  │  ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐              │  │
+│  │  │ DEFINE  │──►│ LOCATE  │──►│ PREPARE │──►│ CONFIRM │              │  │
+│  │  │         │   │         │   │         │   │         │              │  │
+│  │  │What do I│   │Where is │   │How do I │   │Did it   │              │  │
+│  │  │need to  │   │the info/│   │get ready│   │work     │              │  │
+│  │  │accomplish│  │resource?│   │to do it?│   │correctly│              │  │
+│  │  └─────────┘   └─────────┘   └─────────┘   └─────────┘              │  │
+│  │       │             │             │             │                    │  │
+│  │       ▼             ▼             ▼             ▼                    │  │
+│  │  ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐              │  │
+│  │  │ EXECUTE │──►│ MONITOR │──►│ MODIFY  │──►│ CONCLUDE│              │  │
+│  │  │         │   │         │   │         │   │         │              │  │
+│  │  │Perform  │   │Check    │   │Make     │   │Finish   │              │  │
+│  │  │the core │   │progress │   │adjust-  │   │and wrap │              │  │
+│  │  │activity │   │         │   │ments    │   │up       │              │  │
+│  │  └─────────┘   └─────────┘   └─────────┘   └─────────┘              │  │
+│  │                                                                      │  │
+│  └──────────────────────────────────────────────────────────────────────┘  │
+│                                                                             │
+│  OPPORTUNITY SCORING:                                                       │
+│  ═══════════════════                                                        │
+│                                                                             │
+│  Opportunity = Importance + (Importance - Satisfaction)                     │
+│                                                                             │
+│  ┌──────────────────────┬────────────┬──────────────┬──────────────────┐   │
+│  │ Job Step             │ Importance │ Satisfaction │ Opportunity      │   │
+│  │                      │ (1-10)     │ (1-10)       │ Score            │   │
+│  ├──────────────────────┼────────────┼──────────────┼──────────────────┤   │
+│  │ Find relevant data   │ 9          │ 4            │ 9 + (9-4) = 14   │   │
+│  │ Compare periods      │ 8          │ 6            │ 8 + (8-6) = 10   │   │
+│  │ Export report        │ 6          │ 7            │ 6 + (6-7) = 5    │   │
+│  │ Share with team      │ 7          │ 3            │ 7 + (7-3) = 11   │   │
+│  └──────────────────────┴────────────┴──────────────┴──────────────────┘   │
+│                                                                             │
+│  Score > 10 = High opportunity (underserved need)                           │
+│  Score 5-10 = Medium opportunity                                            │
+│  Score < 5  = Low opportunity (adequately served)                           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎨 SERVICE BLUEPRINT
+
+### Service Blueprint Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    SERVICE BLUEPRINT                                        │
+│                    Service: [Service Name]                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CUSTOMER JOURNEY                                                           │
+│  ═══════════════════════════════════════════════════════════════════════   │
+│                                                                             │
+│  Evidence    │ Website │ App    │ Email   │ Dashboard│ Report │ Support │  │
+│  (Touchpoints)│        │        │         │          │        │         │  │
+│  ────────────┼─────────┼────────┼─────────┼──────────┼────────┼─────────│  │
+│              │         │        │         │          │        │         │  │
+│  Customer    │ Browse  │ Login  │ Read    │ View     │ Export │ Chat    │  │
+│  Actions     │ plans   │ to app │ welcome │ metrics  │ data   │ with    │  │
+│              │         │        │ email   │          │        │ agent   │  │
+│              │         │        │         │          │        │         │  │
+│ ═════════════╪═════════╪════════╪═════════╪══════════╪════════╪═════════│  │
+│ LINE OF INTERACTION (Customer can see above this line)                  │  │
+│ ═════════════╪═════════╪════════╪═════════╪══════════╪════════╪═════════│  │
+│              │         │        │         │          │        │         │  │
+│  Frontstage  │ Display │ Auth-  │ Deliver │ Load     │ Generate│ Route  │  │
+│  Actions     │ pricing │ enticate│ email  │ dashboard│ PDF    │ to     │  │
+│  (Visible)   │ page    │ user   │         │ data     │        │ agent   │  │
+│              │         │        │         │          │        │         │  │
+│ ═════════════╪═════════╪════════╪═════════╪══════════╪════════╪═════════│  │
+│ LINE OF VISIBILITY (Customer cannot see below this line)                │  │
+│ ═════════════╪═════════╪════════╪═════════╪══════════╪════════╪═════════│  │
+│              │         │        │         │          │        │         │  │
+│  Backstage   │ CMS     │ Auth   │ Email   │ Query    │ Report │ Ticket  │  │
+│  Actions     │ manages │ service│ service │ database │ engine │ system  │  │
+│  (Invisible) │ content │ checks │ sends   │ aggregates│creates│ assigns │  │
+│              │         │ token  │         │ data     │        │         │  │
+│              │         │        │         │          │        │         │  │
+│ ═════════════╪═════════╪════════╪═════════╪══════════╪════════╪═════════│  │
+│ LINE OF INTERNAL INTERACTION                                            │  │
+│ ═════════════╪═════════╪════════╪═════════╪══════════╪════════╪═════════│  │
+│              │         │        │         │          │        │         │  │
+│  Support     │ Cloud   │ IAM    │ SMTP    │ Data     │ Storage│ CRM     │  │
+│  Processes   │ hosting │ provider│ server │ warehouse│ service│ system  │  │
+│              │         │        │         │          │        │         │  │
+│  ────────────┴─────────┴────────┴─────────┴──────────┴────────┴─────────│  │
+│                                                                             │
+│  EMOTIONAL JOURNEY:                                                         │
+│  😊 ────── 😐 ────── 😟 ────── 😊 ────── 😊 ────── 😟 ────── 😊            │
+│                                                                             │
+│  PAIN POINTS: ❌                OPPORTUNITIES: ✨                           │
+│  • [Stage where friction]      • [Improvement idea]                         │
+│  • [Stage where friction]      • [Improvement idea]                         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🧪 USABILITY REQUIREMENTS
+
+### Usability Metrics (ISO 9241-11)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    USABILITY REQUIREMENTS                                   │
+│                    (Based on ISO 9241-11)                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                         USABILITY                                           │
+│                            │                                                │
+│           ┌────────────────┼────────────────┐                               │
+│           │                │                │                               │
+│           ▼                ▼                ▼                               │
+│    ┌─────────────┐  ┌─────────────┐  ┌─────────────┐                       │
+│    │EFFECTIVENESS│  │ EFFICIENCY  │  │SATISFACTION │                       │
+│    │             │  │             │  │             │                       │
+│    │ Can users   │  │ Resources   │  │ How users   │                       │
+│    │ complete    │  │ expended    │  │ feel about  │                       │
+│    │ tasks?      │  │ to complete │  │ the system  │                       │
+│    └─────────────┘  └─────────────┘  └─────────────┘                       │
+│           │                │                │                               │
+│           ▼                ▼                ▼                               │
+│    ┌─────────────┐  ┌─────────────┐  ┌─────────────┐                       │
+│    │ METRICS:    │  │ METRICS:    │  │ METRICS:    │                       │
+│    │             │  │             │  │             │                       │
+│    │• Task       │  │• Time on    │  │• SUS Score  │                       │
+│    │  completion │  │  task       │  │  (>68=good) │                       │
+│    │  rate (%)   │  │• Clicks/    │  │• NPS        │                       │
+│    │• Error rate │  │  steps      │  │• CSAT       │                       │
+│    │• Accuracy   │  │• Learning   │  │• Qualitative│                       │
+│    │             │  │  time       │  │  feedback   │                       │
+│    └─────────────┘  └─────────────┘  └─────────────┘                       │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  USABILITY REQUIREMENT TEMPLATE:                                            │
+│  ═══════════════════════════════                                            │
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │ UX-001: [Requirement Title]                                           │ │
+│  ├───────────────────────────────────────────────────────────────────────┤ │
+│  │                                                                       │ │
+│  │ Context:                                                              │ │
+│  │ [Persona] performing [task] using [device/channel]                    │ │
+│  │                                                                       │ │
+│  │ Requirement:                                                          │ │
+│  │ [X]% of users SHALL be able to complete [task] within [time/clicks]   │ │
+│  │ on first attempt without assistance.                                  │ │
+│  │                                                                       │ │
+│  │ Measurement:                                                          │ │
+│  │ • Method: Usability testing with [N] participants                     │ │
+│  │ • Success: [X]% task completion, <[Y] errors                          │ │
+│  │ • SUS Score: >[Z]                                                     │ │
+│  │                                                                       │ │
+│  └───────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│  EXAMPLE:                                                                   │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │ UX-001: First-Time User Registration                                  │ │
+│  ├───────────────────────────────────────────────────────────────────────┤ │
+│  │ Context: New user on mobile device completing registration            │ │
+│  │                                                                       │ │
+│  │ Requirement:                                                          │ │
+│  │ 90% of users SHALL complete registration within 2 minutes             │ │
+│  │ with no more than 1 error on first attempt.                           │ │
+│  │                                                                       │ │
+│  │ Measurement:                                                          │ │
+│  │ • Usability test with 15 participants matching persona                │ │
+│  │ • Success: 90% completion, <2 min avg, error rate <10%                │ │
+│  │ • Post-task SUS: >75                                                  │ │
+│  └───────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📋 UX REQUIREMENTS ELICITATION QUESTIONS
+
+### Questions by Category
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    UX ELICITATION QUESTIONS                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  UNDERSTANDING USERS:                                                       │
+│  • Who are the primary users? What are their roles?                         │
+│  • What is their technical proficiency level?                               │
+│  • In what context/environment will they use the system?                    │
+│  • What devices/browsers must be supported?                                 │
+│  • Do users have any accessibility needs?                                   │
+│  • What language/localization is required?                                  │
+│                                                                             │
+│  UNDERSTANDING TASKS:                                                       │
+│  • What are the top 5 tasks users need to accomplish?                       │
+│  • How frequently is each task performed?                                   │
+│  • What's the current process (if any)? Pain points?                        │
+│  • What's an acceptable time to complete each task?                         │
+│  • What errors commonly occur?                                              │
+│                                                                             │
+│  UNDERSTANDING CONTEXT:                                                     │
+│  • Where will users physically be when using this?                          │
+│  • Will they be interrupted? Multi-tasking?                                 │
+│  • What's the network environment? (offline support?)                       │
+│  • Are there time pressures or stress factors?                              │
+│                                                                             │
+│  UNDERSTANDING SUCCESS:                                                     │
+│  • How will you measure if the UX is successful?                            │
+│  • What would "delightful" look like for users?                             │
+│  • Are there competitor products to benchmark against?                      │
+│  • What's the biggest usability risk?                                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ✅ UX REQUIREMENTS CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    UX REQUIREMENTS CHECKLIST                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  USER RESEARCH:                                                             │
+│  ☐ User personas created and validated                                      │
+│  ☐ Customer journey maps completed                                          │
+│  ☐ Empathy maps for key personas                                            │
+│  ☐ Jobs-to-be-done identified                                               │
+│  ☐ Pain points and opportunities documented                                 │
+│                                                                             │
+│  REQUIREMENTS DOCUMENTATION:                                                │
+│  ☐ Usability requirements are measurable                                    │
+│  ☐ Task scenarios documented                                                │
+│  ☐ Success criteria defined for key tasks                                   │
+│  ☐ Accessibility requirements specified (WCAG level)                        │
+│  ☐ Device/browser support matrix                                            │
+│  ☐ Error handling UX defined                                                │
+│                                                                             │
+│  VALIDATION:                                                                │
+│  ☐ Personas reviewed with real users/stakeholders                           │
+│  ☐ Journey maps validated                                                   │
+│  ☐ Prototype testing planned                                                │
+│  ☐ Usability testing criteria defined                                       │
+│  ☐ Success metrics agreed upon                                              │
+│                                                                             │
+│  HANDOFF:                                                                   │
+│  ☐ UX artifacts linked to requirements                                      │
+│  ☐ Design rationale documented                                              │
+│  ☐ Interaction patterns specified                                           │
+│  ☐ Edge cases and error states defined                                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 RELATED SKILLS
+
+| For... | Load |
+|--------|------|
+| Interviewing users | SKILL-02 |
+| Writing UX requirements | SKILL-03 |
+| Data for personas | SKILL-13 |
+| Workshop facilitation | SKILL-15 |
+| Including in FRD | SKILL-11 |
+| Agile user stories | SKILL-12 |
+
+---
+
+*Use this skill to ensure your requirements truly solve user problems, not just meet specifications.*

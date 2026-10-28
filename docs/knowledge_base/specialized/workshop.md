@@ -1,0 +1,715 @@
+# 🟠 SKILL-15: WORKSHOP FACILITATION
+## Advanced Skill - Requirements Workshop Mastery
+
+---
+
+## 📌 SKILL METADATA
+
+| Attribute | Value |
+|-----------|-------|
+| **Skill ID** | SKILL-15 |
+| **Category** | 🟠 Advanced |
+| **Load When** | Facilitating group sessions, elicitation workshops |
+| **Dependencies** | SKILL-01, SKILL-02, SKILL-06 |
+| **Techniques** | JAD, Brainstorming, Design Thinking, Affinity Mapping |
+| **Output** | Workshop plans, facilitated sessions, consolidated outputs |
+
+---
+
+## 🎯 MỤC ĐÍCH
+
+Skill này cung cấp **kịch bản chi tiết** và **kỹ thuật điều phối** để tổ chức các workshop hiệu quả, từ planning đến execution và follow-up.
+
+---
+
+## 📋 WORKSHOP TYPES
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    WORKSHOP TYPES FOR BA                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐ │
+│  │ TYPE              │ PURPOSE              │ WHEN TO USE                │ │
+│  ├───────────────────┼──────────────────────┼────────────────────────────┤ │
+│  │ Requirements      │ Elicit & validate    │ Project kickoff, new       │ │
+│  │ Workshop          │ requirements         │ features, unclear scope    │ │
+│  ├───────────────────┼──────────────────────┼────────────────────────────┤ │
+│  │ JAD (Joint        │ Accelerated design   │ Complex features, need     │ │
+│  │ Application       │ with all parties     │ rapid consensus            │ │
+│  │ Design)           │                      │                            │ │
+│  ├───────────────────┼──────────────────────┼────────────────────────────┤ │
+│  │ Brainstorming     │ Generate ideas       │ Innovation, new products,  │ │
+│  │                   │ creatively           │ problem-solving            │ │
+│  ├───────────────────┼──────────────────────┼────────────────────────────┤ │
+│  │ Design Thinking   │ Human-centered       │ UX improvements, new       │ │
+│  │ Workshop          │ problem solving      │ user experiences           │ │
+│  ├───────────────────┼──────────────────────┼────────────────────────────┤ │
+│  │ Process Mapping   │ Document current/    │ Process improvement,       │ │
+│  │                   │ future state         │ system replacement         │ │
+│  ├───────────────────┼──────────────────────┼────────────────────────────┤ │
+│  │ Prioritization    │ Rank requirements    │ Backlog grooming, release  │ │
+│  │ Workshop          │ or features          │ planning, trade-offs       │ │
+│  ├───────────────────┼──────────────────────┼────────────────────────────┤ │
+│  │ Review/           │ Validate documents   │ SRS review, requirements   │ │
+│  │ Walkthrough       │ with stakeholders    │ sign-off                   │ │
+│  └───────────────────┴──────────────────────┴────────────────────────────┘ │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎬 WORKSHOP LIFECYCLE
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    WORKSHOP LIFECYCLE                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────┐   ┌─────────────┐   ┌─────────────┐   ┌─────────────┐     │
+│  │   PLAN      │──►│   PREPARE   │──►│   EXECUTE   │──►│  FOLLOW-UP  │     │
+│  │  (2 weeks)  │   │  (1 week)   │   │  (Workshop) │   │ (1-2 days)  │     │
+│  └─────────────┘   └─────────────┘   └─────────────┘   └─────────────┘     │
+│        │                 │                 │                 │              │
+│        ▼                 ▼                 ▼                 ▼              │
+│  • Define objectives  • Send invites   • Facilitate     • Document         │
+│  • Identify attendees • Pre-read       • Time-keep      • Distribute       │
+│  • Choose techniques  • Prepare room   • Capture notes  • Action items     │
+│  • Create agenda      • Materials      • Manage dynamics• Feedback         │
+│  • Book resources     • Test tech      • Drive outcomes • Archive          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📝 WORKSHOP PLANNING TEMPLATE
+
+### Workshop Charter
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    WORKSHOP CHARTER                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BASIC INFORMATION                                                          │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Workshop Name: [Descriptive name]                                          │
+│  Type: [Requirements/JAD/Brainstorming/etc.]                                │
+│  Date/Time: [Date] [Start time - End time]                                  │
+│  Duration: [X hours]                                                        │
+│  Location: [Room/Virtual platform]                                          │
+│  Facilitator: [Name]                                                        │
+│  Scribe/Note-taker: [Name]                                                  │
+│                                                                             │
+│  OBJECTIVES                                                                 │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  By the end of this workshop, we will:                                      │
+│  1. [Specific, measurable outcome 1]                                        │
+│  2. [Specific, measurable outcome 2]                                        │
+│  3. [Specific, measurable outcome 3]                                        │
+│                                                                             │
+│  SCOPE                                                                      │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  In Scope:                                                                  │
+│  • [Topic/area 1]                                                           │
+│  • [Topic/area 2]                                                           │
+│                                                                             │
+│  Out of Scope (Parking Lot):                                                │
+│  • [Topic to defer]                                                         │
+│  • [Topic to defer]                                                         │
+│                                                                             │
+│  PARTICIPANTS                                                               │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  ┌─────────────────┬────────────────┬─────────────────┬───────────────────┐│
+│  │ Name            │ Role           │ Contribution    │ Required/Optional ││
+│  ├─────────────────┼────────────────┼─────────────────┼───────────────────┤│
+│  │ [Name 1]        │ [Role]         │ [What they bring│ Required          ││
+│  │ [Name 2]        │ [Role]         │  to the session]│ Required          ││
+│  │ [Name 3]        │ [Role]         │                 │ Optional          ││
+│  └─────────────────┴────────────────┴─────────────────┴───────────────────┘│
+│                                                                             │
+│  PRE-WORK                                                                   │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Participants should complete before the workshop:                          │
+│  • [Read document X]                                                        │
+│  • [Complete survey Y]                                                      │
+│  • [Think about questions Z]                                                │
+│                                                                             │
+│  DELIVERABLES                                                               │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Expected outputs:                                                          │
+│  • [Deliverable 1 - e.g., Prioritized list of requirements]                 │
+│  • [Deliverable 2 - e.g., Process flow diagram]                             │
+│  • [Deliverable 3 - e.g., Action items with owners]                         │
+│                                                                             │
+│  SUCCESS CRITERIA                                                           │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  The workshop will be successful if:                                        │
+│  • [Criterion 1 - e.g., All top 10 requirements identified]                 │
+│  • [Criterion 2 - e.g., Consensus reached on priority]                      │
+│  • [Criterion 3 - e.g., No open conflicts remaining]                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🗓️ AGENDA TEMPLATES
+
+### Requirements Workshop (Half-Day)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│            REQUIREMENTS WORKSHOP AGENDA (4 hours)                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  TIME        │ ACTIVITY                │ TECHNIQUE      │ OWNER            │
+│  ────────────┼─────────────────────────┼────────────────┼──────────────────│
+│  9:00-9:15   │ Welcome & Objectives    │ Presentation   │ Facilitator      │
+│              │ • Introductions         │                │                  │
+│              │ • Ground rules          │                │                  │
+│              │ • Agenda review         │                │                  │
+│  ────────────┼─────────────────────────┼────────────────┼──────────────────│
+│  9:15-9:45   │ Context Setting         │ Presentation   │ Project Sponsor  │
+│              │ • Business background   │ Q&A            │                  │
+│              │ • Goals & success       │                │                  │
+│              │ • Constraints           │                │                  │
+│  ────────────┼─────────────────────────┼────────────────┼──────────────────│
+│  9:45-10:30  │ Current State Discovery │ Process        │ SMEs +           │
+│              │ • Map existing process  │ Mapping        │ Facilitator      │
+│              │ • Identify pain points  │ Sticky notes   │                  │
+│              │ • Document workarounds  │                │                  │
+│  ────────────┼─────────────────────────┼────────────────┼──────────────────│
+│  10:30-10:45 │ ☕ BREAK                │                │                  │
+│  ────────────┼─────────────────────────┼────────────────┼──────────────────│
+│  10:45-11:30 │ Requirements Elicitation│ Brainstorming  │ All participants │
+│              │ • "What do you need?"   │ Affinity       │ + Facilitator    │
+│              │ • Silent brainstorm     │ grouping       │                  │
+│              │ • Group & discuss       │                │                  │
+│  ────────────┼─────────────────────────┼────────────────┼──────────────────│
+│  11:30-12:15 │ Prioritization          │ MoSCoW or      │ All + Product    │
+│              │ • Review requirements   │ Dot voting     │ Owner            │
+│              │ • Prioritize together   │                │                  │
+│              │ • Resolve conflicts     │                │                  │
+│  ────────────┼─────────────────────────┼────────────────┼──────────────────│
+│  12:15-12:45 │ Review & Next Steps     │ Discussion     │ Facilitator      │
+│              │ • Summarize outcomes    │                │                  │
+│              │ • Confirm action items  │                │                  │
+│              │ • Set follow-up date    │                │                  │
+│  ────────────┼─────────────────────────┼────────────────┼──────────────────│
+│  12:45-13:00 │ Feedback & Close        │ Quick survey   │ Facilitator      │
+│              │ • What worked well?     │ Plus/Delta     │                  │
+│              │ • What to improve?      │                │                  │
+│              │ • Thank participants    │                │                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Design Thinking Workshop (Full Day)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│          DESIGN THINKING WORKSHOP AGENDA (6 hours)                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  TIME        │ PHASE        │ ACTIVITY                │ TECHNIQUE          │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  9:00-9:30   │ Setup        │ Welcome, intro to       │ Presentation       │
+│              │              │ Design Thinking         │                    │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  9:30-10:30  │ EMPATHIZE    │ User research share-out │ Persona review     │
+│              │              │ Journey mapping         │ Journey canvas     │
+│              │              │ Empathy mapping         │ Empathy map        │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  10:30-10:45 │ ☕ BREAK     │                         │                    │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  10:45-11:30 │ DEFINE       │ Insights synthesis      │ Affinity mapping   │
+│              │              │ Problem statement       │ HMW questions      │
+│              │              │ How Might We...         │ POV statement      │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  11:30-12:30 │ IDEATE       │ Brainstorming solutions │ Crazy 8s           │
+│              │              │ Idea generation         │ Round robin        │
+│              │              │ Concept selection       │ Dot voting         │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  12:30-13:30 │ 🍽️ LUNCH    │                         │                    │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  13:30-14:30 │ PROTOTYPE    │ Rapid prototyping       │ Paper prototype    │
+│              │              │ Build testable concept  │ Storyboard         │
+│              │              │                         │ Role play          │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  14:30-15:00 │ TEST         │ Internal testing        │ Fishbowl critique  │
+│              │              │ Feedback capture        │ I like/I wish      │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  15:00-15:15 │ ☕ BREAK     │                         │                    │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  15:15-16:00 │ SYNTHESIZE   │ Refine based on feedback│ Group discussion   │
+│              │              │ Define next steps       │ Action planning    │
+│              │              │ Requirements extraction │                    │
+│  ────────────┼──────────────┼─────────────────────────┼────────────────────│
+│  16:00-16:30 │ CLOSE        │ Recap & retrospective   │ Plus/Delta         │
+│              │              │                         │                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎭 FACILITATION TECHNIQUES
+
+### Icebreakers & Energizers
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    ICEBREAKERS & ENERGIZERS                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ICEBREAKERS (Start of workshop - build rapport)                            │
+│  ──────────────────────────────────────────────────────────────────────     │
+│                                                                             │
+│  🧊 Two Truths and a Lie (5-10 min)                                         │
+│     Each person shares 3 facts, group guesses the lie                       │
+│     Good for: New teams, building connections                               │
+│                                                                             │
+│  🧊 Rose, Bud, Thorn (5 min)                                                │
+│     Share one positive (rose), one opportunity (bud), one challenge (thorn) │
+│     Good for: Setting context, understanding current state                  │
+│                                                                             │
+│  🧊 One Word Check-in (2-3 min)                                             │
+│     Each person says one word describing their current state                │
+│     Good for: Quick pulse, tight timeframes                                 │
+│                                                                             │
+│  🧊 Superhero Power (5 min)                                                 │
+│     "If you could have any superpower for this project, what would it be?"  │
+│     Good for: Revealing hidden concerns/desires                             │
+│                                                                             │
+│  ──────────────────────────────────────────────────────────────────────     │
+│  ENERGIZERS (After breaks - re-engage)                                      │
+│  ──────────────────────────────────────────────────────────────────────     │
+│                                                                             │
+│  ⚡ Stand & Stretch (2 min)                                                  │
+│     Quick physical movement                                                 │
+│                                                                             │
+│  ⚡ Quick Poll (3 min)                                                       │
+│     "On a scale of 1-5, how clear are you on X?" (raise hands)              │
+│                                                                             │
+│  ⚡ Pair Share (5 min)                                                       │
+│     Turn to neighbor, discuss one key insight from last session             │
+│                                                                             │
+│  ⚡ Gallery Walk (10 min)                                                    │
+│     Post outputs on walls, walk around and comment with sticky notes        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Brainstorming Techniques
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    BRAINSTORMING TECHNIQUES                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. CLASSIC BRAINSTORM                                                      │
+│  ─────────────────────                                                      │
+│  • Facilitator poses question                                               │
+│  • All ideas called out, scribe captures                                    │
+│  • NO criticism during generation                                           │
+│  • Build on others' ideas ("Yes, and...")                                   │
+│  • Time-box: 10-15 minutes                                                  │
+│                                                                             │
+│  2. SILENT BRAINSTORM (Brainwriting)                                        │
+│  ────────────────────────────────────                                       │
+│  • Each person writes ideas on sticky notes silently                        │
+│  • One idea per sticky note                                                 │
+│  • 5-10 minutes of silent writing                                           │
+│  • Then share and group                                                     │
+│  • Best for: Introverts, avoiding groupthink                                │
+│                                                                             │
+│  3. ROUND ROBIN                                                             │
+│  ──────────────                                                             │
+│  • Go around room, each person gives one idea                               │
+│  • Can "pass" if stuck                                                      │
+│  • Continue until ideas exhausted                                           │
+│  • Best for: Ensuring equal participation                                   │
+│                                                                             │
+│  4. CRAZY 8s                                                                │
+│  ──────────                                                                 │
+│  • Fold paper into 8 sections                                               │
+│  • 1 minute per section to sketch an idea                                   │
+│  • Forces rapid ideation                                                    │
+│  • Best for: Design solutions, UI concepts                                  │
+│                                                                             │
+│  5. REVERSE BRAINSTORM                                                      │
+│  ─────────────────────                                                      │
+│  • "How could we make this problem WORSE?"                                  │
+│  • Generate all the bad ideas                                               │
+│  • Then flip each to a positive solution                                    │
+│  • Best for: Stuck teams, identifying risks                                 │
+│                                                                             │
+│  6. STARBURSTING                                                            │
+│  ──────────────                                                             │
+│  • Place idea in center                                                     │
+│  • Generate questions: Who? What? When? Where? Why? How?                    │
+│  • Best for: Exploring and refining concepts                                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Convergence Techniques
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CONVERGENCE TECHNIQUES                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. AFFINITY MAPPING (Grouping)                                             │
+│  ──────────────────────────────                                             │
+│  Process:                                                                   │
+│  1. Spread all sticky notes on wall/table                                   │
+│  2. Silently group similar items together                                   │
+│  3. Name each group (category/theme)                                        │
+│  4. Discuss and refine groupings                                            │
+│  Time: 15-20 minutes                                                        │
+│                                                                             │
+│  2. DOT VOTING                                                              │
+│  ──────────────                                                             │
+│  Process:                                                                   │
+│  1. Each participant gets X dots (typically 3-5)                            │
+│  2. Vote by placing dots on preferred items                                 │
+│  3. Can place multiple dots on one item                                     │
+│  4. Count votes, rank by total                                              │
+│  Time: 5-10 minutes                                                         │
+│                                                                             │
+│  Variations:                                                                │
+│  • Color dots: Green=like, Red=concerns, Yellow=questions                   │
+│  • Weighted: Senior stakeholders get more dots                              │
+│  • Constrained: Max 2 dots per item                                         │
+│                                                                             │
+│  3. $100 TEST (Buy-a-Feature)                                               │
+│  ─────────────────────────────                                              │
+│  Process:                                                                   │
+│  1. Give each participant $100 (fake money)                                 │
+│  2. Features have prices based on effort                                    │
+│  3. Participants "buy" features they want                                   │
+│  4. Pool money to afford expensive features                                 │
+│  5. Reveals true priorities and forces trade-offs                           │
+│  Time: 20-30 minutes                                                        │
+│                                                                             │
+│  4. 2x2 MATRIX                                                              │
+│  ──────────────                                                             │
+│  Process:                                                                   │
+│  1. Define two axes (e.g., Value vs Effort)                                 │
+│  2. Place each idea on the matrix                                           │
+│  3. Discuss placement as a group                                            │
+│  4. Focus on high-value, low-effort quadrant                                │
+│  Time: 15-20 minutes                                                        │
+│                                                                             │
+│  5. FIST OF FIVE (Consensus Check)                                          │
+│  ─────────────────────────────────                                          │
+│  Process:                                                                   │
+│  1. Propose a decision                                                      │
+│  2. Everyone shows fingers simultaneously:                                  │
+│     5 = Strongly agree, will champion                                       │
+│     4 = Agree, support the decision                                         │
+│     3 = Can live with it                                                    │
+│     2 = Have concerns, need discussion                                      │
+│     1 = Strongly disagree, block                                            │
+│  3. Address 1s and 2s before proceeding                                     │
+│  Time: 2-5 minutes per decision                                             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎙️ FACILITATION SCRIPTS
+
+### Opening Script
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    OPENING SCRIPT                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  "Good [morning/afternoon] everyone, and thank you for joining us today.    │
+│                                                                             │
+│  My name is [Name], and I'll be facilitating today's workshop on            │
+│  [topic]. Our scribe today is [Name], who will capture our discussions.     │
+│                                                                             │
+│  Before we dive in, let's go around and do quick introductions.             │
+│  Please share your name, role, and one thing you hope to get out of         │
+│  today's session. I'll start...                                             │
+│                                                                             │
+│  [After introductions]                                                      │
+│                                                                             │
+│  Great, thank you all. Now let me share our objectives for today:           │
+│  [List 2-3 objectives]                                                      │
+│                                                                             │
+│  To help us work effectively together, let's agree on some ground rules:    │
+│                                                                             │
+│  1. ONE CONVERSATION at a time - let's respect each other                   │
+│  2. ALL IDEAS are welcome - no criticism during brainstorming               │
+│  3. STAY PRESENT - phones on silent, laptops closed unless needed           │
+│  4. TIMEBOX - I'll keep us on track; trust the process                      │
+│  5. PARKING LOT - if topics are off-scope, we'll capture for later          │
+│                                                                             │
+│  Does anyone have anything to add or questions before we begin?"            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Managing Difficult Dynamics
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    MANAGING DIFFICULT DYNAMICS                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  DOMINATOR (Someone monopolizing discussion)                                │
+│  ───────────────────────────────────────────                                │
+│  • "Thank you [Name], great input. Let's hear from others - [Name], what    │
+│    are your thoughts?"                                                      │
+│  • "I want to make sure we get diverse perspectives. Who hasn't shared      │
+│    yet?"                                                                    │
+│  • Use structured techniques (round robin) to force equal participation     │
+│                                                                             │
+│  SILENT PARTICIPANT (Someone not contributing)                              │
+│  ──────────────────────────────────────────────                             │
+│  • "Before we move on, [Name], you've worked closely with this area.        │
+│    Any thoughts to add?"                                                    │
+│  • Use silent brainstorming (writing) to capture their input                │
+│  • Talk to them during break, ask if they're comfortable                    │
+│                                                                             │
+│  TANGENT / OFF-TOPIC                                                        │
+│  ─────────────────────                                                      │
+│  • "That's an important point. Let's capture it in the parking lot and      │
+│    come back to it. For now, let's focus on [current topic]."               │
+│  • "I'm going to pause us here - we're getting into [other topic].          │
+│    Can we table that for another discussion?"                               │
+│                                                                             │
+│  CONFLICT BETWEEN PARTICIPANTS                                              │
+│  ─────────────────────────────                                              │
+│  • "I hear two different perspectives here. Let me summarize:               │
+│    [Person A] believes [X], and [Person B] believes [Y]. Both are valid.    │
+│    What's the underlying concern we're trying to solve?"                    │
+│  • "Let's take a step back. What do you both agree on?"                     │
+│  • "We may need to take this offline. Can you two discuss after and         │
+│    bring back a recommendation?"                                            │
+│  • Load SKILL-06 if conflict escalates                                      │
+│                                                                             │
+│  HIPPO (Highest Paid Person's Opinion dominating)                           │
+│  ────────────────────────────────────────────────                           │
+│  • Use anonymous voting/silent brainstorming                                │
+│  • Ask senior person to speak LAST                                          │
+│  • "Let's hear from the team first, then [Senior] can add perspective"      │
+│                                                                             │
+│  ENERGY LOW / DISENGAGED                                                    │
+│  ─────────────────────────                                                  │
+│  • "Let's take a quick 2-minute stretch break"                              │
+│  • Change activity format (from discussion to hands-on)                     │
+│  • Use an energizer                                                         │
+│  • Check-in: "On a scale of 1-5, how engaged are you? What would help?"     │
+│                                                                             │
+│  RUNNING OVER TIME                                                          │
+│  ─────────────────                                                          │
+│  • "We have 10 minutes left. I'm going to move us to [next activity]"       │
+│  • "We're running short on time. Can we agree to [simplified approach]      │
+│    and take detailed discussion offline?"                                   │
+│  • Have contingency plan: know what can be cut                              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Closing Script
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CLOSING SCRIPT                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  "We're coming to the end of our time together. Let me summarize what       │
+│  we've accomplished today:                                                  │
+│                                                                             │
+│  [Summarize key outcomes - be specific]                                     │
+│  • We identified [X] key requirements                                       │
+│  • We agreed that [priority item] is the top focus                          │
+│  • We resolved the [conflict/question] by deciding [resolution]             │
+│                                                                             │
+│  ACTION ITEMS:                                                              │
+│  Let me confirm the action items and owners:                                │
+│  [Read each action item, owner, and due date]                               │
+│                                                                             │
+│  NEXT STEPS:                                                                │
+│  • I will send out the workshop summary by [date]                           │
+│  • We will have a follow-up session on [date] to [purpose]                  │
+│  • Please review the outputs and send any feedback by [date]                │
+│                                                                             │
+│  PARKING LOT:                                                               │
+│  We captured these items for future discussion:                             │
+│  [List parking lot items]                                                   │
+│  I'll work with [owner] to schedule time for these.                         │
+│                                                                             │
+│  FEEDBACK:                                                                  │
+│  Before you go, I'd appreciate quick feedback:                              │
+│  • What's one thing that worked well today?                                 │
+│  • What's one thing we could improve for next time?                         │
+│                                                                             │
+│  [Collect feedback - verbally or sticky notes]                              │
+│                                                                             │
+│  Thank you all for your time, engagement, and valuable input today.         │
+│  Your participation is what makes these sessions successful."               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 💻 VIRTUAL WORKSHOP TIPS
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    VIRTUAL WORKSHOP BEST PRACTICES                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  TOOLS:                                                                     │
+│  • Video: Zoom, Teams, Google Meet                                          │
+│  • Whiteboard: Miro, Mural, FigJam, Lucidspark                              │
+│  • Polling: Mentimeter, Slido, built-in polls                               │
+│  • Timer: Online timer visible to all                                       │
+│                                                                             │
+│  BEFORE:                                                                    │
+│  ☐ Send tech requirements and links early                                   │
+│  ☐ Ask participants to test technology                                      │
+│  ☐ Prepare collaboration board in advance                                   │
+│  ☐ Have backup plan if tech fails                                           │
+│  ☐ Send shorter pre-read (attention spans shorter online)                   │
+│                                                                             │
+│  DURING:                                                                    │
+│  ☐ Start 5 min early for tech troubleshooting                               │
+│  ☐ Use video ON - encourage all to show faces                               │
+│  ☐ More frequent breaks (every 45-60 min)                                   │
+│  ☐ Shorter sessions (max 3 hours)                                           │
+│  ☐ More interactive - poll every 15-20 min                                  │
+│  ☐ Use chat for parallel input                                              │
+│  ☐ Call on people by name                                                   │
+│  ☐ Have co-facilitator manage chat/tech                                     │
+│                                                                             │
+│  ENGAGEMENT TACTICS:                                                        │
+│  • "Type your answer in chat, but don't hit enter until I say GO"           │
+│  • Use reactions/emojis for quick feedback                                  │
+│  • Breakout rooms for small group work                                      │
+│  • Screen share the collaboration board                                     │
+│  • Use "raise hand" feature for orderly discussion                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📋 WORKSHOP MATERIALS CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    MATERIALS CHECKLIST                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  IN-PERSON:                                                                 │
+│  ☐ Sticky notes (multiple colors)                                           │
+│  ☐ Markers (thick, multiple colors)                                         │
+│  ☐ Flip chart paper / Whiteboard                                            │
+│  ☐ Tape (for posting on walls)                                              │
+│  ☐ Dot stickers (for voting)                                                │
+│  ☐ Timer (visible)                                                          │
+│  ☐ Name tags                                                                │
+│  ☐ Printed agenda for each participant                                      │
+│  ☐ Printed pre-read materials                                               │
+│  ☐ Snacks/refreshments                                                      │
+│  ☐ Projector/screen                                                         │
+│  ☐ Laptop with presentations                                                │
+│  ☐ Camera (to capture outputs)                                              │
+│                                                                             │
+│  VIRTUAL:                                                                   │
+│  ☐ Video conferencing link                                                  │
+│  ☐ Collaboration board set up (Miro/Mural)                                  │
+│  ☐ Templates ready in board                                                 │
+│  ☐ Polling/voting tool ready                                                │
+│  ☐ Backup communication channel (Slack/Teams)                               │
+│  ☐ Recording enabled (with consent)                                         │
+│  ☐ Breakout rooms configured                                                │
+│  ☐ Timer on screen share                                                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ✅ WORKSHOP FACILITATION CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    MASTER FACILITATION CHECKLIST                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  2 WEEKS BEFORE:                                                            │
+│  ☐ Define objectives and success criteria                                   │
+│  ☐ Identify and invite participants                                         │
+│  ☐ Book room/virtual platform                                               │
+│  ☐ Draft agenda                                                             │
+│  ☐ Identify pre-work needed                                                 │
+│                                                                             │
+│  1 WEEK BEFORE:                                                             │
+│  ☐ Send calendar invite with agenda                                         │
+│  ☐ Send pre-read materials                                                  │
+│  ☐ Confirm attendance                                                       │
+│  ☐ Prepare all materials                                                    │
+│  ☐ Brief scribe/co-facilitator                                              │
+│  ☐ Test technology                                                          │
+│                                                                             │
+│  DAY BEFORE:                                                                │
+│  ☐ Final attendance check                                                   │
+│  ☐ Reminder email to participants                                           │
+│  ☐ Review agenda and timing                                                 │
+│  ☐ Prepare parking lot                                                      │
+│  ☐ Set up room/virtual board                                                │
+│                                                                             │
+│  DAY OF (Before start):                                                     │
+│  ☐ Arrive early / Open virtual room early                                   │
+│  ☐ Set up materials                                                         │
+│  ☐ Test AV/screen share                                                     │
+│  ☐ Greet participants as they arrive                                        │
+│                                                                             │
+│  DURING:                                                                    │
+│  ☐ Start on time                                                            │
+│  ☐ Follow agenda (with flexibility)                                         │
+│  ☐ Keep time                                                                │
+│  ☐ Ensure participation                                                     │
+│  ☐ Capture outputs and action items                                         │
+│  ☐ Manage dynamics                                                          │
+│  ☐ Collect feedback at end                                                  │
+│                                                                             │
+│  WITHIN 24-48 HOURS AFTER:                                                  │
+│  ☐ Send thank you and summary                                               │
+│  ☐ Distribute action items                                                  │
+│  ☐ Share photos/documentation                                               │
+│  ☐ Schedule follow-ups                                                      │
+│  ☐ Review feedback for improvement                                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 RELATED SKILLS
+
+| For... | Load |
+|--------|------|
+| Elicitation techniques | SKILL-02 |
+| Conflict management | SKILL-06 |
+| Prioritization activities | SKILL-05 |
+| UX workshops | SKILL-14 |
+| Documenting outputs | SKILL-09, 10, 11 |
+
+---
+
+*Use this skill to facilitate productive, engaging workshops that drive real outcomes.*

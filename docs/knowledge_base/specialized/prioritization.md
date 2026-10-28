@@ -1,0 +1,581 @@
+# 🟡 SKILL-05: ADVANCED PRIORITIZATION
+## Specialized Skill - Economic Decision Making
+
+---
+
+## 📌 SKILL METADATA
+
+| Attribute | Value |
+|-----------|-------|
+| **Skill ID** | SKILL-05 |
+| **Category** | 🟡 Specialized |
+| **Load When** | Prioritizing requirements, trade-off decisions, backlog refinement |
+| **Dependencies** | SKILL-01, SKILL-02, SKILL-17 |
+| **Version** | 2.0 (World-Class Edition) |
+| **Standards** | SAFe 6.0, Reinertsen (Lean Product Development) |
+| **Output** | Prioritized backlog, release plan, economic justification |
+
+---
+
+## 🎯 MỤC ĐÍCH
+
+Skill này cung cấp các **kỹ thuật ưu tiên hóa requirements dựa trên kinh tế học** để xác định thứ tự triển khai, đưa ra quyết định trade-off, và tối đa hóa giá trị kinh doanh.
+
+---
+
+## 🧠 THE ECONOMICS OF PRIORITIZATION
+
+### Why Prioritization Matters
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    THE PRIORITIZATION IMPERATIVE                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  THE PROBLEM:                                                               │
+│  ┌─────────────────────────────────────────┐                               │
+│  │  Demand for Features > Capacity to Build │                               │
+│  │           (Always)                        │                               │
+│  └─────────────────────────────────────────┘                               │
+│                                                                             │
+│  THE CONSEQUENCE OF WRONG PRIORITIZATION:                                   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                                                                       │  │
+│  │  Feature A: $100K value, delayed 3 months = $25K/month loss         │  │
+│  │  Feature B: $50K value, delayed 3 months = $12.5K/month loss        │  │
+│  │                                                                       │  │
+│  │  If we build B before A (wrong order):                               │  │
+│  │  • A is delayed extra 1 month = $25K lost                            │  │
+│  │                                                                       │  │
+│  │  If we build A before B (right order):                               │  │
+│  │  • B is delayed extra 1 month = $12.5K lost                          │  │
+│  │                                                                       │  │
+│  │  DIFFERENCE: $12.5K savings just by ordering correctly!              │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  KEY INSIGHT: Prioritization is an economic decision.                      │
+│  The cost of delay is the cost of NOT doing something.                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Technique Selection Guide
+
+| Technique | Best For | Effort | Objectivity | Context |
+|-----------|----------|--------|-------------|---------|
+| **MoSCoW** | Quick categorization | Low | Low | Early stages, rough cuts |
+| **Kano** | Understanding customer expectations | Medium | Medium | UX/product features |
+| **WSJF** | Lean/SAFe economic prioritization | Medium | High | Agile at scale |
+| **RICE** | Product management, growth features | Medium | High | Tech products |
+| **Cost of Delay** | Time-sensitive decisions | High | Very High | Strategic investments |
+| **Value/Effort** | Quick relative ranking | Low | Medium | Sprint planning |
+| **100-Point** | Stakeholder consensus | Low | Medium | Workshops |
+| **Buy a Feature** | Stakeholder engagement | Low | Medium | Product discovery |
+
+---
+
+## 1️⃣ MoSCoW METHOD (Enhanced)
+
+### Definition & Application
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         MoSCoW FRAMEWORK                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────┐     │
+│  │ MUST HAVE (60% of effort budget)                                   │     │
+│  ├───────────────────────────────────────────────────────────────────┤     │
+│  │ • System cannot go live without these                              │     │
+│  │ • Legal/regulatory requirements                                    │     │
+│  │ • Core business process enablers                                   │     │
+│  │ • Safety/security minimums                                         │     │
+│  │                                                                     │    │
+│  │ TEST: "If we don't have this, can we go live?" → NO = Must         │     │
+│  └───────────────────────────────────────────────────────────────────┘     │
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────┐     │
+│  │ SHOULD HAVE (20% of effort budget)                                 │     │
+│  ├───────────────────────────────────────────────────────────────────┤     │
+│  │ • Important but not critical                                       │     │
+│  │ • Workaround exists but is painful                                 │     │
+│  │ • Significant business value                                       │     │
+│  │                                                                     │    │
+│  │ TEST: "Is there a realistic workaround?" → YES (but painful) = Should │ │
+│  └───────────────────────────────────────────────────────────────────┘     │
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────┐     │
+│  │ COULD HAVE (10% of effort budget)                                  │     │
+│  ├───────────────────────────────────────────────────────────────────┤     │
+│  │ • Nice to have, enhances experience                                │     │
+│  │ • Easy workaround exists                                           │     │
+│  │ • Include if time/budget permits                                   │     │
+│  │                                                                     │    │
+│  │ TEST: "Would users be disappointed without it?" → Minor = Could    │     │
+│  └───────────────────────────────────────────────────────────────────┘     │
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────┐     │
+│  │ WON'T HAVE (This Time)                                             │     │
+│  ├───────────────────────────────────────────────────────────────────┤     │
+│  │ • Explicitly out of scope for this release                         │     │
+│  │ • Documented for future consideration                              │     │
+│  │ • Manages expectations transparently                               │     │
+│  │                                                                     │    │
+│  │ TEST: "Can this wait for next release?" → YES = Won't (this time)  │     │
+│  └───────────────────────────────────────────────────────────────────┘     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### MoSCoW Pitfalls & Solutions
+
+| Pitfall | Problem | Solution |
+|---------|---------|----------|
+| Everything is "Must" | No prioritization | Enforce 60/20/10 ratio budgets |
+| No "Won't" items | Scope creep | Require explicit "Won't" list |
+| Stakeholder gaming | Inflate to "Must" | Use objective criteria (business rules) |
+| Static categories | Priorities change | Re-evaluate each release |
+
+---
+
+## 2️⃣ KANO MODEL (Deep Dive)
+
+### Understanding Customer Expectations
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          KANO MODEL VISUALIZATION                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                          Customer Satisfaction                              │
+│                                  ▲                                          │
+│                                  │           ╭───────── DELIGHTERS         │
+│                                  │         ╱            (Excitement)        │
+│                         Very     │       ╱   "I didn't know I wanted this!" │
+│                       Satisfied  │     ╱                                    │
+│                                  │   ╱                                      │
+│                                  │ ╱            ╭────── PERFORMANCE        │
+│                                  │╱           ╱         (One-dimensional)   │
+│         Not ─────────────────────┼─────────╱─────────── Fully               │
+│       Implemented                │       ╱              Implemented         │
+│                                  │     ╱    "More is better"                │
+│                                 ╱│   ╱                                      │
+│                               ╱  │ ╱                                        │
+│                             ╱    │╱                                         │
+│                           ╱      │                                          │
+│                         ╱        │        BASIC (Must-be)                   │
+│                       ╱          │        "Expected, taken for granted"     │
+│                   Very           │                                          │
+│                 Dissatisfied     │                                          │
+│                                  ▼                                          │
+│                                                                             │
+│  STRATEGIC INSIGHT:                                                         │
+│  • BASIC: Don't skip these! Customers won't thank you, but will punish     │
+│  • PERFORMANCE: More investment = more satisfaction (linear)               │
+│  • DELIGHTERS: High impact on satisfaction with relatively low effort      │
+│  • Over time, Delighters → Performance → Basic (feature commoditization)  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Kano Classification Matrix
+
+| | If PRESENT: Like | If PRESENT: Expect | If PRESENT: Neutral | If PRESENT: Tolerate | If PRESENT: Dislike |
+|---|---|---|---|---|---|
+| **If ABSENT: Like** | Q | R | R | R | R |
+| **If ABSENT: Expect** | A | I | I | I | R |
+| **If ABSENT: Neutral** | A | I | I | I | R |
+| **If ABSENT: Tolerate** | A | I | I | I | R |
+| **If ABSENT: Dislike** | O | M | M | M | Q |
+
+**Legend**: A = Attractive (Delighter), O = One-dimensional (Performance), M = Must-be (Basic), I = Indifferent, R = Reverse, Q = Questionable
+
+---
+
+## 3️⃣ WSJF: WEIGHTED SHORTEST JOB FIRST
+
+### The Economic Foundation
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          WSJF FRAMEWORK (SAFe)                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  WSJF = Cost of Delay / Job Duration                                       │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                                                                       │  │
+│  │              User/Business Value + Time Criticality + Risk Reduction │  │
+│  │  WSJF = ──────────────────────────────────────────────────────────── │  │
+│  │                            Job Size (Effort)                          │  │
+│  │                                                                       │  │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  COST OF DELAY COMPONENTS:                                                  │
+│                                                                             │
+│  1. USER/BUSINESS VALUE (1-20 scale)                                        │
+│     • Revenue potential                                                     │
+│     • Cost savings                                                          │
+│     • Market share protection                                               │
+│                                                                             │
+│  2. TIME CRITICALITY (1-20 scale)                                           │
+│     • Is there a deadline?                                                  │
+│     • Does value decay over time?                                           │
+│     • Competitive pressure?                                                 │
+│                                                                             │
+│  3. RISK REDUCTION / OPPORTUNITY ENABLEMENT (1-20 scale)                    │
+│     • Does this reduce risk for other features?                             │
+│     • Does this enable future revenue?                                      │
+│     • Technical debt reduction?                                             │
+│                                                                             │
+│  JOB SIZE (1-20 scale, relative effort)                                     │
+│     • Development effort                                                    │
+│     • Use modified Fibonacci: 1, 2, 3, 5, 8, 13, 20                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### WSJF Template
+
+| Feature | Business Value | Time Criticality | Risk Reduction | **CoD Total** | Job Size | **WSJF** | **Rank** |
+|---------|---------------|------------------|----------------|---------------|----------|----------|----------|
+| Feature A | 13 | 8 | 5 | 26 | 5 | **5.2** | 2 |
+| Feature B | 8 | 13 | 8 | 29 | 3 | **9.7** | 1 |
+| Feature C | 5 | 5 | 3 | 13 | 8 | **1.6** | 4 |
+| Feature D | 8 | 5 | 8 | 21 | 5 | **4.2** | 3 |
+
+**Decision**: Build in order: B → A → D → C
+
+### WSJF Workshop Script
+
+```
+1. CALIBRATE THE SCALE:
+   "Let's identify the biggest item (20) and smallest item (1) for each factor"
+   
+2. RELATIVE SIZING (not absolute):
+   "Compare feature A to feature B: Is A's business value higher, lower, or equal?"
+   
+3. USE MODIFIED FIBONACCI:
+   1, 2, 3, 5, 8, 13, 20 (not 1-20 linear scale)
+   
+4. TIMEBOX DISCUSSIONS:
+   "We'll spend 2 minutes per feature. If no consensus, we'll average and move on."
+   
+5. BREAK TIES:
+   If WSJF scores are close (within 10%), consider dependencies first.
+```
+
+---
+
+## 4️⃣ RICE SCORING
+
+### The RICE Framework
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            RICE FRAMEWORK                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                    Reach × Impact × Confidence                              │
+│  RICE Score = ──────────────────────────────────                            │
+│                           Effort                                            │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ R = REACH                                                            │   │
+│  │ How many users/transactions will this affect per time period?        │   │
+│  │                                                                       │  │
+│  │ Examples:                                                             │   │
+│  │ • 1,000 users per month                                               │  │
+│  │ • 500 transactions per day                                            │  │
+│  │ • All customers in segment X (estimate count)                        │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ I = IMPACT                                                           │   │
+│  │ How much will each user be affected?                                 │   │
+│  │                                                                       │  │
+│  │ Scale:                                                                │   │
+│  │ • 3 = Massive (game-changer, 3x improvement)                         │  │
+│  │ • 2 = High (significant improvement)                                 │   │
+│  │ • 1 = Medium (noticeable improvement)                                │   │
+│  │ • 0.5 = Low (minor improvement)                                      │   │
+│  │ • 0.25 = Minimal (barely noticeable)                                 │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ C = CONFIDENCE                                                       │   │
+│  │ How sure are you about these estimates?                              │   │
+│  │                                                                       │  │
+│  │ Scale:                                                                │   │
+│  │ • 100% = High confidence (data-backed)                               │  │
+│  │ • 80% = Medium confidence (some data)                                │   │
+│  │ • 50% = Low confidence (gut feeling)                                 │   │
+│  │                                                                       │  │
+│  │ Note: Use this to penalize "wishful thinking" features               │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ E = EFFORT                                                           │   │
+│  │ Person-months of effort required                                     │   │
+│  │                                                                       │  │
+│  │ Examples:                                                             │   │
+│  │ • 0.5 = Half a person-month (quick win)                              │  │
+│  │ • 1 = One person-month                                                │  │
+│  │ • 3 = One dev × 3 months                                             │   │
+│  │ • 6 = Two devs × 3 months                                            │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### RICE Template
+
+| Feature | Reach (/mo) | Impact (0.25-3) | Confidence (%) | Effort (person-mo) | **RICE** | **Rank** |
+|---------|-------------|-----------------|----------------|--------------------| ---------|----------|
+| Feature A | 5,000 | 2 | 80% | 2 | **4,000** | 2 |
+| Feature B | 10,000 | 1 | 100% | 1 | **10,000** | 1 |
+| Feature C | 1,000 | 3 | 50% | 3 | **500** | 4 |
+| Feature D | 3,000 | 2 | 80% | 1.5 | **3,200** | 3 |
+
+### RICE Calculation Example (Worked)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    RICE CALCULATION EXAMPLE                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────┬─────────┬────────┬──────────┬────────┬───────────────┐│
+│  │ Feature         │ Reach   │ Impact │Confidence│ Effort │ RICE Score    ││
+│  │                 │ (users) │ (0-3)  │ (%)      │(p-mos) │               ││
+│  ├─────────────────┼─────────┼────────┼──────────┼────────┼───────────────┤│
+│  │ One-click buy   │ 50,000  │   2    │   80%    │   3    │   26,667      ││
+│  │ Wish list       │ 30,000  │   1    │   80%    │   1    │   24,000      ││
+│  │ Social sharing  │ 10,000  │   0.5  │   50%    │   0.5  │    5,000      ││
+│  │ AI recommend    │ 50,000  │   2    │   50%    │   8    │    6,250      ││
+│  │ Dark mode       │ 20,000  │   0.5  │  100%    │   1    │   10,000      ││
+│  └─────────────────┴─────────┴────────┴──────────┴────────┴───────────────┘│
+│                                                                             │
+│  CALCULATION FORMULA: RICE = (R × I × C) / E                                │
+│                                                                             │
+│  Step-by-step:                                                              │
+│  • One-click buy: (50,000 × 2 × 0.80) / 3 = 26,667                          │
+│  • Wish list:     (30,000 × 1 × 0.80) / 1 = 24,000                          │
+│  • Dark mode:     (20,000 × 0.5 × 1.00) / 1 = 10,000                        │
+│  • AI recommend:  (50,000 × 2 × 0.50) / 8 =  6,250                          │
+│  • Social share:  (10,000 × 0.5 × 0.50) / 0.5 = 5,000                       │
+│                                                                             │
+│  PRIORITY ORDER:                                                            │
+│  1. One-click buy (26,667) ← Highest impact per effort                      │
+│  2. Wish list (24,000)                                                      │
+│  3. Dark mode (10,000)                                                      │
+│  4. AI recommendations (6,250) ← High value but low confidence, big effort  │
+│  5. Social sharing (5,000)                                                  │
+│                                                                             │
+│  KEY INSIGHT: Notice how "AI recommendations" has high REACH and IMPACT     │
+│  but drops due to 50% confidence and 8 person-months effort.                │
+│  The RICE framework exposes this objectively.                               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 5️⃣ COST OF DELAY
+
+### Delay Cost Profiles
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       COST OF DELAY PROFILES                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. STANDARD (LINEAR)                                                       │
+│                                                                             │
+│     Value                                                                   │
+│       ▲                                                                     │
+│       │    ════════════════════════                                        │
+│       │   ║                                                                 │
+│       │  ║                                                                  │
+│       │ ║     $10K/week lost                                               │
+│       │║                                                                    │
+│       ┼──────────────────────────▶ Time                                    │
+│       Value is constant; each week of delay costs the same.                │
+│                                                                             │
+│  2. URGENT (DEADLINE)                                                       │
+│                                                                             │
+│     Value                                                                   │
+│       ▲                                                                     │
+│       │══════════════════╗                                                  │
+│       │                  ║                                                  │
+│       │                  ║ ← Deadline                                      │
+│       │                  ║                                                  │
+│       │                  ╚══════════════ (value drops to 0)               │
+│       ┼──────────────────────────▶ Time                                    │
+│       Miss the window, lose everything.                                     │
+│                                                                             │
+│  3. FIXED DATE                                                              │
+│                                                                             │
+│     Value                                                                   │
+│       ▲                                                                     │
+│       │      ╔═══════════════════                                          │
+│       │      ║                                                              │
+│       │      ║ ← Launch date                                               │
+│       │══════╝                                                              │
+│       │  (No value before launch)                                          │
+│       ┼──────────────────────────▶ Time                                    │
+│       Regulatory compliance, contract deadline.                             │
+│                                                                             │
+│  4. INTANGIBLE (DECAY)                                                      │
+│                                                                             │
+│     Value                                                                   │
+│       ▲                                                                     │
+│       │╲                                                                    │
+│       │ ╲                                                                   │
+│       │  ╲                                                                  │
+│       │   ╲                                                                 │
+│       │    ╲_______________                                                │
+│       ┼──────────────────────────▶ Time                                    │
+│       Value decays over time; first-mover advantage.                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Cost of Delay Calculation
+
+| Factor | Calculation |
+|--------|-------------|
+| **Revenue Gain** | Expected revenue per month × delay months |
+| **Revenue Protection** | At-risk revenue × probability of loss |
+| **Cost Savings** | Monthly savings potential × delay months |
+| **Cost of Workaround** | Manual effort cost per month × delay months |
+| **Penalty/Fine** | Regulatory penalty if deadline missed |
+| **Competitive Loss** | Market share loss × customer lifetime value |
+
+**Example**:
+```
+Feature: Mobile App for Ordering
+
+Cost of Delay Calculation:
+• Expected new revenue: $50K/month
+• Delay: 3 months
+
+Cost of Delay = $50K × 3 = $150K
+
+Compare to:
+• Development cost: $100K
+• If CoD > Dev Cost, prioritize aggressively!
+```
+
+---
+
+## 6️⃣ VALUE/EFFORT MATRIX
+
+### Quick Prioritization
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        VALUE / EFFORT MATRIX                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                              Business Value                                 │
+│                    Low ◄────────────────────────► High                     │
+│              ┌────────────────────────┬────────────────────────┐            │
+│              │                        │                        │            │
+│              │    3️⃣ FILL-INS         │    1️⃣ QUICK WINS        │            │
+│   Low        │                        │                        │            │
+│              │  Low value, low effort │  High value, low effort│            │
+│              │  Do if capacity allows │  DO FIRST! 🎯          │            │
+│              │                        │                        │            │
+│   Effort ────├────────────────────────┼────────────────────────┤            │
+│              │                        │                        │            │
+│              │    4️⃣ TIME SINKS        │    2️⃣ BIG BETS          │            │
+│   High       │                        │                        │            │
+│              │  Low value, high effort│  High value, high effort│            │
+│              │  AVOID unless required │  Plan strategically    │            │
+│              │                        │                        │            │
+│              └────────────────────────┴────────────────────────┘            │
+│                                                                             │
+│  PRIORITIZATION ORDER: 1 → 2 → 3 → 4                                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 PRIORITIZATION WORKSHOP TEMPLATE
+
+### Agenda (2-hour session)
+
+| Time | Activity | Output |
+|------|----------|--------|
+| 00:00 - 00:15 | Introduction, ground rules, objectives | Aligned team |
+| 00:15 - 00:30 | Review features/requirements list | Shared understanding |
+| 00:30 - 01:00 | Initial categorization (MoSCoW or Value/Effort) | Draft priorities |
+| 01:00 - 01:30 | Detailed scoring (WSJF or RICE) | Numeric rankings |
+| 01:30 - 01:45 | Discussion and adjustments | Consensus |
+| 01:45 - 02:00 | Document decisions, next steps | Action items |
+
+### Ground Rules
+
+```
+1. ✅ Focus on BUSINESS VALUE, not personal preference
+2. ✅ Back opinions with DATA where possible
+3. ✅ Respect time limits for each discussion
+4. ✅ Tie-breaker: Business sponsor makes final call
+5. ❌ No "everything is priority 1"
+6. ❌ No gaming the system (hidden agendas)
+```
+
+---
+
+## ✅ PRIORITIZATION DECISION CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    PRIORITIZATION QUALITY CHECKLIST                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  PREPARATION                                                                │
+│  ☐ All requirements have unique IDs and clear descriptions                 │
+│  ☐ Stakeholders understand prioritization technique being used             │
+│  ☐ Business value sources defined (revenue, cost, risk)                    │
+│  ☐ Effort estimates available (relative sizing OK)                         │
+│                                                                             │
+│  EXECUTION                                                                  │
+│  ☐ Used consistent criteria across all items                               │
+│  ☐ Documented rationale for each priority decision                         │
+│  ☐ Considered dependencies between features                                │
+│  ☐ Identified and resolved conflicts                                       │
+│                                                                             │
+│  VALIDATION                                                                 │
+│  ☐ Priority distribution is reasonable (not all "Must Have")              │
+│  ☐ Business sponsor approved final priorities                              │
+│  ☐ Team understands and agrees with approach                               │
+│  ☐ Re-prioritization triggers defined (when to revisit)                   │
+│                                                                             │
+│  DOCUMENTATION                                                              │
+│  ☐ Priority rationale documented in requirements                           │
+│  ☐ Deferred items explicitly listed with reason                            │
+│  ☐ Dependencies captured                                                    │
+│  ☐ Communicated to all stakeholders                                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 CONNECTIONS TO OTHER SKILLS
+
+| When you need to... | Load Skill |
+|---------------------|------------|
+| Calculate ROI and business value | → SKILL-17 (Solution Evaluation) |
+| Resolve priority conflicts | → SKILL-06 (Conflict Resolution) |
+| Gather requirements to prioritize | → SKILL-02 (Elicitation) |
+| Document prioritized requirements | → SKILL-03 (Writing Quality) |
+| Create prioritized backlog | → SKILL-12 (Agile Artifacts) |
+
+---
+
+*Skill upgraded to World-Class standard. Use SKILL-06 for handling stakeholder conflicts during prioritization.*

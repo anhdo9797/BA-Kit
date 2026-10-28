@@ -1,0 +1,695 @@
+# 🟡 SKILL-04: NFR FRAMEWORK (ISO 25010)
+## Specialized Skill - Quality Attributes Mastery
+
+---
+
+## 📌 SKILL METADATA
+
+| Attribute | Value |
+|-----------|-------|
+| **Skill ID** | SKILL-04 |
+| **Category** | 🟡 Specialized |
+| **Load When** | Specifying quality attributes, NFRs, SLAs |
+| **Dependencies** | SKILL-01, SKILL-03 |
+| **Version** | 2.0 (World-Class Edition) |
+| **Standards** | ISO/IEC 25010:2011, OWASP, Cloud Design Patterns |
+| **Output** | NFR specifications, SLA definitions, Quality targets |
+
+---
+
+## 🎯 MỤC ĐÍCH
+
+Skill này cung cấp **comprehensive framework** để đặc tả Non-Functional Requirements (NFRs) dựa trên **ISO 25010**, bao gồm SLA templates, Cloud NFRs, Security deep-dive, và measurement guidance.
+
+---
+
+## 🏗️ ISO 25010 QUALITY MODEL (Complete)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    ISO/IEC 25010 QUALITY CHARACTERISTICS                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                          PRODUCT QUALITY MODEL                              │
+│                                                                             │
+│  ╔═══════════════════════════════════════════════════════════════════════╗ │
+│  ║ 1. FUNCTIONAL       2. PERFORMANCE     3. COMPATIBILITY               ║ │
+│  ║    SUITABILITY         EFFICIENCY                                      ║ │
+│  ║                                                                         ║ │
+│  ║ ├─ Completeness     ├─ Time behavior   ├─ Co-existence                ║ │
+│  ║ ├─ Correctness      ├─ Resource util   └─ Interoperability            ║ │
+│  ║ └─ Appropriateness  └─ Capacity                                        ║ │
+│  ╠═══════════════════════════════════════════════════════════════════════╣ │
+│  ║ 4. USABILITY        5. RELIABILITY     6. SECURITY                    ║ │
+│  ║                                                                         ║ │
+│  ║ ├─ Learnability     ├─ Maturity        ├─ Confidentiality             ║ │
+│  ║ ├─ Operability      ├─ Availability    ├─ Integrity                   ║ │
+│  ║ ├─ User error prot. ├─ Fault tolerance ├─ Non-repudiation             ║ │
+│  ║ ├─ UI aesthetics    └─ Recoverability  ├─ Accountability              ║ │
+│  ║ └─ Accessibility                       └─ Authenticity                ║ │
+│  ╠═══════════════════════════════════════════════════════════════════════╣ │
+│  ║ 7. MAINTAINABILITY  8. PORTABILITY                                    ║ │
+│  ║                                                                         ║ │
+│  ║ ├─ Modularity       ├─ Adaptability                                   ║ │
+│  ║ ├─ Reusability      ├─ Installability                                 ║ │
+│  ║ ├─ Analysability    └─ Replaceability                                 ║ │
+│  ║ ├─ Modifiability                                                       ║ │
+│  ║ └─ Testability                                                         ║ │
+│  ╚═══════════════════════════════════════════════════════════════════════╝ │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 NFR WRITING PATTERN
+
+### Standard NFR Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    NFR SPECIFICATION TEMPLATE                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ NFR ID: NFR-[CATEGORY]-[NUMBER]                                             │
+│ Title: [Descriptive title]                                                  │
+│ ISO 25010: [Characteristic] > [Sub-characteristic]                         │
+│ Priority: [Critical/High/Medium/Low]                                        │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ REQUIREMENT STATEMENT:                                                      │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ The system SHALL [action/behavior] [measurement] under [conditions].       │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ MEASUREMENT:                                                                │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ Metric: [What exactly is measured]                                          │
+│ Method: [How it is measured]                                                │
+│ Tool: [What tool is used]                                                   │
+│ Frequency: [How often measured]                                             │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ TARGETS:                                                                    │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ ┌──────────────────┬───────────────┬───────────────┬───────────────┐       │
+│ │ Condition        │ Target        │ Maximum       │ Unacceptable  │       │
+│ ├──────────────────┼───────────────┼───────────────┼───────────────┤       │
+│ │ Normal load      │ [value]       │ [value]       │ [value]       │       │
+│ │ Peak load        │ [value]       │ [value]       │ [value]       │       │
+│ └──────────────────┴───────────────┴───────────────┴───────────────┘       │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ RATIONALE:                                                                  │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ [Why this NFR matters, business justification, user impact]                │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ VERIFICATION:                                                               │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ [How this will be tested/verified]                                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 1️⃣ PERFORMANCE EFFICIENCY
+
+### Response Time (Latency)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-PERF-001: Response Time                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Performance Efficiency > Time Behavior                           │
+│                                                                             │
+│ REQUIREMENT:                                                                │
+│ The system SHALL respond to user requests within the specified time limits │
+│ measured at the 95th percentile.                                           │
+│                                                                             │
+│ TARGETS BY OPERATION TYPE:                                                  │
+│ ┌──────────────────────┬───────────┬───────────┬───────────┬─────────────┐ │
+│ │ Operation            │ Target    │ Max       │ Degraded  │ Measurement │ │
+│ ├──────────────────────┼───────────┼───────────┼───────────┼─────────────┤ │
+│ │ Page load            │ < 2s      │ < 3s      │ < 5s      │ P95         │ │
+│ │ API response         │ < 200ms   │ < 500ms   │ < 1s      │ P95         │ │
+│ │ Search query         │ < 500ms   │ < 1s      │ < 2s      │ P95         │ │
+│ │ Report generation    │ < 5s      │ < 10s     │ < 30s     │ P95         │ │
+│ │ File upload (10MB)   │ < 3s      │ < 5s      │ < 10s     │ P95         │ │
+│ │ Batch processing     │ < 1hr     │ < 2hr     │ < 4hr     │ P99         │ │
+│ └──────────────────────┴───────────┴───────────┴───────────┴─────────────┘ │
+│                                                                             │
+│ MEASUREMENT:                                                                │
+│ • Tool: APM (New Relic, Datadog, or equivalent)                            │
+│ • Metric: End-to-end latency, server processing time                       │
+│ • Percentile: P95 for real-time, P99 for background                        │
+│ • Conditions: Under normal load (defined concurrent users)                 │
+│                                                                             │
+│ VERIFICATION:                                                               │
+│ • Load test: JMeter/Gatling/k6 simulating expected load                    │
+│ • Production monitoring: Continuous APM alerting                           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Throughput & Capacity
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-PERF-002: Throughput                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Performance Efficiency > Capacity                                │
+│                                                                             │
+│ REQUIREMENT:                                                                │
+│ The system SHALL handle the specified transaction volumes.                 │
+│                                                                             │
+│ CAPACITY REQUIREMENTS:                                                      │
+│ ┌────────────────────────┬───────────────┬───────────────────────────────┐ │
+│ │ Metric                 │ Requirement   │ Notes                         │ │
+│ ├────────────────────────┼───────────────┼───────────────────────────────┤ │
+│ │ Concurrent users       │ 10,000        │ Active sessions               │ │
+│ │ Transactions/second    │ 500 TPS       │ Normal load                   │ │
+│ │ Peak TPS               │ 1,500 TPS     │ For up to 30 minutes          │ │
+│ │ Requests/minute        │ 30,000 RPM    │ API gateway level             │ │
+│ │ Data volume            │ 100 TB        │ Total storage                 │ │
+│ │ Daily transactions     │ 10 million    │ Business transactions         │ │
+│ │ Monthly active users   │ 500,000       │ Unique users                  │ │
+│ └────────────────────────┴───────────────┴───────────────────────────────┘ │
+│                                                                             │
+│ GROWTH PLANNING:                                                            │
+│ • System SHALL support 2x current load without architecture change         │
+│ • System SHALL scale to 5x with horizontal scaling                         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Resource Utilization
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-PERF-003: Resource Utilization                                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Performance Efficiency > Resource Utilization                    │
+│                                                                             │
+│ REQUIREMENT:                                                                │
+│ The system SHALL operate within resource limits during normal operation.   │
+│                                                                             │
+│ TARGETS:                                                                    │
+│ ┌────────────────────────┬───────────────┬───────────────┬───────────────┐ │
+│ │ Resource               │ Normal        │ Maximum       │ Alert At      │ │
+│ ├────────────────────────┼───────────────┼───────────────┼───────────────┤ │
+│ │ CPU utilization        │ < 50%         │ < 80%         │ 70%           │ │
+│ │ Memory utilization     │ < 60%         │ < 85%         │ 75%           │ │
+│ │ Disk utilization       │ < 70%         │ < 90%         │ 80%           │ │
+│ │ Network bandwidth      │ < 50%         │ < 80%         │ 70%           │ │
+│ │ Database connections   │ < 70%         │ < 90%         │ 80%           │ │
+│ │ Thread pool            │ < 60%         │ < 85%         │ 75%           │ │
+│ └────────────────────────┴───────────────┴───────────────┴───────────────┘ │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 2️⃣ RELIABILITY
+
+### Availability & SLA
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-REL-001: Availability                                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Reliability > Availability                                       │
+│                                                                             │
+│ REQUIREMENT:                                                                │
+│ The system SHALL maintain the specified availability levels.               │
+│                                                                             │
+│ AVAILABILITY TIERS (Select appropriate tier):                               │
+│ ┌───────────────┬────────────┬─────────────────┬──────────────────────────┐ │
+│ │ SLA Tier      │ Uptime %   │ Downtime/Year   │ Typical Use Case         │ │
+│ ├───────────────┼────────────┼─────────────────┼──────────────────────────┤ │
+│ │ Standard      │ 99.0%      │ 87.6 hours      │ Internal tools           │ │
+│ │ Business      │ 99.5%      │ 43.8 hours      │ Business applications    │ │
+│ │ Premium       │ 99.9%      │ 8.76 hours      │ Customer-facing          │ │
+│ │ Critical      │ 99.95%     │ 4.38 hours      │ E-commerce, financial    │ │
+│ │ Mission       │ 99.99%     │ 52.6 minutes    │ Healthcare, banking      │ │
+│ │ Ultra         │ 99.999%    │ 5.26 minutes    │ Life safety, trading     │ │
+│ └───────────────┴────────────┴─────────────────┴──────────────────────────┘ │
+│                                                                             │
+│ SELECTED TIER: [Business / Premium / etc.]                                  │
+│ TARGET: [99.9%] availability                                                │
+│                                                                             │
+│ MEASUREMENT PERIOD: Monthly                                                 │
+│ EXCLUSIONS: Scheduled maintenance windows (communicated 48hrs ahead)       │
+│                                                                             │
+│ CALCULATION:                                                                │
+│ Availability % = (Total Time - Downtime) / Total Time × 100%               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Disaster Recovery
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-REL-002: Disaster Recovery                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Reliability > Recoverability                                     │
+│                                                                             │
+│ REQUIREMENT:                                                                │
+│ The system SHALL recover from disasters within specified objectives.       │
+│                                                                             │
+│ RECOVERY OBJECTIVES:                                                        │
+│ ┌────────────────────────┬───────────────┬──────────────────────────────┐  │
+│ │ Objective              │ Target        │ Description                   │  │
+│ ├────────────────────────┼───────────────┼──────────────────────────────┤  │
+│ │ RTO (Recovery Time)    │ 4 hours       │ Max time to restore service  │  │
+│ │ RPO (Recovery Point)   │ 1 hour        │ Max acceptable data loss     │  │
+│ │ MTTR (Mean Time)       │ 2 hours       │ Average recovery time        │  │
+│ │ Backup Frequency       │ Hourly        │ Full backup                  │  │
+│ │ Backup Retention       │ 30 days       │ Point-in-time recovery       │  │
+│ │ DR Test Frequency      │ Quarterly     │ Full DR drill                │  │
+│ └────────────────────────┴───────────────┴──────────────────────────────┘  │
+│                                                                             │
+│ DR STRATEGY:                                                                │
+│ ☐ Hot Standby (Active-Active, RTO < 1 min)                                 │
+│ ☑ Warm Standby (Active-Passive, RTO 1-4 hours)                             │
+│ ☐ Cold Standby (Backup Restore, RTO 4-24 hours)                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Fault Tolerance
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-REL-003: Fault Tolerance                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Reliability > Fault Tolerance                                    │
+│                                                                             │
+│ REQUIREMENT:                                                                │
+│ The system SHALL continue operating despite component failures.            │
+│                                                                             │
+│ FAULT TOLERANCE REQUIREMENTS:                                               │
+│ ┌────────────────────────────┬───────────────────────────────────────────┐ │
+│ │ Failure Scenario           │ Expected Behavior                         │ │
+│ ├────────────────────────────┼───────────────────────────────────────────┤ │
+│ │ Single server failure      │ Automatic failover, no user impact       │ │
+│ │ Database primary failure   │ Automatic failover to replica < 30s      │ │
+│ │ Network partition          │ Graceful degradation, cached data        │ │
+│ │ Third-party API failure    │ Circuit breaker, fallback behavior       │ │
+│ │ Storage failure            │ RAID/replication preserves data          │ │
+│ │ Datacenter failure         │ Failover to DR site per RTO              │ │
+│ └────────────────────────────┴───────────────────────────────────────────┘ │
+│                                                                             │
+│ PATTERNS REQUIRED:                                                          │
+│ • Circuit Breaker for external dependencies                                │
+│ • Retry with exponential backoff                                           │
+│ • Bulkhead isolation for critical services                                 │
+│ • Health checks and auto-healing                                           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 3️⃣ SECURITY (Deep Dive)
+
+### Security Framework Overview
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    SECURITY NFR FRAMEWORK                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                         CIA TRIAD + AAA                                     │
+│                                                                             │
+│                      ┌─────────────────┐                                   │
+│                      │ CONFIDENTIALITY │                                   │
+│                      │    (Privacy)    │                                   │
+│                      └────────┬────────┘                                   │
+│                               │                                             │
+│              ┌────────────────┼────────────────┐                           │
+│              │                │                │                           │
+│              ▼                ▼                ▼                           │
+│      ┌───────────────┐ ┌────────────┐ ┌───────────────┐                   │
+│      │  INTEGRITY    │ │ SECURITY   │ │ AVAILABILITY  │                   │
+│      │ (Correctness) │ │  (Core)    │ │ (Access)      │                   │
+│      └───────────────┘ └────────────┘ └───────────────┘                   │
+│                               │                                             │
+│              ┌────────────────┼────────────────┐                           │
+│              │                │                │                           │
+│              ▼                ▼                ▼                           │
+│      ┌───────────────┐ ┌────────────┐ ┌───────────────┐                   │
+│      │AUTHENTICATION │ │AUTHORIZATION│ │ ACCOUNTING   │                   │
+│      │ (Who are you?)│ │(What can do)│ │(Audit trail) │                   │
+│      └───────────────┘ └────────────┘ └───────────────┘                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Authentication Requirements
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-SEC-001: Authentication                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Security > Authenticity                                          │
+│                                                                             │
+│ REQUIREMENT:                                                                │
+│ The system SHALL verify user identity before granting access.              │
+│                                                                             │
+│ AUTHENTICATION SPECIFICATIONS:                                              │
+│ ┌────────────────────────┬───────────────────────────────────────────────┐ │
+│ │ Aspect                 │ Requirement                                   │ │
+│ ├────────────────────────┼───────────────────────────────────────────────┤ │
+│ │ Primary method         │ Username + Password                          │ │
+│ │ MFA requirement        │ Required for privileged access               │ │
+│ │ MFA methods            │ TOTP app, SMS (backup only), Hardware key   │ │
+│ │ SSO integration        │ SAML 2.0 / OAuth 2.0 / OpenID Connect       │ │
+│ │ Session token          │ JWT with short expiry (15 min access)       │ │
+│ │ Refresh token          │ Secure, rotated on use (7 days max)         │ │
+│ └────────────────────────┴───────────────────────────────────────────────┘ │
+│                                                                             │
+│ PASSWORD POLICY:                                                            │
+│ ┌────────────────────────┬───────────────────────────────────────────────┐ │
+│ │ Rule                   │ Requirement                                   │ │
+│ ├────────────────────────┼───────────────────────────────────────────────┤ │
+│ │ Minimum length         │ 12 characters                                 │ │
+│ │ Complexity             │ Upper + Lower + Number + Special             │ │
+│ │ History                │ Cannot reuse last 12 passwords              │ │
+│ │ Maximum age            │ 90 days (or passwordless)                    │ │
+│ │ Minimum age            │ 1 day (prevent rapid cycling)               │ │
+│ │ Lockout threshold      │ 5 failed attempts                            │ │
+│ │ Lockout duration       │ 30 minutes (or admin unlock)                │ │
+│ │ Breach check           │ Check against known compromised passwords   │ │
+│ └────────────────────────┴───────────────────────────────────────────────┘ │
+│                                                                             │
+│ COMPLIANCE: OWASP ASVS Level 2                                              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Data Protection
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-SEC-002: Data Protection                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Security > Confidentiality                                       │
+│                                                                             │
+│ DATA CLASSIFICATION:                                                        │
+│ ┌────────────────┬─────────────────────────────┬───────────────────────────┐│
+│ │ Level          │ Description                 │ Examples                  ││
+│ ├────────────────┼─────────────────────────────┼───────────────────────────┤│
+│ │ PUBLIC         │ Freely available            │ Marketing content         ││
+│ │ INTERNAL       │ Internal use only           │ Policies, procedures      ││
+│ │ CONFIDENTIAL   │ Restricted access           │ Financial data, PII       ││
+│ │ RESTRICTED     │ Highly sensitive            │ Passwords, keys, PHI      ││
+│ └────────────────┴─────────────────────────────┴───────────────────────────┘│
+│                                                                             │
+│ ENCRYPTION REQUIREMENTS:                                                    │
+│ ┌────────────────────────┬───────────────────────────────────────────────┐ │
+│ │ Data State             │ Requirement                                   │ │
+│ ├────────────────────────┼───────────────────────────────────────────────┤ │
+│ │ At Rest (Storage)      │ AES-256 encryption                           │ │
+│ │ In Transit (Network)   │ TLS 1.3 (TLS 1.2 minimum)                    │ │
+│ │ In Use (Processing)    │ Secure enclaves where applicable             │ │
+│ │ Key Management         │ HSM or Cloud KMS                             │ │
+│ │ Key Rotation           │ Annual (or per compliance requirement)       │ │
+│ │ Backup Encryption      │ Same as primary data                         │ │
+│ └────────────────────────┴───────────────────────────────────────────────┘ │
+│                                                                             │
+│ PII HANDLING:                                                               │
+│ • Data minimization: Collect only what's needed                            │
+│ • Anonymization/Pseudonymization where possible                            │
+│ • Retention: Delete when no longer needed                                  │
+│ • Right to be forgotten: Support data deletion requests                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### OWASP Top 10 Mitigation
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-SEC-003: Application Security (OWASP)                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ REQUIREMENT: Mitigate OWASP Top 10 vulnerabilities                         │
+│                                                                             │
+│ ┌────┬────────────────────────────┬─────────────────────────────────────┐  │
+│ │ #  │ Vulnerability              │ Mitigation Required                 │  │
+│ ├────┼────────────────────────────┼─────────────────────────────────────┤  │
+│ │ 1  │ Broken Access Control      │ RBAC, least privilege, deny default │  │
+│ │ 2  │ Cryptographic Failures     │ TLS 1.3, AES-256, no weak ciphers   │  │
+│ │ 3  │ Injection                  │ Parameterized queries, input valid. │  │
+│ │ 4  │ Insecure Design            │ Threat modeling, secure patterns    │  │
+│ │ 5  │ Security Misconfiguration  │ Hardening, security headers, no def │  │
+│ │ 6  │ Vulnerable Components      │ Dependency scanning, updates        │  │
+│ │ 7  │ Auth Failures              │ MFA, session management, rate limit │  │
+│ │ 8  │ Integrity Failures         │ Signed artifacts, CI/CD security    │  │
+│ │ 9  │ Logging Failures           │ Audit logs, SIEM, log all access    │  │
+│ │ 10 │ SSRF                       │ Allowlist, input validation         │  │
+│ └────┴────────────────────────────┴─────────────────────────────────────┘  │
+│                                                                             │
+│ VERIFICATION: Annual penetration test by certified third party             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 4️⃣ USABILITY
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-USE-001: Usability                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Usability > All Sub-characteristics                              │
+│                                                                             │
+│ LEARNABILITY:                                                               │
+│ • New user SHALL complete basic task within 10 minutes without training   │
+│ • System SHALL provide contextual help on all screens                      │
+│ • Onboarding wizard for first-time users                                   │
+│                                                                             │
+│ OPERABILITY:                                                                │
+│ • Core tasks completable in ≤ 3 clicks from dashboard                     │
+│ • Keyboard navigation for all functions                                    │
+│ • Undo/Redo for destructive actions                                        │
+│ • Progress indicators for operations > 2 seconds                          │
+│                                                                             │
+│ USER ERROR PROTECTION:                                                      │
+│ • Confirmation for destructive actions                                     │
+│ • Input validation with helpful error messages                             │
+│ • Auto-save drafts every 60 seconds                                        │
+│                                                                             │
+│ ACCESSIBILITY (WCAG 2.1 Level AA):                                          │
+│ • Screen reader compatible                                                  │
+│ • Keyboard-only navigation                                                  │
+│ • Color contrast ratio ≥ 4.5:1                                             │
+│ • Text resizable to 200%                                                   │
+│ • No content that flashes > 3 times/second                                 │
+│                                                                             │
+│ SUPPORTED PLATFORMS:                                                        │
+│ • Browsers: Chrome (latest-2), Firefox (latest-2), Safari (latest-2)      │
+│ • Mobile: Responsive design for 320px - 1920px                             │
+│ • Devices: Desktop, Tablet, Mobile                                         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 5️⃣ MAINTAINABILITY
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-MAIN-001: Maintainability                                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ISO 25010: Maintainability > All Sub-characteristics                        │
+│                                                                             │
+│ MODULARITY:                                                                 │
+│ • Microservices with bounded contexts                                       │
+│ • Loose coupling between components                                        │
+│ • API versioning for backward compatibility                                │
+│                                                                             │
+│ TESTABILITY:                                                                │
+│ • Code coverage: ≥ 80% unit tests                                          │
+│ • Integration tests for all APIs                                           │
+│ • E2E tests for critical user journeys                                     │
+│                                                                             │
+│ MODIFIABILITY:                                                              │
+│ • Configuration externalized (no hardcoded values)                         │
+│ • Database migrations scripted and versioned                               │
+│ • Blue-green or canary deployment support                                  │
+│                                                                             │
+│ ANALYSABILITY:                                                              │
+│ • Structured logging (JSON format)                                          │
+│ • Distributed tracing (OpenTelemetry)                                      │
+│ • Centralized log aggregation (ELK, Splunk)                               │
+│                                                                             │
+│ DEPLOYMENT:                                                                 │
+│ • Automated CI/CD pipeline                                                  │
+│ • Rollback within 5 minutes                                                 │
+│ • Feature flags for gradual rollout                                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 6️⃣ CLOUD-SPECIFIC NFRs
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NFR-CLOUD-001: Cloud Architecture                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ SCALABILITY:                                                                │
+│ • Horizontal auto-scaling based on CPU/Memory thresholds                   │
+│ • Scale-out: Add instances when CPU > 70% for 5 minutes                   │
+│ • Scale-in: Remove instances when CPU < 30% for 15 minutes                │
+│ • Maximum scale: 10x baseline capacity                                      │
+│                                                                             │
+│ ELASTICITY:                                                                 │
+│ • Scale response time: < 5 minutes for new instances                       │
+│ • Cost optimization: Scale to zero for non-production                      │
+│ • Reserved capacity for baseline, spot for burst                          │
+│                                                                             │
+│ RESILIENCE:                                                                 │
+│ • Multi-AZ deployment (minimum 2 availability zones)                       │
+│ • Cross-region DR capability                                                │
+│ • Chaos engineering tests quarterly                                         │
+│                                                                             │
+│ MULTI-TENANCY:                                                              │
+│ • Tenant data isolation (separate databases or schemas)                    │
+│ • Resource quotas per tenant                                                │
+│ • No tenant data leakage (verified by audit)                               │
+│                                                                             │
+│ COST OPTIMIZATION:                                                          │
+│ • Resource tagging for cost allocation                                      │
+│ • Right-sizing recommendations quarterly                                    │
+│ • Cost anomaly alerts when > 20% variance                                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📋 SLA TEMPLATE
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    SERVICE LEVEL AGREEMENT (SLA)                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ SERVICE: [Service Name]                                                     │
+│ VERSION: [X.Y]                                                              │
+│ EFFECTIVE DATE: [Date]                                                      │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ 1. SERVICE LEVEL OBJECTIVES (SLOs)                                          │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│                                                                             │
+│ ┌─────────────────────────┬─────────────┬─────────────┬───────────────────┐ │
+│ │ Metric                  │ SLO Target  │ Measurement │ Reporting         │ │
+│ ├─────────────────────────┼─────────────┼─────────────┼───────────────────┤ │
+│ │ Availability            │ 99.9%       │ Monthly     │ Dashboard         │ │
+│ │ Response Time (P95)     │ < 500ms     │ Continuous  │ APM               │ │
+│ │ Error Rate              │ < 0.1%      │ Continuous  │ Alerting          │ │
+│ │ Incident Response (P1)  │ < 15 min    │ Per event   │ Ticket system     │ │
+│ │ Incident Resolution (P1)│ < 4 hours   │ Per event   │ Ticket system     │ │
+│ └─────────────────────────┴─────────────┴─────────────┴───────────────────┘ │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ 2. INCIDENT SEVERITY DEFINITIONS                                            │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│                                                                             │
+│ ┌──────────┬───────────────────────────────┬─────────────┬────────────────┐ │
+│ │ Severity │ Definition                     │ Response   │ Resolution     │ │
+│ ├──────────┼───────────────────────────────┼─────────────┼────────────────┤ │
+│ │ P1       │ Complete outage, all users    │ 15 minutes │ 4 hours        │ │
+│ │ P2       │ Major functionality impaired  │ 30 minutes │ 8 hours        │ │
+│ │ P3       │ Minor functionality impaired  │ 4 hours    │ 24 hours       │ │
+│ │ P4       │ Cosmetic/low impact           │ 1 bus day  │ 5 bus days     │ │
+│ └──────────┴───────────────────────────────┴─────────────┴────────────────┘ │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ 3. SERVICE CREDITS                                                          │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│                                                                             │
+│ ┌────────────────────────────┬───────────────────────────────────────────┐ │
+│ │ Monthly Uptime %           │ Service Credit                            │ │
+│ ├────────────────────────────┼───────────────────────────────────────────┤ │
+│ │ 99.9% - 99.5%              │ 10% credit                                │ │
+│ │ 99.5% - 99.0%              │ 25% credit                                │ │
+│ │ < 99.0%                    │ 50% credit                                │ │
+│ └────────────────────────────┴───────────────────────────────────────────┘ │
+│                                                                             │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ 4. EXCLUSIONS                                                               │
+│ ═══════════════════════════════════════════════════════════════════════════│
+│ • Scheduled maintenance (communicated 48 hours in advance)                 │
+│ • Customer-caused issues                                                    │
+│ • Force majeure events                                                      │
+│ • Third-party dependencies beyond our control                              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ✅ NFR QUALITY CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    NFR QUALITY CHECKLIST                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  SPECIFICATION QUALITY                                                      │
+│  ☐ Each NFR has unique ID following naming convention                      │
+│  ☐ Each NFR maps to ISO 25010 characteristic                               │
+│  ☐ Each NFR has measurable target (quantified)                             │
+│  ☐ Each NFR has defined measurement method                                 │
+│  ☐ Each NFR has verification approach                                      │
+│  ☐ No ambiguous terms (fast, easy, user-friendly without definition)      │
+│                                                                             │
+│  COVERAGE                                                                   │
+│  ☐ Performance requirements defined                                         │
+│  ☐ Reliability/Availability requirements defined                           │
+│  ☐ Security requirements defined                                            │
+│  ☐ Usability requirements defined                                           │
+│  ☐ Maintainability requirements defined                                    │
+│  ☐ Compliance requirements identified                                       │
+│                                                                             │
+│  FEASIBILITY                                                                │
+│  ☐ Targets reviewed by technical team                                       │
+│  ☐ Trade-offs between NFRs understood                                       │
+│  ☐ Realistic given budget and timeline                                     │
+│  ☐ Monitoring capability available                                          │
+│                                                                             │
+│  VALIDATION                                                                 │
+│  ☐ NFRs reviewed with stakeholders                                          │
+│  ☐ Business value of each NFR articulated                                  │
+│  ☐ Testing approach agreed                                                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 CONNECTIONS TO OTHER SKILLS
+
+| When you need to... | Load Skill |
+|---------------------|------------|
+| Write testable NFR statements | → SKILL-03 (Writing Quality) |
+| Resolve NFR conflicts (Perf vs Security) | → SKILL-06 (Conflict Resolution) |
+| Prioritize NFRs | → SKILL-05 (Prioritization) |
+| Document NFRs in SRS | → SKILL-10 (SRS Template) |
+| Calculate ROI of NFR investments | → SKILL-17 (Solution Evaluation) |
+
+---
+
+*Skill upgraded to World-Class standard. NFRs define quality—specify them precisely.*

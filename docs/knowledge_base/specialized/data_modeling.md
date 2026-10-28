@@ -1,0 +1,703 @@
+# 🟠 SKILL-13: DATA MODELING & ANALYSIS
+## Advanced Skill - Data-Centric Requirements Engineering
+
+---
+
+## 📌 SKILL METADATA
+
+| Attribute | Value |
+|-----------|-------|
+| **Skill ID** | SKILL-13 |
+| **Category** | 🟠 Advanced |
+| **Load When** | Data-intensive systems, database design, integrations |
+| **Dependencies** | SKILL-01, SKILL-03 |
+| **Standards** | DAMA-DMBOK, UML, IDEF1X |
+| **Output** | ERD, DFD, Data Dictionary, CRUD Matrix |
+
+---
+
+## 🎯 MỤC ĐÍCH
+
+Skill này cung cấp framework toàn diện cho **Data Modeling** - khía cạnh thường bị bỏ qua trong Requirements Engineering nhưng cực kỳ quan trọng cho tính toàn vẹn của hệ thống.
+
+---
+
+## 🏗️ DATA MODELING LEVELS
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    THREE LEVELS OF DATA MODELING                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    CONCEPTUAL MODEL                                  │   │
+│  │                    (Business View)                                   │   │
+│  │                                                                      │   │
+│  │    ┌──────────┐         ┌──────────┐         ┌──────────┐           │   │
+│  │    │ Customer │─────────│  Order   │─────────│ Product  │           │   │
+│  │    └──────────┘  places └──────────┘ contains└──────────┘           │   │
+│  │                                                                      │   │
+│  │    WHO: Business stakeholders, Domain experts                        │   │
+│  │    FOCUS: Entities, Relationships, Business rules                    │   │
+│  │    DETAIL: High-level, no technical attributes                       │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                              │                                              │
+│                              ▼                                              │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    LOGICAL MODEL                                     │   │
+│  │                    (Data Architect View)                             │   │
+│  │                                                                      │   │
+│  │    ┌──────────────┐      ┌──────────────┐      ┌──────────────┐     │   │
+│  │    │ Customer     │      │ Order        │      │ Product      │     │   │
+│  │    ├──────────────┤      ├──────────────┤      ├──────────────┤     │   │
+│  │    │ PK: ID       │──┐   │ PK: ID       │   ┌──│ PK: ID       │     │   │
+│  │    │ Name         │  └──►│ FK: CustID   │   │  │ Name         │     │   │
+│  │    │ Email        │      │ OrderDate    │◄──┘  │ Price        │     │   │
+│  │    │ Status       │      │ Total        │      │ Category     │     │   │
+│  │    └──────────────┘      └──────────────┘      └──────────────┘     │   │
+│  │                                                                      │   │
+│  │    WHO: Data architects, Senior developers                           │   │
+│  │    FOCUS: Attributes, Keys, Relationships, Normalization             │   │
+│  │    DETAIL: Technology-agnostic, fully attributed                     │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                              │                                              │
+│                              ▼                                              │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │                    PHYSICAL MODEL                                    │   │
+│  │                    (DBA/Developer View)                              │   │
+│  │                                                                      │   │
+│  │    CREATE TABLE customers (                                          │   │
+│  │      customer_id UUID PRIMARY KEY,                                   │   │
+│  │      name VARCHAR(100) NOT NULL,                                     │   │
+│  │      email VARCHAR(255) UNIQUE NOT NULL,                             │   │
+│  │      status ENUM('active','inactive') DEFAULT 'active',              │   │
+│  │      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,                 │   │
+│  │      INDEX idx_email (email)                                         │   │
+│  │    );                                                                │   │
+│  │                                                                      │   │
+│  │    WHO: DBAs, Developers                                             │   │
+│  │    FOCUS: Tables, Columns, Types, Indexes, Constraints               │   │
+│  │    DETAIL: Database-specific implementation                          │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 ENTITY-RELATIONSHIP DIAGRAM (ERD)
+
+### ERD Notation (Crow's Foot)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CROW'S FOOT NOTATION                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CARDINALITY SYMBOLS:                                                       │
+│                                                                             │
+│    ──────────────○──  Zero or One     (0..1)                               │
+│    ──────────────|──  Exactly One     (1..1)                               │
+│    ──────────────<──  Zero or Many    (0..*)                               │
+│    ──────────────╟──  One or Many     (1..*)                               │
+│                                                                             │
+│  RELATIONSHIP EXAMPLES:                                                     │
+│                                                                             │
+│    ┌──────────┐                    ┌──────────┐                             │
+│    │ Customer │──────────╟────────<│  Order   │                             │
+│    └──────────┘                    └──────────┘                             │
+│    "One Customer has One or Many Orders"                                    │
+│    "Each Order belongs to exactly One Customer"                             │
+│                                                                             │
+│    ┌──────────┐                    ┌──────────┐                             │
+│    │  Order   │>────────╟────────╟<│ Product  │                             │
+│    └──────────┘                    └──────────┘                             │
+│    "Many-to-Many via Order_Items junction table"                            │
+│                                                                             │
+│    ┌──────────┐                    ┌──────────┐                             │
+│    │ Employee │──────────○────────<│  Manager │                             │
+│    └──────────┘                    └──────────┘                             │
+│    "Employee may have Zero or One Manager (self-reference)"                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### ERD Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    ENTITY-RELATIONSHIP DIAGRAM                              │
+│                    [System Name] - Logical Model                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│    ┌────────────────────┐              ┌────────────────────┐               │
+│    │      CUSTOMER      │              │       ORDER        │               │
+│    ├────────────────────┤              ├────────────────────┤               │
+│    │ PK  customer_id    │──────────────│ PK  order_id       │               │
+│    │     first_name     │      │       │ FK  customer_id    │───────┐       │
+│    │     last_name      │      │       │     order_date     │       │       │
+│    │     email          │      │       │     status         │       │       │
+│    │     phone          │      │       │     total_amount   │       │       │
+│    │     created_at     │      │       │     shipping_addr  │       │       │
+│    │     status         │      │       │     created_at     │       │       │
+│    └────────────────────┘      │       └────────────────────┘       │       │
+│             │                  │                  │                 │       │
+│             │ 1..1             │ 0..*             │ 1..*            │       │
+│             │                  │                  │                 │       │
+│    ┌────────────────────┐      │       ┌────────────────────┐       │       │
+│    │      ADDRESS       │◄─────┘       │    ORDER_ITEM      │       │       │
+│    ├────────────────────┤              ├────────────────────┤       │       │
+│    │ PK  address_id     │              │ PK  item_id        │       │       │
+│    │ FK  customer_id    │              │ FK  order_id       │───────┤       │
+│    │     street         │              │ FK  product_id     │───┐   │       │
+│    │     city           │              │     quantity       │   │   │       │
+│    │     state          │              │     unit_price     │   │   │       │
+│    │     postal_code    │              │     subtotal       │   │   │       │
+│    │     country        │              └────────────────────┘   │   │       │
+│    │     is_default     │                       │               │   │       │
+│    └────────────────────┘                       │ 0..*          │   │       │
+│                                                 │               │   │       │
+│                                       ┌────────────────────┐    │   │       │
+│                                       │      PRODUCT       │◄───┘   │       │
+│                                       ├────────────────────┤        │       │
+│                                       │ PK  product_id     │        │       │
+│                                       │ FK  category_id    │───┐    │       │
+│                                       │     name           │   │    │       │
+│                                       │     description    │   │    │       │
+│                                       │     price          │   │    │       │
+│                                       │     stock_qty      │   │    │       │
+│                                       │     status         │   │    │       │
+│                                       └────────────────────┘   │    │       │
+│                                                 │               │    │       │
+│                                       ┌────────────────────┐    │    │       │
+│                                       │     CATEGORY       │◄───┘    │       │
+│                                       ├────────────────────┤         │       │
+│                                       │ PK  category_id    │         │       │
+│                                       │ FK  parent_id      │◄────────┘       │
+│                                       │     name           │ (self-ref)      │
+│                                       │     description    │                 │
+│                                       └────────────────────┘                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📋 DATA DICTIONARY TEMPLATE
+
+### Entity Definition
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         DATA DICTIONARY                                     │
+│                         Entity: [ENTITY_NAME]                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ Entity Name: [Name]                                                         │
+│ Description: [Business description of the entity]                           │
+│ Aliases: [Other names used in business]                                     │
+│ Owner: [Business owner]                                                     │
+│ Source Systems: [Where data originates]                                     │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                         ATTRIBUTES                                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ ┌────────────┬──────────┬──────┬────────┬─────────┬────────┬─────────────┐ │
+│ │ Attribute  │ Type     │ Size │Required│ Unique  │ Key    │ Description │ │
+│ ├────────────┼──────────┼──────┼────────┼─────────┼────────┼─────────────┤ │
+│ │ id         │ UUID     │ 36   │ Yes    │ Yes     │ PK     │ Unique ID   │ │
+│ │ code       │ VARCHAR  │ 20   │ Yes    │ Yes     │ AK     │ Business ID │ │
+│ │ name       │ VARCHAR  │ 100  │ Yes    │ No      │        │ Display name│ │
+│ │ status     │ ENUM     │      │ Yes    │ No      │        │ See below   │ │
+│ │ parent_id  │ UUID     │ 36   │ No     │ No      │ FK     │ Self-ref    │ │
+│ │ created_at │ DATETIME │      │ Yes    │ No      │        │ Auto-gen    │ │
+│ │ updated_at │ DATETIME │      │ Yes    │ No      │        │ Auto-update │ │
+│ │ created_by │ UUID     │ 36   │ Yes    │ No      │ FK     │ User ref    │ │
+│ └────────────┴──────────┴──────┴────────┴─────────┴────────┴─────────────┘ │
+│                                                                             │
+│ Key Types: PK = Primary Key, FK = Foreign Key, AK = Alternate Key           │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                         DOMAIN VALUES                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ status:                                                                     │
+│ ┌──────────────┬─────────────────────────────────┬────────────────────────┐ │
+│ │ Value        │ Description                     │ Business Rule          │ │
+│ ├──────────────┼─────────────────────────────────┼────────────────────────┤ │
+│ │ DRAFT        │ Newly created, not active       │ Default for new records│ │
+│ │ ACTIVE       │ Currently in use                │ Can be referenced      │ │
+│ │ INACTIVE     │ Temporarily disabled            │ Hidden from selection  │ │
+│ │ ARCHIVED     │ Permanently disabled            │ Read-only, historical  │ │
+│ └──────────────┴─────────────────────────────────┴────────────────────────┘ │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                         VALIDATION RULES                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ ┌──────────────┬────────────────────────────────────────────────────────┐  │
+│ │ Attribute    │ Validation                                             │  │
+│ ├──────────────┼────────────────────────────────────────────────────────┤  │
+│ │ code         │ Alphanumeric, uppercase, no spaces, pattern: [A-Z0-9]+ │  │
+│ │ name         │ Min 2 chars, max 100, no special chars except -'       │  │
+│ │ email        │ Valid email format (RFC 5322)                          │  │
+│ │ phone        │ E.164 format: +[country][number]                       │  │
+│ │ amount       │ Decimal(15,2), >= 0                                    │  │
+│ └──────────────┴────────────────────────────────────────────────────────┘  │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                         RELATIONSHIPS                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ ┌──────────────────┬──────────────┬────────────┬───────────────────────┐   │
+│ │ Related Entity   │ Cardinality  │ FK Column  │ On Delete             │   │
+│ ├──────────────────┼──────────────┼────────────┼───────────────────────┤   │
+│ │ Parent (self)    │ 0..1         │ parent_id  │ SET NULL              │   │
+│ │ User (creator)   │ 1..1         │ created_by │ RESTRICT              │   │
+│ │ Child entities   │ 0..*         │ (reverse)  │ CASCADE               │   │
+│ └──────────────────┴──────────────┴────────────┴───────────────────────┘   │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                         BUSINESS RULES                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ • BR-001: Code must be unique across all statuses                           │
+│ • BR-002: Cannot delete entity if child entities exist                      │
+│ • BR-003: Status can only transition: DRAFT→ACTIVE→INACTIVE→ARCHIVED        │
+│ • BR-004: ARCHIVED entities cannot be reactivated                           │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                         AUDIT REQUIREMENTS                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ • All changes must be logged in audit table                                 │
+│ • Retain history for 7 years                                                │
+│ • Track: who, when, what changed, old value, new value                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔄 DATA FLOW DIAGRAM (DFD)
+
+### DFD Notation
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         DFD SYMBOLS                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────┐                                                            │
+│  │             │     EXTERNAL ENTITY (Source/Sink)                          │
+│  │   Actor     │     People, systems, organizations outside scope           │
+│  │             │                                                            │
+│  └─────────────┘                                                            │
+│                                                                             │
+│  ╭─────────────╮                                                            │
+│  │             │     PROCESS                                                │
+│  │  1.0 Name   │     Transform/manipulate data                              │
+│  │             │     Numbered hierarchically (1.0, 1.1, 1.2...)             │
+│  ╰─────────────╯                                                            │
+│                                                                             │
+│  ═══════════════     DATA STORE                                             │
+│  D1│ Store Name│     Database, file, or other repository                    │
+│  ═══════════════     Prefixed with D (D1, D2...)                            │
+│                                                                             │
+│  ──────────────►     DATA FLOW                                              │
+│    Flow Name         Direction of data movement                             │
+│                      Labeled with data name                                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Context Diagram (Level 0)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CONTEXT DIAGRAM (DFD Level 0)                            │
+│                    [System Name]                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                                                                             │
+│     ┌───────────┐                                   ┌───────────┐           │
+│     │           │      Order Request                │           │           │
+│     │  Customer │ ─────────────────────────────────►│           │           │
+│     │           │                                   │           │           │
+│     │           │◄───────────────────────────────── │           │           │
+│     └───────────┘      Order Confirmation           │           │           │
+│                                                     │    0.0    │           │
+│     ┌───────────┐                                   │           │           │
+│     │           │      Payment Request              │   ORDER   │           │
+│     │  Payment  │◄───────────────────────────────── │ MANAGEMENT│           │
+│     │  Gateway  │                                   │  SYSTEM   │           │
+│     │           │ ─────────────────────────────────►│           │           │
+│     └───────────┘      Payment Result               │           │           │
+│                                                     │           │           │
+│     ┌───────────┐                                   │           │           │
+│     │           │      Inventory Query              │           │           │
+│     │ Inventory │◄───────────────────────────────── │           │           │
+│     │  System   │                                   │           │           │
+│     │           │ ─────────────────────────────────►│           │           │
+│     └───────────┘      Stock Level                  │           │           │
+│                                                     │           │           │
+│     ┌───────────┐                                   │           │           │
+│     │           │      Shipping Request             │           │           │
+│     │  Shipping │◄───────────────────────────────── │           │           │
+│     │  Provider │                                   │           │           │
+│     │           │ ─────────────────────────────────►│           │           │
+│     └───────────┘      Tracking Info                └───────────┘           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Level 1 DFD
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         DFD LEVEL 1                                         │
+│                    Order Management System                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌───────────┐                                                              │
+│  │           │        Order Details                                         │
+│  │ Customer  │─────────────────────────────►╭─────────────╮                 │
+│  │           │                              │     1.0     │                 │
+│  │           │◄─────────────────────────────│   Receive   │                 │
+│  └───────────┘     Validation Result        │    Order    │                 │
+│                                             ╰──────┬──────╯                 │
+│                                                    │                        │
+│                                              Valid Order                    │
+│                                                    │                        │
+│                                                    ▼                        │
+│                     ═══════════════          ╭─────────────╮                │
+│                     D1│  Orders   │◄─────────│     2.0     │                │
+│                     ═══════════════          │   Process   │                │
+│                           │                  │    Order    │                │
+│                           │                  ╰──────┬──────╯                │
+│                     Order Data                     │                        │
+│                           │              ┌─────────┴─────────┐              │
+│                           ▼              │                   │              │
+│                     ╭─────────────╮      │                   │              │
+│  ┌───────────┐      │     3.0     │      │                   │              │
+│  │  Payment  │◄─────│   Handle    │◄─────┘                   │              │
+│  │  Gateway  │      │   Payment   │                          │              │
+│  │           │─────►│             │     Payment              │              │
+│  └───────────┘      ╰─────────────╯     Confirmed            │              │
+│                                              │               │              │
+│                     ═══════════════          │               │              │
+│                     D2│ Payments  │◄─────────┘               │              │
+│                     ═══════════════                          │              │
+│                                                              │              │
+│                                         Fulfill Request      │              │
+│                                                    ┌─────────┘              │
+│                                                    ▼                        │
+│                     ═══════════════          ╭─────────────╮                │
+│                     D3│ Inventory │◄─────────│     4.0     │                │
+│                     ═══════════════          │   Fulfill   │                │
+│                           │                  │    Order    │                │
+│                     Stock Update             ╰──────┬──────╯                │
+│                           │                        │                        │
+│                           ▼                  Shipping Request               │
+│  ┌───────────┐      ╭─────────────╮                │                        │
+│  │  Shipping │◄─────│     5.0     │◄───────────────┘                        │
+│  │  Provider │      │   Arrange   │                                         │
+│  │           │─────►│   Shipping  │                                         │
+│  └───────────┘      ╰─────────────╯                                         │
+│                           │                                                 │
+│                     Tracking Info                                           │
+│                           │                                                 │
+│  ┌───────────┐            ▼                                                 │
+│  │           │      ╭─────────────╮                                         │
+│  │ Customer  │◄─────│     6.0     │                                         │
+│  │           │      │   Notify    │                                         │
+│  │           │      │  Customer   │                                         │
+│  └───────────┘      ╰─────────────╯                                         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 CRUD MATRIX
+
+### CRUD Analysis Template
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         CRUD MATRIX                                         │
+│                    [System/Module Name]                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                        ENTITIES                                             │
+│            ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐   │
+│ PROCESS/   │Customer │ Order   │OrderItem│ Product │ Payment │ Shipment│   │
+│ USE CASE   │         │         │         │         │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Register   │   C     │         │         │         │         │         │   │
+│ Customer   │         │         │         │         │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Update     │   R U   │         │         │         │         │         │   │
+│ Profile    │         │         │         │         │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Browse     │         │         │         │   R     │         │         │   │
+│ Products   │         │         │         │         │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Place      │   R     │   C     │   C     │   R U   │   C     │         │   │
+│ Order      │         │         │         │ (stock) │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Cancel     │   R     │   R U   │   R U D │   R U   │   R U   │         │   │
+│ Order      │         │         │         │ (stock) │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Process    │   R     │   R U   │   R     │         │   R U   │         │   │
+│ Payment    │         │         │         │         │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Ship       │   R     │   R U   │   R     │   R U   │         │   C     │   │
+│ Order      │         │         │         │ (stock) │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Track      │   R     │   R     │         │         │         │   R U   │   │
+│ Shipment   │         │         │         │         │         │         │   │
+│ ───────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤   │
+│ Generate   │   R     │   R     │   R     │   R     │   R     │   R     │   │
+│ Reports    │         │         │         │         │         │         │   │
+│ ───────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┤   │
+│                                                                         │   │
+│ Legend: C = Create, R = Read, U = Update, D = Delete                    │   │
+│                                                                         │   │
+│ VALIDATION CHECKS:                                                      │   │
+│ ✓ Every entity has at least one C (creation point)                      │   │
+│ ✓ Every entity has at least one R (usage point)                         │   │
+│ ✓ D operations have appropriate authorization                           │   │
+│ ✓ No orphan entities (created but never used)                           │   │
+│                                                                         │   │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔒 DATA LIFECYCLE
+
+### Data State Diagram
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DATA LIFECYCLE: ORDER ENTITY                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                              ┌───────────┐                                  │
+│                              │   START   │                                  │
+│                              └─────┬─────┘                                  │
+│                                    │ Customer places order                  │
+│                                    ▼                                        │
+│                              ┌───────────┐                                  │
+│                         ┌────│   DRAFT   │                                  │
+│                         │    └─────┬─────┘                                  │
+│                         │          │ Submit order                           │
+│            Cancel       │          ▼                                        │
+│                         │    ┌───────────┐                                  │
+│                         │    │  PENDING  │◄─────────────────┐               │
+│                         │    │  PAYMENT  │                  │               │
+│                         │    └─────┬─────┘                  │               │
+│                         │          │                        │               │
+│                         │    ┌─────┴─────┐            Payment failed        │
+│                         │    │           │                  │               │
+│                         │    ▼           ▼                  │               │
+│                         │  Payment    Payment               │               │
+│                         │  Success    Failed ───────────────┘               │
+│                         │    │                                              │
+│                         │    ▼                                              │
+│                         │  ┌───────────┐                                    │
+│                         │  │ CONFIRMED │                                    │
+│                         │  └─────┬─────┘                                    │
+│                         │        │ Begin fulfillment                        │
+│                         │        ▼                                          │
+│                         │  ┌───────────┐                                    │
+│                         ├──│PROCESSING │                                    │
+│                         │  └─────┬─────┘                                    │
+│                         │        │ Items packed                             │
+│                         │        ▼                                          │
+│                         │  ┌───────────┐                                    │
+│                         ├──│  SHIPPED  │                                    │
+│                         │  └─────┬─────┘                                    │
+│                         │        │ Customer receives                        │
+│                         │        ▼                                          │
+│                         │  ┌───────────┐                                    │
+│                         │  │ DELIVERED │────────┐                           │
+│                         │  └───────────┘        │                           │
+│                         │                       │ Return requested          │
+│                         │                       ▼                           │
+│                         │                 ┌───────────┐                     │
+│                         │                 │  RETURN   │                     │
+│                         │                 │ REQUESTED │                     │
+│                         │                 └─────┬─────┘                     │
+│                         │                       │                           │
+│                         ▼                       ▼                           │
+│                   ┌───────────┐          ┌───────────┐                      │
+│                   │ CANCELLED │          │  RETURNED │                      │
+│                   └─────┬─────┘          └─────┬─────┘                      │
+│                         │                      │                            │
+│                         └──────────┬───────────┘                            │
+│                                    │                                        │
+│                                    ▼                                        │
+│                              ┌───────────┐                                  │
+│                              │ ARCHIVED  │ (After retention period)         │
+│                              └───────────┘                                  │
+│                                                                             │
+│  TRANSITIONS SUMMARY:                                                       │
+│  ┌────────────────┬────────────────┬────────────────────────────────────┐  │
+│  │ From           │ To             │ Trigger                            │  │
+│  ├────────────────┼────────────────┼────────────────────────────────────┤  │
+│  │ DRAFT          │ PENDING_PAYMENT│ Customer submits order             │  │
+│  │ PENDING_PAYMENT│ CONFIRMED      │ Payment successful                 │  │
+│  │ PENDING_PAYMENT│ CANCELLED      │ Payment failed 3 times OR timeout  │  │
+│  │ CONFIRMED      │ PROCESSING     │ Warehouse begins picking           │  │
+│  │ PROCESSING     │ SHIPPED        │ Carrier picks up package           │  │
+│  │ SHIPPED        │ DELIVERED      │ Delivery confirmed                 │  │
+│  │ DELIVERED      │ RETURN_REQ     │ Customer initiates return          │  │
+│  │ *              │ CANCELLED      │ Admin/Customer cancels (conditions)│  │
+│  │ *              │ ARCHIVED       │ Retention period expires           │  │
+│  └────────────────┴────────────────┴────────────────────────────────────┘  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔄 NORMALIZATION GUIDE
+
+### Normal Forms
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DATABASE NORMALIZATION                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1NF (First Normal Form)                                                    │
+│  ─────────────────────────                                                  │
+│  ✓ Each cell contains single value (atomic)                                 │
+│  ✓ Each record is unique (has primary key)                                  │
+│  ✓ No repeating groups                                                      │
+│                                                                             │
+│  ❌ VIOLATION:                                                              │
+│  ┌──────────┬─────────────────────────────┐                                │
+│  │ OrderID  │ Products                    │                                │
+│  ├──────────┼─────────────────────────────┤                                │
+│  │ 1        │ Laptop, Mouse, Keyboard     │  ← Multiple values!            │
+│  └──────────┴─────────────────────────────┘                                │
+│                                                                             │
+│  ✅ CORRECT:                                                                │
+│  ┌──────────┬───────────┐                                                  │
+│  │ OrderID  │ Product   │                                                  │
+│  ├──────────┼───────────┤                                                  │
+│  │ 1        │ Laptop    │                                                  │
+│  │ 1        │ Mouse     │                                                  │
+│  │ 1        │ Keyboard  │                                                  │
+│  └──────────┴───────────┘                                                  │
+│                                                                             │
+│ ─────────────────────────────────────────────────────────────────────────── │
+│                                                                             │
+│  2NF (Second Normal Form)                                                   │
+│  ─────────────────────────                                                  │
+│  ✓ Is in 1NF                                                                │
+│  ✓ No partial dependencies (all non-key attributes depend on FULL PK)      │
+│                                                                             │
+│  ❌ VIOLATION:                                                              │
+│  ┌──────────┬───────────┬──────────────┬─────────┐                         │
+│  │ OrderID  │ ProductID │ ProductName  │ Qty     │                         │
+│  ├──────────┼───────────┼──────────────┼─────────┤                         │
+│  │ 1        │ P001      │ Laptop       │ 2       │                         │
+│  └──────────┴───────────┴──────────────┴─────────┘                         │
+│  ProductName depends only on ProductID, not full key (OrderID, ProductID)  │
+│                                                                             │
+│  ✅ CORRECT: Split into Order_Items and Products tables                     │
+│                                                                             │
+│ ─────────────────────────────────────────────────────────────────────────── │
+│                                                                             │
+│  3NF (Third Normal Form)                                                    │
+│  ─────────────────────────                                                  │
+│  ✓ Is in 2NF                                                                │
+│  ✓ No transitive dependencies (non-key → non-key)                           │
+│                                                                             │
+│  ❌ VIOLATION:                                                              │
+│  ┌──────────┬───────────┬──────────────┬─────────────┐                     │
+│  │ OrderID  │ CustID    │ CustName     │ CustCity    │                     │
+│  └──────────┴───────────┴──────────────┴─────────────┘                     │
+│  CustName, CustCity depend on CustID, not OrderID                          │
+│                                                                             │
+│  ✅ CORRECT: Move customer data to separate Customer table                  │
+│                                                                             │
+│ ─────────────────────────────────────────────────────────────────────────── │
+│                                                                             │
+│  BCNF (Boyce-Codd Normal Form)                                              │
+│  ─────────────────────────────                                              │
+│  ✓ Is in 3NF                                                                │
+│  ✓ For every dependency X → Y, X is a superkey                              │
+│                                                                             │
+│  (Used for complex scenarios with multiple candidate keys)                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ✅ DATA MODELING CHECKLIST
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    DATA MODELING CHECKLIST                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CONCEPTUAL MODEL:                                                          │
+│  ☐ All business entities identified                                         │
+│  ☐ Relationships defined with business terms                                │
+│  ☐ Validated with business stakeholders                                     │
+│  ☐ Aligned with process/use cases                                           │
+│                                                                             │
+│  LOGICAL MODEL:                                                             │
+│  ☐ All attributes defined                                                   │
+│  ☐ Primary keys identified                                                  │
+│  ☐ Foreign keys established                                                 │
+│  ☐ Cardinality documented                                                   │
+│  ☐ Normalized to at least 3NF                                               │
+│  ☐ Data types specified                                                     │
+│  ☐ Constraints defined                                                      │
+│                                                                             │
+│  DATA DICTIONARY:                                                           │
+│  ☐ Every attribute documented                                               │
+│  ☐ Domain values defined                                                    │
+│  ☐ Validation rules specified                                               │
+│  ☐ Business rules captured                                                  │
+│                                                                             │
+│  DATA QUALITY:                                                              │
+│  ☐ Mandatory/Optional clearly marked                                        │
+│  ☐ Unique constraints identified                                            │
+│  ☐ Referential integrity defined                                            │
+│  ☐ Default values specified                                                 │
+│  ☐ Audit requirements documented                                            │
+│                                                                             │
+│  VALIDATION:                                                                │
+│  ☐ CRUD matrix complete                                                     │
+│  ☐ No orphan entities                                                       │
+│  ☐ All entities accessed by at least one process                            │
+│  ☐ Data lifecycle documented                                                │
+│  ☐ Reviewed by data architect                                               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 RELATED SKILLS
+
+| For... | Load |
+|--------|------|
+| Eliciting data requirements | SKILL-02 |
+| Writing data specifications | SKILL-03 |
+| Including in SRS | SKILL-10 |
+| Including in FRD | SKILL-11 |
+| UX data considerations | SKILL-14 |
+
+---
+
+*Use this skill to ensure data integrity and completeness in your requirements.*
